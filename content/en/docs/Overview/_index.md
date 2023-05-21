@@ -3,35 +3,34 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 1
 description: >
-  Here's where your user finds out if your project is for them.
+  Overview
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+📢 LocalAI v1.14.0 is here! This release brings compatibility with the latest quantization method updates from llama.cpp while maintaining support for older models!
 {{% /pageinfo %}}
 
 
-The Overview is where your users find out about your project. Depending on the size of your docset, you can have a separate overview page (like this one) or put your overview contents in the Documentation landing page (like in the Docsy User Guide). 
+LocalAI is a drop-in replacement REST API compatible with OpenAI for local CPU inferencing. It allows you to run models locally or on-prem with consumer grade hardware, supporting multiple models families. LocalAI is a community-driven project, focused on making the AI accessible to anyone.
 
-Try answering these questions for your user in this page:
+LocalAI uses C++ bindings for optimizing speed and performance. It is based on llama.cpp gpt4all, rwkv.cpp, ggml, whisper.cpp for audio transcriptions, and bert.cpp for embedding. LocalAI also supports GPT4ALL-J which is licensed under Apache 2.0, and MosaicLM PT models which are also usable for commercial applications. (see here the table of supported models)
 
-## What is it?
+To use LocalAI, you need to install it on your machine and run it as a service, or either on the cloud or in a dedicated environment. You can then use the same API endpoints as OpenAI to interact with the models. For example, you can use the /v1/models endpoint to list the available models, or the /v1/completions endpoint to generate text completions, but computation is executed locally, with CPU-compatible models. You can download models from Gpt4all.
 
-Introduce your project, including what it does or lets you do, why you would use it, and its primary goal (and how it achieves it). This should be similar to your README description, though you can go into a little more detail here if you want.
+LocalAI also supports various ranges of configuration and prompt templates, which are predefined prompts that can help you generate specific outputs with the models. For example, you can use the summarizer template to generate summaries of texts, or the sentiment-analyzer template to analyze the sentiment of texts. You can find more examples and prompt templates in the LocalAI repository.
 
-## Why do I want it?
 
-Help your user know if your project will help them. Useful information can include: 
+## LocalAI
 
-* **What is it good for?**: What types of problems does your project solve? What are the benefits of using it?
+🤖 Self-hosted, community-driven, local OpenAI-compatible API. Drop-in replacement for OpenAI running LLMs on consumer-grade hardware. No GPU required. LocalAI is a RESTful API to run ggml compatible models: llama.cpp, alpaca.cpp, gpt4all.cpp, rwkv.cpp, whisper.cpp, vicuna, koala, gpt4all-j, cerebras and many others!
 
-* **What is it not good for?**: For example, point out situations that might intuitively seem suited for your project, but aren't for some reason. Also mention known limitations, scaling issues, or anything else that might let your users know if the project is not for them.
 
-* **What is it *not yet* good for?**: Highlight any useful features that are coming soon.
+## Models Gallery
+
+The model gallery is a curated collection of models created by the community and tested with LocalAI.
+
 
 ## Where should I go next?
-
-Give your users next steps from the Overview. For example:
 
 * [Getting Started](/docs/getting-started/): Get started with $project
 * [Examples](/docs/examples/): Check out some example code!
