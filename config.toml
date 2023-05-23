@@ -61,7 +61,7 @@ id = "UA-00000000-0"
 [languages]
 [languages.en]
 title = "LocalAI"
-description = "A Docsy example site"
+description = "Document for LocalAI"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
