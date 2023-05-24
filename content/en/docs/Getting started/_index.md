@@ -1,9 +1,9 @@
 ---
-categories: ["Examples", "Placeholders"]
-tags: ["test","docs"] 
+categories: ["Examples"]
+tags: ["docs"] 
 title: "Getting Started"
 linkTitle: "Getting Started"
-weight: 2
+weight: 3
 description: >
   This page will help you get started with LocalAI.
 ---
