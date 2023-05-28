@@ -1,227 +1,174 @@
-baseURL = "/"
-title = "LocalAI"
+# this is a required setting for this theme to appear on https://themes.gohugo.io/
+# change this to a value appropriate for you; if your site is served from a subdirectory
+# set it like "https://example.com/mysite/"
+baseURL = "https://localai.io/"
 
-# Language settings
-contentDir = "content/en"
+# canonicalization will only be used for the sitemap.xml and index.xml files;
+# if set to false, a site served from a subdirectory will generate wrong links
+# inside of the above mentioned files; if you serve the page from the servers root
+# you are free to set the value to false as recommended by the official Hugo documentation
+canonifyURLs = true # true -> all relative URLs would instead be canonicalized using baseURL
+# required value to serve this page from a webserver AND the file system;
+# if you don't want to serve your page from the file system, you can also set this value
+# to false
+relativeURLs = true # true -> rewrite all relative URLs to be relative to the current content
+# if you set uglyURLs to false, this theme will append 'index.html' to any branch bundle link
+# so your page can be also served from the file system; if you don't want that,
+# set disableExplicitIndexURLs=true in the [params] section
+uglyURLs = false     # true -> basic/index.html -> basic.html
+
+# the directory where Hugo reads the themes from; this is specific to your
+# installation and most certainly needs be deleted or changed
+#themesdir = "../.."
+# yeah, well, obviously a mandatory setting for your site, if you want to
+# use this theme ;-)
+theme = "hugo-theme-relearn"
+
+# the main language of this site; also an automatic pirrrate translation is
+# available in this showcase
+languageCode = "en"
+
+# make sure your defaultContentLanguage is the first one in the [languages]
+# array below, as the theme needs to make assumptions on it
 defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
-# Useful when translating.
-enableMissingTranslationPlaceholders = true
 
-enableRobotsTXT = true
+# the site's title of this showcase; you should change this ;-)
+title = "LocalAI Documentation"
 
-# Will give values to .Lastmod etc.
-enableGitInfo = true
+# We disable this for testing the exampleSite; you must do so too
+# if you want to use the themes parameter disableGeneratorVersion=true;
+# otherwise Hugo will create a generator tag on your home page
+disableHugoGeneratorInject = true
 
-# Comment out to enable taxonomies in Docsy
-# disableKinds = ["taxonomy", "taxonomyTerm"]
-
-# You can add your own taxonomies
-[taxonomies]
-tag = "tags"
-category = "categories"
-
-[params.taxonomy]
-# set taxonomyCloud = [] to hide taxonomy clouds
-taxonomyCloud = ["tags", "categories"] 
-
-# If used, must have same length as taxonomyCloud
-taxonomyCloudTitle = ["Tag Cloud", "Categories"] 
-
-# set taxonomyPageHeader = [] to hide taxonomies on the page headers
-taxonomyPageHeader = ["tags", "categories"] 
-
-
-# Highlighting config
-pygmentsCodeFences = true
-pygmentsUseClasses = false
-# Use the new Chroma Go highlighter in Hugo.
-pygmentsUseClassic = false
-#pygmentsOptions = "linenos=table"
-# See https://help.farbox.com/pygments.html
-pygmentsStyle = "tango"
-
-# Configure how URLs look like per section.
-[permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
-
-# Image processing configuration.
-[imaging]
-resampleFilter = "CatmullRom"
-quality = 75
-anchor = "smart"
-
-[services]
-[services.googleAnalytics]
-# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-00000000-0"
-
-# Language configuration
-
-[languages]
-[languages.en]
-title = "LocalAI"
-description = "Document for LocalAI"
-languageName ="English"
-# Weight used for sorting.
-weight = 1
-# [languages.no]
-# title = "Goldydocs"
-# description = "Docsy er operativsystem for skyen"
-# languageName ="Norsk"
-# contentDir = "content/no"
-# time_format_default = "02.01.2006"
-# time_format_blog = "02.01.2006"
-
-# [languages.fa]
-# title = "اسناد گلدی"
-# description = "یک نمونه برای پوسته داکسی"
-# languageName ="فارسی"
-# contentDir = "content/fa"
-# time_format_default = "2006.01.02"
-# time_format_blog = "2006.01.02"
+[outputs]
+  # add JSON to the home to support Lunr search; This is a mandatory setting
+  # for the search functionality
+  # add PRINT to home, section and page to activate the feature to print whole
+  # chapters
+  home = ["HTML", "RSS", "PRINT", "SEARCH", "SEARCHPAGE"]
+  section = ["HTML", "RSS", "PRINT"]
+  page = ["HTML", "RSS", "PRINT"]
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
   [markup.highlight]
-    # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+    # if `guessSyntax = true`, there will be no unstyled code even if no language
+    # was given BUT Mermaid and Math codefences will not work anymore! So this is a
+    # mandatory setting for your site if you want to use Mermaid or Math codefences
+    guessSyntax = true
+
+    # here in this showcase we use our own modified chroma syntax highlightning style
+    # which is imported in theme-relearn-light.css / theme-relearn-dark.css;
+    # if you want to use a predefined style instead:
+    # - remove the following `noClasses`
+    # - set the following `style` to a predefined style name
+    # - remove the `@import` of the self-defined chroma stylesheet from your CSS files
+    #   (here eg.: theme-relearn-light.css / theme-relearn-dark.css)
+    noClasses = false
     style = "tango"
-    # Uncomment if you want your chosen highlight style used for code blocks without a specified language
-    # guessSyntax = "true"
 
-# Everything below this are Site Params
+  [markup.goldmark.renderer]
+    # activated for this showcase to use HTML and JavaScript; decide on your own needs;
+    # if in doubt, remove this line
+    unsafe = true
 
-# Comment out if you don't want the "print entire section" link enabled.
-[outputs]
-section = ["HTML", "print", "RSS"]
+# allows `hugo server` to display this showcase in IE11; this is used for testing, as we
+# are still supporting IE11 - although with degraded experience; if you don't care about
+# `hugo server` or browsers of ancient times, fell free to remove this whole block
+[server]
+  [[server.headers]]
+    for = "**.html"
+    [server.headers.values]
+       X-UA-Compatible = "IE=edge"
 
-[params]
-copyright = "The LocalAI Authors"
-privacy_policy = "https://policies.google.com/privacy"
+# showcase of the menu shortcuts; you can use relative URLs linking
+# to your content or use fully-quallified URLs to link outside of
+# your project
+[languages]
+  [languages.en]
+    title = "Hugo Relearn Theme"
+    weight = 1
+    languageName = "English"
+    [languages.en.params]
+      landingPageName = "<i class='fas fa-home'></i> Home"
 
-# First one is picked as the Twitter card image if not set on page.
-# images = ["images/project-illustration.png"]
+  [[languages.en.menu.shortcuts]]
+    name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+    identifier = "ds"
+    url = "https://github.com/go-skynet/LocalAI"
+    weight = 10
 
-# Menu title if your navbar has a versions selector to access old versions of your site.
-# This menu appears only if you have at least one [params.versions] set.
-version_menu = "Releases"
+  [[languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-camera'></i> Examples"
+    url = "https://github.com/go-skynet/LocalAI/tree/master/examples/"
+    weight = 11
 
-# Flag used in the "version-banner" partial to decide whether to display a 
-# banner on every page indicating that this is an archived version of the docs.
-# Set this flag to "true" if you want to display the banner.
-archived_version = false
+  [[languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-download'></i> Container images"
+    url = "https://quay.io/repository/go-skynet/local-ai"
+    weight = 20
 
-# The version number for the version of the docs represented in this doc set.
-# Used in the "version-banner" partial to display a version number for the 
-# current doc set.
-version = "0.0"
+  #[[languages.en.menu.shortcuts]]
+  #  name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+  #  url = "more/credits/"
+  #  weight = 30
 
-# A link to latest version of the docs. Used in the "version-banner" partial to
-# point people to the main doc site.
-url_latest_version = "https://example.com"
+  [[languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-tags'></i> Releases"
+    url = "https://github.com/go-skynet/LocalAI/releases"
+    weight = 40
 
-# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/go-skynet/website"
-# An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/go-skynet/website"
 
-# Specify a value here if your content directory is not in your repo's root directory
-# github_subdir = ""
-
-# Uncomment this if your GitHub repo does not have "main" as the default branch,
-# or specify a new value if you want to reference another branch in your GitHub links
-github_branch= "master"
-
-# Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "d72aa9b2712488cc3"
-
-# Enable Algolia DocSearch
-algolia_docsearch = false
-
-# Enable Lunr.js offline search
-offlineSearch = false
-
-# Enable syntax highlighting and copy buttons on code blocks with Prism
-prism_syntax_highlighting = false
-
-# User interface configuration
-[params.ui]
-#  Set to true to disable breadcrumb navigation.
-breadcrumb_disable = false
-# Set to true to disable the About link in the site footer
-footer_about_disable = false
-# Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
-navbar_logo = true
-# Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
-navbar_translucent_over_cover_disable = false
-# Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
-# Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
-
-# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
-# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
-# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
-# add "hide_feedback: true" to the page's front matter.
-[params.ui.feedback]
-enable = true
-# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/go-skynet/website/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/go-skynet/website/issues/new">tell us how we can improve</a>.'
-
-# Adds a reading time to the top of each doc.
-# If you want this feature, but occasionally need to remove the Reading time from a single page, 
-# add "hide_readingtime: true" to the page's front matter
-[params.ui.readingtime]
-enable = true
-
-[params.links]
-# End user relevant links. These will show up on left side of footer and in the community page if you have one.
-# [[params.links.user]]
-#   name = "User mailing list"
-#   url = "https://example.org/mail"
-#   icon = "fa fa-envelope"
-#   desc = "Discussion and help from your fellow users"
-[[params.links.user]]
-  name ="Twitter"
-  url = "https://twitter.com/LocalAI_API"
-  icon = "fab fa-twitter"
-  desc = "Follow us on Twitter to get the latest news!"
-# [[params.links.user]]
-#   name = "Stack Overflow"
-#   url = "https://example.org/stack"
-#   icon = "fab fa-stack-overflow"
-#   desc = "Practical questions and curated answers"
-# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
-[[params.links.developer]]
-  name = "GitHub"
-  url = "https://github.com/go-skynet"
-  icon = "fab fa-github"
-  desc = "Development takes place here!"
-[[params.links.developer]]
-  name = "Discord"
-  url = "https://discord.gg/JgsnuMTU"
-  icon = "fab fa-discord"
-  desc = "Chat with other project developers"
-# [[params.links.developer]]
-#   name = "Developer mailing list"
-#   url = "https://example.org/mail"
-#   icon = "fa fa-envelope"
-#   desc = "Discuss development issues around the project"
-
-# hugo module configuration
-
+# mounts are only needed in this showcase to access the publicly available screenshots;
+# remove this section if you don't need further mounts
 [module]
-  # uncomment line below for temporary local development of module
-  # replacements = "github.com/google/docsy -> ../../docsy"
-  [module.hugoVersion]
-    extended = true
-    min = "0.75.0"
-  [[module.imports]]
-    path = "github.com/google/docsy"
-    disable = false
-  [[module.imports]]
-    path = "github.com/google/docsy/dependencies"
-    disable = false    
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'i18n'
+    target = 'i18n'
+  [[module.mounts]]
+    source = '../images'
+    target = 'static/images'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+
+
+# settings specific to this theme's features; choose to your likings and
+# consult this documentation for explaination
+[params]
+  editURL = "https://github.com/go-skynet/localai-website/edit/master/content/"
+  description = "Documentation for LocalAI"
+  author = "Ettore Di Giacinto and others"
+  showVisitedLinks = true
+  collapsibleMenu = true
+  disableBreadcrumb = false
+  disableInlineCopyToClipBoard = true
+  disableNextPrev = false
+  disableLandingPageButton = true
+  breadcrumbSeparator = ">"
+  titleSeparator = "::"
+  themeVariant = [ "auto", "relearn-bright", "relearn-light", "relearn-dark", "learn", "neon", "blue", "green", "red" ]
+  themeVariantAuto = [ "relearn-light", "relearn-dark" ]
+  disableSeoHiddenPages = true
+  # this is to index search for your native language in other languages, too (eg.
+  # pir in this showcase)
+  additionalContentLanguage = [ "en" ]
+  # this is for the stylesheet generator to allow for interactivity in Mermaid
+  # graphs; you usually will not need it and you should remove this for
+  # security reasons
+  mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
+  mermaidZoom = true
