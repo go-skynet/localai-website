@@ -85,7 +85,7 @@ disableHugoGeneratorInject = true
 # your project
 [languages]
   [languages.en]
-    title = "Hugo Relearn Theme"
+    title = "LocalAI documentation"
     weight = 1
     languageName = "English"
     [languages.en.params]
