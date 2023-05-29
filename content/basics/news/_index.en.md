@@ -4,13 +4,15 @@ title = "What's New"
 weight = 1
 +++
 
-## 29-05-2023: __v1.16.1__
+## 29-05-2023: __v1.17.0__
 
 Support for OpenCL has been added while building from sources.
 
 You can now build LocalAI from source with `BUILD_TYPE=clblast` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}}).
 
 For instructions on how to install OpenCL/CLBlast see [here](https://github.com/ggerganov/llama.cpp#blas-build).
+
+rwkv.cpp has been updated to the new ggml format [commit](https://github.com/saharNooby/rwkv.cpp/commit/dea929f8cad90b7cf2f820c5a3d6653cfdd58c4e).
 
 ## 27-05-2023: __v1.16.0__ 
 
