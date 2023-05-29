@@ -1,16 +1,13 @@
 
 +++
 disableToc = false
-title = "Advanced configuration"
+title = "Advanced"
 weight = 3
 +++
 
-
-### Advanced configuration
+### Advanced configuration with YAML files
 
 In order to define default prompts, model parameters (such as custom default `top_p` or `top_k`), LocalAI can be configured to serve user-defined models with a set of default parameters and templates.
-
-<details>
 
 You can create multiple `yaml` files in the models path or either specify a single YAML configuration file. 
 Consider the following `models` folder in the `example/chatbot-ui`:
@@ -27,6 +24,8 @@ base ❯ ls -liah examples/chatbot-ui/models
 
 In the `gpt-3.5-turbo.yaml` file it is defined the `gpt-3.5-turbo` model which is an alias to use `gpt4all-j` with pre-defined options.
 
+<details>
+
 For instance, consider the following that declares `gpt-3.5-turbo` backed by the `ggml-gpt4all-j` model:
 
 ```yaml
@@ -34,7 +33,7 @@ name: gpt-3.5-turbo
 # Default model parameters
 parameters:
   # Relative to the models path
-  model: ggml-gpt4all-j
+  model: ggml-alpaca
   # temperature
   temperature: 0.3
   # all the OpenAI request options here..
@@ -43,7 +42,12 @@ parameters:
 context_size: 512
 threads: 10
 # Define a backend (optional). By default it will try to guess the backend the first time the model is interacted with.
-backend: gptj # available: llama, stablelm, gpt2, gptj rwkv
+backend: llama # available: llama, stablelm, gpt2, gptj rwkv
+
+# Enable prompt caching
+prompt_cache_path: "alpaca-cache"
+prompt_cache_all: true
+
 # stopwords (if supported by the backend)
 stopwords:
 - "HUMAN:"
@@ -197,7 +201,7 @@ Below is an instruction that describes a task, paired with an input that provide
 
 </details>
 
-### Advanced: prepare models using the API
+### Install models using the API
 
 Instead of installing models manually, you can use the LocalAI API endpoints and a model definition to install programmatically via API models in runtime.
 
@@ -215,9 +219,13 @@ curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '
 ```
 
 
+### Preloading models during startup
+
+
+
 ### Environment variables
 
-Additionally there are environment variables available in the container image entrypoint that modify the behavior of LocalAI:
+When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
 
 ```
 REBUILD

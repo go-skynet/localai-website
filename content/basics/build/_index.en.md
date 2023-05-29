@@ -81,9 +81,11 @@ make GO_TAGS=stablediffusion rebuild
 
 </details>
 
-### Accelleration
+### Acceleration
 
 #### OpenBLAS
+
+Software acceleration.
 
 <details>
 
@@ -96,6 +98,8 @@ make BUILD_TYPE=openblas build
 </details>
 
 #### CuBLAS
+
+Nvidia Acceleration.
 
 <details>
 
@@ -111,6 +115,22 @@ More informations available in the upstream PR: https://github.com/ggerganov/lla
 
 </details>
 
+#### ClBLAS
+
+AMD/Intel GPU acceleration.
+
+<details>
+
+Requirement: OpenCL, CLBlast
+
+```
+make BUILD_TYPE=clblas build
+```
+
+To specify a clblast dir set: `CLBLAST_DIR`
+
+</details>
+
 ### Windows compatibility
 
-It should work, however you need to make sure you give enough resources to the container. See https://github.com/go-skynet/LocalAI/issues/2
+Make sure to give enough resources to the running container. See https://github.com/go-skynet/LocalAI/issues/2

@@ -7,7 +7,7 @@ weight = 2
 
 `LocalAI` comes by default as a container image. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-The easiest way to run LocalAI is by using `docker-compose` (to build locally, see [building LocalAI](https://github.com/go-skynet/LocalAI/tree/master#setup)):
+The easiest way to run LocalAI is by using `docker-compose` (to build locally, see the [build section]({{%relref "basics/build" %}})):
 
 ```bash
 
@@ -93,16 +93,21 @@ Usage:
 local-ai --models-path <model_path> [--address <address>] [--threads <num_threads>]
 ```
 
-| Parameter    | Environment Variable | Default Value | Description                            |
-| ------------ | -------------------- | ------------- | -------------------------------------- |
-| models-path        | MODELS_PATH           |               | The path where you have models (ending with `.bin`).      |
-| threads      | THREADS              | Number of Physical cores     | The number of threads to use for text generation. |
-| address      | ADDRESS              | :8080         | The address and port to listen on. |
-| context-size | CONTEXT_SIZE         | 512           | Default token context size. |
-| debug | DEBUG         | false           | Enable debug mode. |
-| config-file | CONFIG_FILE         | empty           | Path to a LocalAI config file. |
-| upload_limit | UPLOAD_LIMIT         | 5MB           | Upload limit for whisper. |
-| image-path | IMAGE_PATH         | empty           | Image directory to store and serve processed images. |
+| Parameter                      | Environmental Variable          | Default Variable                                   | Description                                                         |
+| ------------------------------ | ------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------- |
+| --f16                          | $F16                            | false                                              | Enable f16 mode                                                     |
+| --debug                        | $DEBUG                          | false                                              | Enable debug mode                                                   |
+| --cors                         | $CORS                           | false                                              | Enable CORS support                                                 |
+| --cors-allow-origins value     | $CORS_ALLOW_ORIGINS             |                                                    | Specify origins allowed for CORS                                     |
+| --threads value                | $THREADS                        | 4    | Number of threads to use for parallel computation                    |
+| --models-path value            | $MODELS_PATH                    | ./models       | Path to the directory containing models used for inferencing        |
+| --preload-models value         | $PRELOAD_MODELS                 |           | List of models to preload in JSON format at startup                  |
+| --preload-models-config value  | $PRELOAD_MODELS_CONFIG          |  | A config with a list of models to apply at startup. Specify the path to a YAML config file |
+| --config-file value            | $CONFIG_FILE                    |                                         | Path to the config file                                             |
+| --address value                | $ADDRESS                        | :8080                    | Specify the bind address for the API server                         |
+| --image-path value             | $IMAGE_PATH                     |                                     | Path to the directory used to store generated images                             |
+| --context-size value           | $CONTEXT_SIZE                   | 512                 | Default context size of the model                                   |
+| --upload-limit value           | $UPLOAD_LIMIT                   | 15                         | Default upload limit in megabytes (audio file upload)                                  |
 
 </details>
 
@@ -127,7 +132,9 @@ You should see:
 └───────────────────────────────────────────────────┘ 
 ```
 
+{{% notice note %}}
 Note: the binary inside the image is rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
+{{% /notice %}}
 
 </details>
 
@@ -205,11 +212,7 @@ service:
 
 ### Build from source
 
-See the [build section]
-
-
-
-</details>
+See the [build section]({{%relref "basics/build" %}}).
 
 ### Other examples
 
