@@ -83,6 +83,15 @@ make GO_TAGS=stablediffusion rebuild
 
 ### Acceleration
 
+List of the variables available to customize the build:
+
+| Variable | Default | Description |
+| ---------------------| ------- | ----------- |
+| `BUILD_TYPE`         |         | Build type. Available: `cublas`, `openblas`, `clblas` |
+| `GO_TAGS`            |         | Go tags. Available: `stablediffusion` |
+| `CLBLAST_DIR`        |         | Specify a CLBlast directory |
+| `CUDA_LIBPATH`       |         | Specify a CUDA library path |
+
 #### OpenBLAS
 
 Software acceleration.

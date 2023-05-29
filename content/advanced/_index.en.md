@@ -205,9 +205,7 @@ Below is an instruction that describes a task, paired with an input that provide
 
 Instead of installing models manually, you can use the LocalAI API endpoints and a model definition to install programmatically via API models in runtime.
 
-<details>
-
-A curated collection of model files is in the [model-gallery](https://github.com/go-skynet/model-gallery) (work in progress!).
+A curated collection of model files is in the [model-gallery](https://github.com/go-skynet/model-gallery) (work in progress!). The files of the model gallery are different from the model files used to configure LocalAI models. The model gallery files contains information about the model setup, and the files necessary to run the model locally.
 
 To install for example `gpt4all-j`, you can send a POST call to the `/models/apply` endpoint with the model definition url (`url`) and the name of the model should have in LocalAI (`name`, optional):
 
@@ -221,20 +219,28 @@ curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '
 
 ### Preloading models during startup
 
+In order to allow the API to start-up with all the needed model on the first-start, the model gallery files can be used during startup. 
 
+```bash
+PRELOAD_MODELS='[{"url": "https://raw.githubusercontent.com/go-skynet/model-gallery/main/gpt4all-j.yaml","name": "gpt4all-j"}]' local-ai
+```
+
+`PRELOAD_MODELS` (or `--preload-models`) takes a list in JSON with the same parameter of the API calls of the `/models/apply` endpoint.
+
+Similarly it can be specified a path to a YAML configuration file containing a list of models with `PRELOAD_MODELS_CONFIG` ( or `--preload-models-config` ):
+
+```yaml
+- url: https://raw.githubusercontent.com/go-skynet/model-gallery/main/gpt4all-j.yaml
+  name: gpt4all-j
+# ...
+```
 
 ### Environment variables
 
 When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
 
-```
-REBUILD
-```
-
-```
-BUILD_TYPE
-```
-
-```
-GO_TAGS
-```
+| Environment variable | Default | Description |
+| ---------------------| ------- | ----------- |
+| `REBUILD`            | `true`  | Rebuild LocalAI on startup |
+| `BUILD_TYPE`         |         | Build type. Available: `cublas`, `openblas`, `clblas` |
+| `GO_TAGS`            |         | Go tags. Available: `stablediffusion` |

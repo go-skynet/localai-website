@@ -5,7 +5,7 @@ title = "Getting started"
 weight = 2
 +++
 
-`LocalAI` comes by default as a container image. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
+`LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
 The easiest way to run LocalAI is by using `docker-compose` (to build locally, see the [build section]({{%relref "basics/build" %}})):
 

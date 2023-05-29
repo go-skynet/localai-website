@@ -8,7 +8,7 @@ weight = 1
 
 Support for OpenCL has been added while building from sources.
 
-You can now build LocalAI from source with `BUILD_TYPE=clblast` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}})
+You can now build LocalAI from source with `BUILD_TYPE=clblast` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}}).
 
 For instructions on how to install OpenCL/CLBlast see [here](https://github.com/ggerganov/llama.cpp#blas-build).
 
@@ -16,13 +16,25 @@ For instructions on how to install OpenCL/CLBlast see [here](https://github.com/
 
 Now it's possible to automatically download pre-configured models before starting the API. 
 
-[[ explain ]]
+Start local-ai with the `PRELOAD_MODELS` containing a list of models from the gallery, for instance to install `gpt4all-j` as `gpt-3.5-turbo`:
 
-`llama.cpp` models now can also automatically save the prompt cache state as well by specifying a 
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/gpt4all-j.yaml", "name": "gpt-3.5-turbo"}]
+```
 
-[[ explain ]
+`llama.cpp` models now can also automatically save the prompt cache state as well by specifying in the model YAML configuration file:
 
-]
+```yaml
+# Enable prompt caching
+
+# This is a file that will be used to save/load the cache. relative to the models directory.
+prompt_cache_path: "alpaca-cache"
+
+# Always enable prompt cache
+prompt_cache_all: true
+```
+
+See also the [advanced section]({{%relref "basics/advanced" %}}).
 
 ## Media, Blogs, Social
 
@@ -34,7 +46,7 @@ Now it's possible to automatically download pre-configured models before startin
 
 - 23-05-2023: __v1.15.0__ released. `go-gpt2.cpp` backend got renamed to `go-ggml-transformers.cpp` updated including https://github.com/ggerganov/llama.cpp/pull/1508 which breaks compatibility with older models. This impacts RedPajama, GptNeoX, MPT(not `gpt4all-mpt`), Dolly, GPT2 and Starcoder based models. [Binary releases available](https://github.com/go-skynet/LocalAI/releases), various fixes, including https://github.com/go-skynet/LocalAI/pull/341 .
 - 21-05-2023: __v1.14.0__ released. Minor updates to the `/models/apply` endpoint, `llama.cpp` backend updated including https://github.com/ggerganov/llama.cpp/pull/1508 which breaks compatibility with older models. `gpt4all` is still compatible with the old format. 
-- 19-05-2023: __v1.13.0__ released! 🔥🔥 updates to the `gpt4all` and `llama` backend, consolidated CUDA support ( https://github.com/go-skynet/LocalAI/pull/310 thanks to @bubthegreat and @Thireus ), preliminar support for [installing models via API](https://github.com/go-skynet/LocalAI#advanced-prepare-models-using-the-api).
+- 19-05-2023: __v1.13.0__ released! 🔥🔥 updates to the `gpt4all` and `llama` backend, consolidated CUDA support ( https://github.com/go-skynet/LocalAI/pull/310 thanks to @bubthegreat and @Thireus ), preliminar support for [installing models via API]({{%relref "basics/advanced#" %}}).
 - 17-05-2023:  __v1.12.0__ released! 🔥🔥 Minor fixes, plus CUDA (https://github.com/go-skynet/LocalAI/pull/258) support for `llama.cpp`-compatible models and image generation (https://github.com/go-skynet/LocalAI/pull/272).
 - 16-05-2023: 🔥🔥🔥 Experimental support for CUDA (https://github.com/go-skynet/LocalAI/pull/258) in the `llama.cpp` backend and Stable diffusion CPU image generation (https://github.com/go-skynet/LocalAI/pull/272) in `master`.
 
