@@ -235,6 +235,22 @@ Similarly it can be specified a path to a YAML configuration file containing a l
 # ...
 ```
 
+### Automatic prompt caching
+
+LocalAI can automatically cache prompts for faster loading of the prompt. This can be useful if your model need a prompt template with prefixed text in the prompt before the input.
+
+To enable prompt caching, you can control the settings in the model config YAML file:
+
+```yaml
+
+# Enable prompt caching
+prompt_cache_path: "cache"
+prompt_cache_all: true
+
+```
+
+`prompt_cache_path` is relative to the models folder. you can enter here a name for the file that will be automatically create during the first load if `prompt_cache_all` is set to `true`.
+
 ### Environment variables
 
 When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
