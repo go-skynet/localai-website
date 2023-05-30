@@ -165,9 +165,50 @@ curl http://localhost:8080/v1/images/generations -H "Content-Type: application/j
 
 Note: image generator supports images up to 512x512. You can use other tools however to upscale the image, for instance: https://github.com/upscayl/upscayl.
 
+</details>
+
 #### Setup
 
 Note: In order to use the `images/generation` endpoint, you need to build LocalAI with `GO_TAGS=stablediffusion`.
+
+{{< tabs >}}
+{{% tab name="Prepare the model in runtime" %}}
+
+While the API is running, you can install the model by using the `/models/apply` endpoint and point it to the `stablediffusion` model in the [models-gallery](https://github.com/go-skynet/model-gallery#image-generation-stable-diffusion):
+```bash
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{         
+     "url": "github:go-skynet/model-gallery/stablediffusion.yaml"
+   }'
+```
+
+{{% /tab %}}
+{{% tab name="Automatically prepare the model before start" %}}
+
+You can set the `PRELOAD_MODELS` environment variable:
+
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]
+```
+
+or as arg:
+
+```bash
+local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]'
+```
+
+or in a YAML file:
+
+```bash
+local-ai --preload-models-config "/path/to/yaml"
+```
+
+YAML:
+```yaml
+- url: github:go-skynet/model-gallery/stablediffusion.yaml
+```
+
+{{% /tab %}}
+{{% tab name="Install manually" %}}
 
 1. Create a model file `stablediffusion.yaml` in the models folder:
 
@@ -201,7 +242,12 @@ models
 └── stablediffusion.yaml
 ```
 
-</details>
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
 
 ## LocalAI API endpoints
 
