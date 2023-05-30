@@ -106,10 +106,14 @@ disableHugoGeneratorInject = true
     weight = 11
 
   [[languages.en.menu.shortcuts]]
+    name = "<i class='fas fa-fw fa-images'></i> Model Gallery"
+    url = "https://github.com/go-skynet/model-gallery"
+    weight = 12
+
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-download'></i> Container images"
     url = "https://quay.io/repository/go-skynet/local-ai"
     weight = 20
-
   #[[languages.en.menu.shortcuts]]
   #  name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
   #  url = "more/credits/"
