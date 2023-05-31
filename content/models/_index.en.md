@@ -13,6 +13,8 @@ weight = 2
 
 The model gallery is a curated collection of models created by the community and tested with [LocalAI](https://github.com/go-skynet/LocalAI).
 
+LocalAI to ease out installations of models provide a way to preload models on start and downloading them in runtime. You can set models manually, or use the API to configure, download and verify the model assets.
+
 We encourage contributions to the gallery! However, please note that if you are submitting a pull request (PR), we cannot accept PRs that include URLs to models based on LLaMA or models with licenses that do not allow redistribution. Nevertheless, you can submit a PR with the configuration file without including the downloadable URL.
 
 {{% notice note %}}
