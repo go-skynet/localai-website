@@ -255,8 +255,9 @@ prompt_cache_all: true
 
 When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
 
-| Environment variable | Default | Description |
-| ---------------------| ------- | ----------- |
-| `REBUILD`            | `true`  | Rebuild LocalAI on startup |
-| `BUILD_TYPE`         |         | Build type. Available: `cublas`, `openblas`, `clblas` |
-| `GO_TAGS`            |         | Go tags. Available: `stablediffusion` |
+| Environment variable       | Default | Description                                                                                                |
+|----------------------------|---------|------------------------------------------------------------------------------------------------------------|
+| `REBUILD`                  | `true`  | Rebuild LocalAI on startup                                                                                 |
+| `BUILD_TYPE`               |         | Build type. Available: `cublas`, `openblas`, `clblas`                                                      |
+| `GO_TAGS`                  |         | Go tags. Available: `stablediffusion`                                                                      |
+| `HUGGINGFACEHUB_API_TOKEN` |         | Special token for interacting with HuggingFace Inference API, required for `langchain-huggingface` backend |
