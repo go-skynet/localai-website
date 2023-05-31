@@ -260,4 +260,4 @@ When LocalAI runs in a container, there are additional environment variables ava
 | `REBUILD`                  | `true`  | Rebuild LocalAI on startup                                                                                 |
 | `BUILD_TYPE`               |         | Build type. Available: `cublas`, `openblas`, `clblas`                                                      |
 | `GO_TAGS`                  |         | Go tags. Available: `stablediffusion`                                                                      |
-| `HUGGINGFACEHUB_API_TOKEN` |         | Special token for interacting with HuggingFace Inference API, required for `langchain-huggingface` backend |
+| `HUGGINGFACEHUB_API_TOKEN` |         | Special token for interacting with HuggingFace Inference API, required only when using the `langchain-huggingface` backend |
