@@ -156,13 +156,46 @@ curl $LOCALAI/v1/embeddings -H "Content-Type: application/json" -d '{
 
 ### Image generation: Stable diffusion
 
-<details>
+URL: https://github.com/EdVince/Stable-Diffusion-NCNN
 
+{{< tabs >}}
+{{% tab name="Prepare the model in runtime" %}}
+
+While the API is running, you can install the model by using the `/models/apply` endpoint and point it to the `stablediffusion` model in the [models-gallery](https://github.com/go-skynet/model-gallery#image-generation-stable-diffusion):
 ```bash
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{         
      "url": "github:go-skynet/model-gallery/stablediffusion.yaml"
    }'
 ```
+
+{{% /tab %}}
+{{% tab name="Automatically prepare the model before start" %}}
+
+You can set the `PRELOAD_MODELS` environment variable:
+
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]
+```
+
+or as arg:
+
+```bash
+local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]'
+```
+
+or in a YAML file:
+
+```bash
+local-ai --preload-models-config "/path/to/yaml"
+```
+
+YAML:
+```yaml
+- url: github:go-skynet/model-gallery/stablediffusion.yaml
+```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 Test it:
 
@@ -173,12 +206,13 @@ curl $LOCALAI/v1/images/generations -H "Content-Type: application/json" -d '{
             "size": "256x256", "n":2
 }'
 ```
-</details>
-
 
 ### Audio transcription: Whisper
 
-<details>
+URL: https://github.com/ggerganov/whisper.cpp
+
+{{< tabs >}}
+{{% tab name="Prepare the model in runtime" %}}
 
 ```bash
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{         
@@ -187,7 +221,35 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
    }'
 ```
 
-</details>
+{{% /tab %}}
+{{% tab name="Automatically prepare the model before start" %}}
+
+You can set the `PRELOAD_MODELS` environment variable:
+
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/whisper-base.yaml", "name": "whisper-1"}]
+```
+
+or as arg:
+
+```bash
+local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/whisper-base.yaml", "name": "whisper-1"}]'
+```
+
+or in a YAML file:
+
+```bash
+local-ai --preload-models-config "/path/to/yaml"
+```
+
+YAML:
+```yaml
+- url: github:go-skynet/model-gallery/whisper-base.yaml
+  name: whisper-1
+```
+
+{{% /tab %}}
+{{< /tabs >}}
 
 ### GPT: Airoboros 13B
 
@@ -334,6 +396,8 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 
 ### GPT: MPT-7b-Instruct
 
+> A commericially licensable instruct model based on MPT and trained by Mosaic ML.
+
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
@@ -344,6 +408,8 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 
 ### GPT: MPT-7b-Base
 
+> A commercially licensable model base pre-trained by Mosaic ML.
+
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
@@ -353,6 +419,8 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 ```
 
 ### GPT: MPT-7b-Chat
+
+> Current best non-commercially licensable chat model based on MPT and trained by Mosaic ML.
 
 ```bash
 LOCALAI=http://localhost:8080
