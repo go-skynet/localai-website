@@ -4,11 +4,55 @@ title = "What's New"
 weight = 1
 +++
 
+## 🔥🔥🔥 06-06-2023: __v1.18.0__ 🚀
+
+This LocalAI release is plenty of new features, bugfixes and updates! Thanks to the community for the help, this was a great community release!
+
+We now support a vast variety of models, while being backward compatible with prior quantization formats, this new release allows still to load older formats and new [k-quants](https://github.com/ggerganov/llama.cpp/pull/1684)!
+
+### New features
+
+- ✨ Added support for `falcon`-based model families (7b)  ( [mudler](https://github.com/mudler) )
+- ✨ Experimental support for Metal Apple Silicon GPU - ( [mudler](https://github.com/mudler) and thanks to @Soleblaze for testing! ). See the [build section]({{%relref "basics/build#Acceleration" %}}).
+- ✨ Support for token stream in the `/v1/completions` endpoint ( [samm81](https://github.com/samm81) )
+- ✨ Added huggingface backend ( [Evilfreelancer](https://github.com/EvilFreelancer) )
+- 📷 Stablediffusion now can output `2048x2048` images size with `esrgan`! ( [mudler](https://github.com/mudler) )
+
+### Container images
+- 🐋 CUDA container images (arm64, x86_64) ( [sebastien-prudhomme](https://github.com/sebastien-prudhomme) )
+- 🐋 FFmpeg container images (arm64, x86_64) ( [mudler](https://github.com/mudler) )
+
+### Dependencies updates
+
+- 🆙 Bloomz has been updated to the latest ggml changes, including new quantization format ( [mudler](https://github.com/mudler) )
+- 🆙 RWKV has been updated to the new quantization format( [mudler](https://github.com/mudler) )
+- 🆙 [k-quants](https://github.com/ggerganov/llama.cpp/pull/1684) format support for the `llama` models ( [mudler](https://github.com/mudler) )
+- 🆙 gpt4all has been updated, incorporating upstream changes allowing to load older models, and with different CPU instruction set (AVX only, AVX2) from the same binary! ( [mudler](https://github.com/mudler) )
+
+### Generic
+
+- 🐧 Fully Linux static binary releases ( [mudler](https://github.com/mudler) )
+- 📷 Stablediffusion has been enabled on container images by default ( [mudler](https://github.com/mudler) )
+  Note: You can disable container image rebuilds with `REBUILD=false`
+
+### Examples
+
+- 💡 [AutoGPT](https://github.com/go-skynet/LocalAI/tree/master/examples/autoGPT) example ( [mudler](https://github.com/mudler) )
+- 💡 [PrivateGPT](https://github.com/go-skynet/LocalAI/tree/master/examples/privateGPT) example ( [mudler](https://github.com/mudler) )
+- 💡 [Flowise](https://github.com/go-skynet/LocalAI/tree/master/examples/flowise) example ( [mudler](https://github.com/mudler) )
+
+Two new projects offer now direct integration with LocalAI!
+
+- [Flowise](https://github.com/FlowiseAI/Flowise/pull/123)
+- [Mods](https://github.com/charmbracelet/mods)
+
+[Full release changelog](https://github.com/go-skynet/LocalAI/releases/tag/v1.18.0)
+
 ## 29-05-2023: __v1.17.0__
 
 Support for OpenCL has been added while building from sources.
 
-You can now build LocalAI from source with `BUILD_TYPE=clblast` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}}).
+You can now build LocalAI from source with `BUILD_TYPE=clblas` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}}).
 
 For instructions on how to install OpenCL/CLBlast see [here](https://github.com/ggerganov/llama.cpp#blas-build).
 

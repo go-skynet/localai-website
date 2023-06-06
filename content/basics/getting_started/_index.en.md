@@ -78,6 +78,9 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 # {"model":"ggml-gpt4all-j","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
 ```
 
+{{% notice note %}}
+If running on Apple Silicon it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "basics/build" %}}).
+{{% /notice %}}
 
 ### From binaries
 
@@ -112,6 +115,15 @@ local-ai --models-path <model_path> [--address <address>] [--threads <num_thread
 </details>
 
 ### Docker
+
+LocalAI has a set of images to support CUDA, ffmpeg and 'vanilla' (CPU-only). The image list is on [quay](https://quay.io/repository/go-skynet/local-ai?tab=tags):
+
+- Vanilla images tags: `master`, `v1.18.0`, ...
+- FFmpeg images tags: `master-ffmpeg`, `v1.18.0-ffmpeg`, ...
+- CUDA `11` tags: `master-cublas-cuda11`, `v1.18.0-cublas-cuda11`, ...
+- CUDA `12` tags: `master-cublas-cuda12`, `v1.18.0-cublas-cuda12`, ...
+- CUDA `11` + FFmpeg tags: `master-cublas-cuda11-ffmpeg`, `v1.18.0-cublas-cuda11-ffmpeg`, ...
+- CUDA `12` + FFmpeg tags: `master-cublas-cuda12-ffmpeg`, `v1.18.0-cublas-cuda12-ffmpeg`, ...
 
 <details>
 Example of starting the API with `docker`:
