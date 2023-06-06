@@ -13,8 +13,8 @@ In order to build the `LocalAI` container image locally you can use `docker`:
 
 ```
 # build the image
-docker build -t LocalAI .
-docker run LocalAI
+docker build -t localai .
+docker run localai
 ```
 
 Or you can build the binary with `make`:

@@ -14,7 +14,7 @@ Tested with:
 - [Alpaca](https://github.com/ggerganov/llama.cpp#instruction-mode-with-alpaca)
 - [X] [GPT4ALL](https://gpt4all.io) (see also [using GPT4All](https://github.com/ggerganov/llama.cpp#using-gpt4all))
 - [X] [GPT4ALL-J](https://gpt4all.io/models/ggml-gpt4all-j.bin) (no changes required)
-- [X] [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala/)
+- [X] [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala/) 🐨
 - [X] Cerebras-GPT
 - [X] [WizardLM](https://github.com/nlpxucan/WizardLM)
 - [X] [RWKV](https://github.com/BlinkDL/RWKV-LM) models with [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp)
@@ -23,6 +23,7 @@ Tested with:
 - [X] [Vigogne (French)](https://github.com/bofenghuang/vigogne)
 - [X] [OpenBuddy 🐶 (Multilingual)](https://github.com/OpenBuddy/OpenBuddy)
 - [X] [Pygmalion 7B / Metharme 7B](https://github.com/ggerganov/llama.cpp#using-pygmalion-7b--metharme-7b)
+- [X] [HuggingFace Inference](https://huggingface.co/inference-api) models available through API
 
 
 Note: You might need to convert some models from older models to the new format, for indications, see [the README in llama.cpp](https://github.com/ggerganov/llama.cpp#using-gpt4all) for instance to run `gpt4all`.
@@ -66,3 +67,4 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [bert](https://github.com/skeskinen/bert.cpp) ([binding](https://github.com/go-skynet/go-bert.cpp)) | bert                  | no                       | no                  | yes                               | no                   |    
 | [whisper](https://github.com/ggerganov/whisper.cpp)         | whisper               | no                       | Audio                 | no                                | no                   |  
 | [stablediffusion](https://github.com/EdVince/Stable-Diffusion-NCNN) ([binding](https://github.com/mudler/go-stable-diffusion))        | stablediffusion               | no                       | Image                 | no                                | no                   | 
+| [langchain-huggingface](https://github.com/tmc/langchaingo)                                                                    | Any text generators available on HuggingFace through API | yes                      | no                        | no                                | no                   |
