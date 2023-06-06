@@ -140,6 +140,17 @@ To specify a clblast dir set: `CLBLAST_DIR`
 
 </details>
 
+
+### Metal (Apple Silicon)
+
+```
+make BUILD_TYPE=metal build
+wget https://raw.githubusercontent.com/ggerganov/llama.cpp/44f906e8537fcec965e312d621c80556d6aa9bec/ggml-metal.metal
+
+# Set `gpu_layers: 1` to your YAML model config file
+# Note: only models quantized with q4_0 are supported!
+```
+
 ### Windows compatibility
 
 Make sure to give enough resources to the running container. See https://github.com/go-skynet/LocalAI/issues/2
