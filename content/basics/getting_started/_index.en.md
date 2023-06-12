@@ -155,6 +155,9 @@ Note: the binary inside the image is rebuild at the start of the container to en
 
 LocalAI can be installed inside Kubernetes with helm.
 
+Requirements:
+- SSD storage class, or disable `mmap` to load the whole model in memory
+
 <details>
 By default, the helm chart will install LocalAI instance using the ggml-gpt4all-j model without persistent storage.
 

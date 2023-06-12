@@ -23,6 +23,11 @@ Or you can build the binary with `make`:
 make build
 ```
 
+Requirements:
+- Golang
+- Cmake/make
+- GCC
+
 </details>
 
 ### Build on mac
