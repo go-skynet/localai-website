@@ -179,7 +179,7 @@ Deploy a single LocalAI pod with 6GB of persistent storage serving up a `ggml-gp
 deployment:
   # Adjust the number of threads and context size for model inference
   env:
-    threads: 14
+    threads: 4
     contextSize: 512
 
 # Set the pod requests/limits
