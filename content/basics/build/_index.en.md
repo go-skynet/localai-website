@@ -7,6 +7,13 @@ weight = 3
 
 ### Build locally
 
+Requirements:
+
+Either Docker/podman, or
+- Golang
+- Cmake/make
+- GCC
+
 In order to build the `LocalAI` container image locally you can use `docker`:
 
 ```
@@ -15,17 +22,15 @@ docker build -t localai .
 docker run localai
 ```
 
-Or you can build the binary with `make`:
+Or you can build the manually binary with `make`:
 
 ```
+git clone https://github.com/go-skynet/LocalAI
+cd LocalAI
 make build
 ```
 
-Requirements:
-- Golang
-- Cmake/make
-- GCC
-
+To run: `./local-ai`
 
 {{% notice note %}}
 
