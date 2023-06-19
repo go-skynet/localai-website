@@ -61,9 +61,7 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [mpt](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))         | MPT     | yes                      | no                        | no                                | no                   | N/A |
 | [replit](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | Replit             | yes                      | no                        | no                                | no                   | N/A |
 | [gptneox](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | GPT NeoX, RedPajama, StableLM             | yes                      | no                        | no                                | no                   | N/A |
-| [starcoder](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | Starcoder             | yes                      | no                        | no                                | no                   | N/A
-
- |
+| [starcoder](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | Starcoder             | yes                      | no                        | no                                | no                   | N/A|
 | [bloomz](https://github.com/NouamaneTazi/bloomz.cpp) ([binding](https://github.com/go-skynet/bloomz.cpp))       | Bloom                 | yes                      | no                        | no                                | no                   | N/A |
 | [rwkv](https://github.com/saharNooby/rwkv.cpp) ([binding](https://github.com/donomii/go-rw))       | rwkv                 | yes                      | no                        | no                                | yes                   | N/A  |
 | [bert](https://github.com/skeskinen/bert.cpp) ([binding](https://github.com/go-skynet/go-bert.cpp)) | bert                  | no                       | no                  | yes                               | no                   | N/A |
