@@ -7,37 +7,6 @@ weight = 2
 
 LocalAI is compatible with the models supported by [llama.cpp](https://github.com/ggerganov/llama.cpp) supports also [GPT4ALL-J](https://github.com/nomic-ai/gpt4all) and [cerebras-GPT with ggml](https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP-ggml).
 
-Tested with:
-
-- [X] LLaMA 🦙
-- [X] [Vicuna](https://github.com/ggerganov/llama.cpp/discussions/643#discussioncomment-5533894)
-- [Alpaca](https://github.com/ggerganov/llama.cpp#instruction-mode-with-alpaca)
-- [X] [GPT4ALL](https://gpt4all.io) (see also [using GPT4All](https://github.com/ggerganov/llama.cpp#using-gpt4all))
-- [X] [GPT4ALL-J](https://gpt4all.io/models/ggml-gpt4all-j.bin) (no changes required)
-- [X] [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala/) 🐨
-- [X] Cerebras-GPT
-- [X] [WizardLM](https://github.com/nlpxucan/WizardLM)
-- [X] [RWKV](https://github.com/BlinkDL/RWKV-LM) models with [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp)
-- [X] [bloom.cpp](https://github.com/NouamaneTazi/bloomz.cpp)
-- [X] [Chinese LLaMA / Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
-- [X] [Vigogne (French)](https://github.com/bofenghuang/vigogne)
-- [X] [OpenBuddy 🐶 (Multilingual)](https://github.com/OpenBuddy/OpenBuddy)
-- [X] [Pygmalion 7B / Metharme 7B](https://github.com/ggerganov/llama.cpp#using-pygmalion-7b--metharme-7b)
-- [X] [HuggingFace Inference](https://huggingface.co/inference-api) models available through API
-
-
-Note: You might need to convert some models from older models to the new format, for indications, see [the README in llama.cpp](https://github.com/ggerganov/llama.cpp#using-gpt4all) for instance to run `gpt4all`.
-
-### RWKV
-
-A full example on how to run a rwkv model is in the [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/rwkv).
-
-Note: rwkv models needs to specify the backend `rwkv` in the YAML config files and have an associated tokenizer along that needs to be provided with it:
-
-```
-36464540 -rw-r--r--  1 mudler mudler 1.2G May  3 10:51 rwkv_small
-36464543 -rw-r--r--  1 mudler mudler 2.4M May  3 10:51 rwkv_small.tokenizer.json
-```
 
 ### Hardware requirements
 
@@ -68,3 +37,36 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [whisper](https://github.com/ggerganov/whisper.cpp)         | whisper               | no                       | Audio                 | no                                | no                   | N/A |
 | [stablediffusion](https://github.com/EdVince/Stable-Diffusion-NCNN) ([binding](https://github.com/mudler/go-stable-diffusion))        | stablediffusion               | no                       | Image                 | no                                | no                   | N/A |
 | [langchain-huggingface](https://github.com/tmc/langchaingo)                                                                    | Any text generators available on HuggingFace through API | yes                      | no                        | no                                | no                   | N/A |
+
+Tested with:
+
+- [X] Automatically by CI with OpenLLAMA and GPT4ALL.
+- [X] LLaMA 🦙
+- [X] [Vicuna](https://github.com/ggerganov/llama.cpp/discussions/643#discussioncomment-5533894)
+- [Alpaca](https://github.com/ggerganov/llama.cpp#instruction-mode-with-alpaca)
+- [X] [GPT4ALL](https://gpt4all.io) (see also [using GPT4All](https://github.com/ggerganov/llama.cpp#using-gpt4all))
+- [X] [GPT4ALL-J](https://gpt4all.io/models/ggml-gpt4all-j.bin) (no changes required)
+- [X] [Koala](https://bair.berkeley.edu/blog/2023/04/03/koala/) 🐨
+- [X] Cerebras-GPT
+- [X] [WizardLM](https://github.com/nlpxucan/WizardLM)
+- [X] [RWKV](https://github.com/BlinkDL/RWKV-LM) models with [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp)
+- [X] [bloom.cpp](https://github.com/NouamaneTazi/bloomz.cpp)
+- [X] [Chinese LLaMA / Alpaca](https://github.com/ymcui/Chinese-LLaMA-Alpaca)
+- [X] [Vigogne (French)](https://github.com/bofenghuang/vigogne)
+- [X] [OpenBuddy 🐶 (Multilingual)](https://github.com/OpenBuddy/OpenBuddy)
+- [X] [Pygmalion 7B / Metharme 7B](https://github.com/ggerganov/llama.cpp#using-pygmalion-7b--metharme-7b)
+- [X] [HuggingFace Inference](https://huggingface.co/inference-api) models available through API
+
+
+Note: You might need to convert some models from older models to the new format, for indications, see [the README in llama.cpp](https://github.com/ggerganov/llama.cpp#using-gpt4all) for instance to run `gpt4all`.
+
+### RWKV
+
+A full example on how to run a rwkv model is in the [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/rwkv).
+
+Note: rwkv models needs to specify the backend `rwkv` in the YAML config files and have an associated tokenizer along that needs to be provided with it:
+
+```
+36464540 -rw-r--r--  1 mudler mudler 1.2G May  3 10:51 rwkv_small
+36464543 -rw-r--r--  1 mudler mudler 2.4M May  3 10:51 rwkv_small.tokenizer.json
+```
