@@ -156,7 +156,7 @@ Requirement: nvidia-container-toolkit (installation instructions [1](https://www
 You need to run the image with `--gpus all`, and
 
 ```
-docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "gpu_layers": 35 } } ]' -e THREADS=1 -e BUILD_TYPE=cublas -v $PWD/models:/models quay.io/go-skynet/local-ai:v0.19.0-cublas-cuda12
+docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "f16":true, "gpu_layers": 35, "mmap": true, "batch": 512 } } ]' -e THREADS=1 -e BUILD_TYPE=cublas -v $PWD/models:/models quay.io/go-skynet/local-ai:v0.19.0-cublas-cuda12
 ```
 
 In the terminal where LocalAI was started, you should see:
@@ -186,8 +186,8 @@ To test that the API is working run in another terminal:
 ```
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
      "model": "gpt-3.5-turbo",
-     "messages": [{"role": "user", "content": "How are you?"}],
-     "temperature": 0.9 
+     "messages": [{"role": "user", "content": "hat is an alpaca?"}],
+     "temperature": 0.1
    }'
 ```
 
