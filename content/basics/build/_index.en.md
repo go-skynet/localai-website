@@ -7,8 +7,6 @@ weight = 3
 
 ### Build locally
 
-<details>
-
 In order to build the `LocalAI` container image locally you can use `docker`:
 
 ```
@@ -42,13 +40,9 @@ CMAKE_ARGS="-DLLAMA_F16C=OFF -DLLAMA_AVX512=OFF -DLLAMA_AVX2=OFF -DLLAMA_FMA=OFF
 
 {{% /notice %}}
 
-</details>
-
 ### Build on mac
 
 Building on Mac (M1 or M2) works, but you may need to install some prerequisites using `brew`. 
-
-<details>
 
 The below has been tested by one mac user and found to work. Note that this doesn't use docker to run the server:
 
@@ -84,11 +78,8 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
    }'
 ```
 
-</details>
-
 ### Build with Image generation support
 
-<details>
 
 **Requirements**: OpenCV, Gomp
 
@@ -97,8 +88,6 @@ Image generation is experimental and requires `GO_TAGS=stablediffusion` to be se
 ```
 make GO_TAGS=stablediffusion rebuild
 ```
-
-</details>
 
 ### Acceleration
 
@@ -115,21 +104,15 @@ List of the variables available to customize the build:
 
 Software acceleration.
 
-<details>
-
 Requirements: OpenBLAS
 
 ```
 make BUILD_TYPE=openblas build
 ```
 
-</details>
-
 #### CuBLAS
 
 Nvidia Acceleration.
-
-<details>
 
 Requirement: Nvidia CUDA toolkit
 
@@ -141,13 +124,9 @@ make BUILD_TYPE=cublas build
 
 More informations available in the upstream PR: https://github.com/ggerganov/llama.cpp/pull/1412
 
-</details>
-
 #### ClBLAS
 
 AMD/Intel GPU acceleration.
-
-<details>
 
 Requirement: OpenCL, CLBlast
 
@@ -156,9 +135,6 @@ make BUILD_TYPE=clblas build
 ```
 
 To specify a clblast dir set: `CLBLAST_DIR`
-
-</details>
-
 
 ### Metal (Apple Silicon)
 
