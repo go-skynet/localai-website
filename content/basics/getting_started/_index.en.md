@@ -79,7 +79,8 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 ```
 
 {{% notice note %}}
-If running on Apple Silicon it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "basics/build" %}}).
+- If running on Apple Silicon (ARM) it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "basics/build" %}}) to use Metal acceleration for full GPU support.
+- If you are running Apple x86_64 you can use `docker`, there is no additional gain into building it from source.
 {{% /notice %}}
 
 ### From binaries
@@ -125,7 +126,7 @@ LocalAI has a set of images to support CUDA, ffmpeg and 'vanilla' (CPU-only). Th
 - CUDA `11` + FFmpeg tags: `master-cublas-cuda11-ffmpeg`, `v1.18.0-cublas-cuda11-ffmpeg`, ...
 - CUDA `12` + FFmpeg tags: `master-cublas-cuda12-ffmpeg`, `v1.18.0-cublas-cuda12-ffmpeg`, ...
 
-<details>
+
 Example of starting the API with `docker`:
 
 ```bash
@@ -148,8 +149,81 @@ You should see:
 Note: the binary inside the image is rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
 {{% /notice %}}
 
-</details>
+#### CuBLAS:
 
+Requirement: nvidia-container-toolkit (installation instructions [1](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=nvidia&f=2) [2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html))
+
+You need to run the image with `--gpus all`, and
+
+```
+docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "gpu_layers": 35 } } ]' -e THREADS=1 -e BUILD_TYPE=cublas -v $PWD/models:/models quay.io/go-skynet/local-ai:v0.19.0-cublas-cuda12
+```
+
+In the terminal where LocalAI was started, you should see:
+
+```
+5:13PM DBG Config overrides map[gpu_layers:10]
+5:13PM DBG Checking "open-llama-7b-q4_0.bin" exists and matches SHA
+5:13PM DBG Downloading "https://huggingface.co/SlyEcho/open_llama_7b_ggml/resolve/main/open-llama-7b-q4_0.bin"
+5:13PM DBG Downloading open-llama-7b-q4_0.bin: 393.4 MiB/3.5 GiB (10.88%) ETA: 40.965550709s
+5:13PM DBG Downloading open-llama-7b-q4_0.bin: 870.8 MiB/3.5 GiB (24.08%) ETA: 31.526866642s
+5:13PM DBG Downloading open-llama-7b-q4_0.bin: 1.3 GiB/3.5 GiB (36.26%) ETA: 26.37351405s
+5:13PM DBG Downloading open-llama-7b-q4_0.bin: 1.7 GiB/3.5 GiB (48.64%) ETA: 21.11682624s
+5:13PM DBG Downloading open-llama-7b-q4_0.bin: 2.2 GiB/3.5 GiB (61.49%) ETA: 15.656029361s
+5:14PM DBG Downloading open-llama-7b-q4_0.bin: 2.6 GiB/3.5 GiB (74.33%) ETA: 10.360950226s
+5:14PM DBG Downloading open-llama-7b-q4_0.bin: 3.1 GiB/3.5 GiB (87.05%) ETA: 5.205663978s
+5:14PM DBG Downloading open-llama-7b-q4_0.bin: 3.5 GiB/3.5 GiB (99.85%) ETA: 61.269714ms
+5:14PM DBG File "open-llama-7b-q4_0.bin" downloaded and verified
+5:14PM DBG Prompt template "openllama-completion" written
+5:14PM DBG Prompt template "openllama-chat" written
+5:14PM DBG Written config file /models/gpt-3.5-turbo.yaml
+```
+
+LocalAI will download automatically the OpenLLaMa model and run with GPU. Wait for the download to complete. You can also avoid automatic download of the model by not specifying a `PRELOAD_MODELS` variable.
+
+To test that the API is working run in another terminal:
+
+```
+curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
+     "model": "gpt-3.5-turbo",
+     "messages": [{"role": "user", "content": "How are you?"}],
+     "temperature": 0.9 
+   }'
+```
+
+And if the GPU inferencing is working, you should be able to see something like:
+
+```
+5:22PM DBG Loading model in memory from file: /models/open-llama-7b-q4_0.bin
+ggml_init_cublas: found 1 CUDA devices:
+  Device 0: Tesla T4
+llama.cpp: loading model from /models/open-llama-7b-q4_0.bin
+llama_model_load_internal: format     = ggjt v3 (latest)
+llama_model_load_internal: n_vocab    = 32000
+llama_model_load_internal: n_ctx      = 1024
+llama_model_load_internal: n_embd     = 4096
+llama_model_load_internal: n_mult     = 256
+llama_model_load_internal: n_head     = 32
+llama_model_load_internal: n_layer    = 32
+llama_model_load_internal: n_rot      = 128
+llama_model_load_internal: ftype      = 2 (mostly Q4_0)
+llama_model_load_internal: n_ff       = 11008
+llama_model_load_internal: n_parts    = 1
+llama_model_load_internal: model size = 7B
+llama_model_load_internal: ggml ctx size =    0.07 MB
+llama_model_load_internal: using CUDA for GPU acceleration
+llama_model_load_internal: mem required  = 4321.77 MB (+ 1026.00 MB per state)
+llama_model_load_internal: allocating batch_size x 1 MB = 512 MB VRAM for the scratch buffer
+llama_model_load_internal: offloading 10 repeating layers to GPU
+llama_model_load_internal: offloaded 10/35 layers to GPU
+llama_model_load_internal: total VRAM used: 1598 MB
+...................................................................................................
+llama_init_from_file: kv self size  =  512.00 MB
+```
+
+{{% notice note %}}
+When enabling GPU inferencing, set the number of GPU layers to offload with: `gpu_layers: 1` to your YAML model config file and `f16: true`. You might also need to set `low_vram: true` if the device has low VRAM.
+{{% /notice %}}
 
 ### Run LocalAI in Kubernetes
 
@@ -176,51 +250,98 @@ Deploy a single LocalAI pod with 6GB of persistent storage serving up a `ggml-gp
 ```yaml
 ### values.yaml
 
+replicaCount: 1
+
 deployment:
-  # Adjust the number of threads and context size for model inference
+  image: quay.io/go-skynet/local-ai:latest
   env:
     threads: 4
-    contextSize: 512
+    context_size: 512
+  modelsPath: "/models"
 
-# Set the pod requests/limits
 resources:
-  limits:
-    cpu: 4000m
-    memory: 7000Mi
-  requests:
-    cpu: 100m
-    memory: 6000Mi
+  {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
-# Add a custom prompt template for the ggml-gpt4all-j model
+# Prompt templates to include
+# Note: the keys of this map will be the names of the prompt template files
 promptTemplates:
-  # The name of the model this template belongs to
-  ggml-gpt4all-j.bin.tmpl: |
-    This is my custom prompt template...
-    ### Prompt:
-    {{.Input}}
-    ### Response:
+  {}
+  # ggml-gpt4all-j.tmpl: |
+  #   The prompt below is a question to answer, a task to complete, or a conversation to respond to; decide which and write an appropriate response.
+  #   ### Prompt:
+  #   {{.Input}}
+  #   ### Response:
 
-# Model configuration
+# Models to download at runtime
 models:
-  # Don't re-download models on pod creation
+  # Whether to force download models even if they already exist
   forceDownload: false
 
-  # List of models to download and serve
+  # The list of URLs to download models from
+  # Note: the name of the file will be the name of the loaded model
   list:
-    - url: "https://gpt4all.io/models/ggml-gpt4all-j.bin"
-       # Optional basic HTTP authentication
-      basicAuth: base64EncodedCredentials
-  
-  # Enable 6Gb of persistent storage models and prompt templates
+  - url: "https://gpt4all.io/models/ggml-gpt4all-j.bin"
+      # basicAuth: base64EncodedCredentials
+
+  # Persistent storage for models and prompt templates.
+  # PVC and HostPath are mutually exclusive. If both are enabled,
+  # PVC configuration takes precedence. If neither are enabled, ephemeral
+  # storage is used.
   persistence:
-    enabled: true
-    size: 6Gi
+    pvc:
+      enabled: false
+      size: 6Gi
+      accessModes:
+        - ReadWriteOnce
+
+      annotations: {}
+
+      # Optional
+      storageClass: ~
+
+    hostPath:
+      enabled: false
+      path: "/models"
 
 service:
   type: ClusterIP
+  port: 80
   annotations: {}
   # If using an AWS load balancer, you'll need to override the default 60s load balancer idle timeout
   # service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "1200"
+
+ingress:
+  enabled: false
+  className: ""
+  annotations:
+    {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
 ```
 </details>
 
