@@ -251,6 +251,26 @@ prompt_cache_all: true
 
 `prompt_cache_path` is relative to the models folder. you can enter here a name for the file that will be automatically create during the first load if `prompt_cache_all` is set to `true`.
 
+### Configuring a specific backend for the model
+
+By default LocalAI will try to autoload the model by trying all the backends. This might work for most of models, but some of the backends are NOT configured to autoload.
+
+The available backends are listed in the [model compatibility table]({{%relref "model-compatibility" %}}).
+
+In order to specify a backend for your models, create a model config file in your `models` directory specifying the backend:
+
+```yaml
+name: gpt-3.5-turbo
+
+# Default model parameters
+parameters:
+  # Relative to the models path
+  model: ...
+
+backend: gptj
+# ...
+```
+
 ### Environment variables
 
 When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:

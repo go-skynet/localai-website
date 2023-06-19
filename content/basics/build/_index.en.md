@@ -28,6 +28,20 @@ Requirements:
 - Cmake/make
 - GCC
 
+
+{{% notice note %}}
+
+#### CPU flagset compatibility
+
+
+LocalAI uses different backends based on ggml and llama.cpp to run models. If your CPU doesn't support common instruction sets, you can disable them during build:
+
+```
+CMAKE_ARGS="-DLLAMA_F16C=OFF -DLLAMA_AVX512=OFF -DLLAMA_AVX2=OFF -DLLAMA_FMA=OFF" make build
+```
+
+{{% /notice %}}
+
 </details>
 
 ### Build on mac
@@ -150,9 +164,8 @@ To specify a clblast dir set: `CLBLAST_DIR`
 
 ```
 make BUILD_TYPE=metal build
-wget https://raw.githubusercontent.com/ggerganov/llama.cpp/44f906e8537fcec965e312d621c80556d6aa9bec/ggml-metal.metal
 
-# Set `gpu_layers: 1` to your YAML model config file
+# Set `gpu_layers: 1` to your YAML model config file and `f16: true`
 # Note: only models quantized with q4_0 are supported!
 ```
 

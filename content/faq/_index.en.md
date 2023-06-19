@@ -28,6 +28,17 @@ LocalAI is a multi-model solution that doesn't focus on a specific model type (e
 </details>
 
 
+### Everything is slow, how come?
+
+<details>
+
+There are few situation why this could occur. Some tips are:
+- Don't use HDD to store your models. Prefer SSD over HDD. In case you are stuck with HDD, disable `mmap` in the model config file so it loads everything in memory.
+- Watch out CPU overbooking. Ideally the `--threads` should match the number of physical cores. For instance if your CPU has 4 cores, you would ideally allocate `<= 4` threads to a model.
+- Run LocalAI with `DEBUG=true`. This gives more information, including stats on the token inference speed.
+
+</details>
+
 ### Can I use it with a Discord bot, or XXX?
 
 <details>
