@@ -10,7 +10,7 @@ weight = 3
 Requirements:
 
 Either Docker/podman, or
-- Golang
+- Golang >= 1.20
 - Cmake/make
 - GCC
 
