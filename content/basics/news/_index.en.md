@@ -6,7 +6,7 @@ weight = 1
 
 ## 🔥🔥🔥 19-06-2023: __v1.19.0__ 🚀
 
-- Full CUDA GPU offload support ( [PR](https://github.com/go-skynet/go-llama.cpp/pull/105) by [mudler](https://github.com/mudler). Thanks to [chnyda](https://github.com/chnyda) for handing over the GPU access, and [lu-zero](https://github.com/lu-zero to help in debugging )  )
+- Full CUDA GPU offload support ( [PR](https://github.com/go-skynet/go-llama.cpp/pull/105) by [mudler](https://github.com/mudler). Thanks to [chnyda](https://github.com/chnyda) for handing over the GPU access, and [lu-zero](https://github.com/lu-zero) to help in debugging  )
 - Full GPU Metal Support is now fully functional. Thanks to [Soleblaze](https://github.com/Soleblaze) to iron out the Metal Apple silicon support!
 
 ## 🔥🔥🔥 06-06-2023: __v1.18.0__ 🚀
