@@ -20,7 +20,11 @@ The models in this gallery are not directly maintained by LocalAI. If you find a
 {{% /notice %}}
 
 {{% notice note %}}
-You might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/).
+GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. LocalAI is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
+{{% /notice %}}
+
+{{% notice note %}}
+Finally, you might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/), generally it should be available `~24h` after upload.
 {{% /notice %}}
 
 ## How to install a model
@@ -36,9 +40,12 @@ The installation requires the model configuration file URL (`url`), optionally a
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>"
-   }'  
+     "url": "<MODEL_CONFIG_FILE>"
+   }' 
+# or if from a repository
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "id": "<GALLERY>@<MODEL_NAME>"
+   }' 
 ```
 
 The API will return a job `uuid` that you can use to track the job progress:
@@ -67,11 +74,13 @@ To preload models on start instead you can use the `PRELOAD_MODELS` environment 
 
 <details>
 
-To preload models on start, use the `PRELOAD_MODELS` environment variable by setting it to a JSON array of model uri and name:
+To preload models on start, use the `PRELOAD_MODELS` environment variable by setting it to a JSON array of model uri:
 
 ```bash
-PRELOAD_MODELS='[{"url": "<MODEL_URL>", "name": "<MODEL_NAME>"}]'
+PRELOAD_MODELS='[{"url": "<MODEL_URL>"}]'
 ```
+
+Note: `url` or `id` must be specified. `url` is used to a url to a model gallery configuration, while an `id` is used to refer to models inside repositories. If both are specified, the `id` will be used.
 
 For example:
 
@@ -97,6 +106,32 @@ YAML:
 ```
 
 </details>
+
+
+{{% notice note %}}
+
+To install a model with a different name, specify a `name` parameter in the request body.
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>"
+   }'  
+```
+
+For example, to install a model as `gpt-3.5-turbo`:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+      "url": "github:go-skynet/model-gallery/gpt4all-j.yaml",
+      "name": "gpt-3.5-turbo"
+   }'  
+```
+
+{{% /notice %}}
+
 
 ### Additional Files
 

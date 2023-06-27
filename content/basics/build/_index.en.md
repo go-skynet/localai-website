@@ -91,7 +91,17 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 Image generation is experimental and requires `GO_TAGS=stablediffusion` to be set during build:
 
 ```
-make GO_TAGS=stablediffusion rebuild
+make GO_TAGS=stablediffusion build
+```
+
+### Build with Text to audio support
+
+**Requirements**: piper-phonemize
+
+Text to audio support is experimental and requires `GO_TAGS=tts` to be set during build:
+
+```
+make GO_TAGS=tts build
 ```
 
 ### Acceleration
@@ -100,8 +110,8 @@ List of the variables available to customize the build:
 
 | Variable | Default | Description |
 | ---------------------| ------- | ----------- |
-| `BUILD_TYPE`         |         | Build type. Available: `cublas`, `openblas`, `clblas` |
-| `GO_TAGS`            |         | Go tags. Available: `stablediffusion` |
+| `BUILD_TYPE`         |   None      | Build type. Available: `cublas`, `openblas`, `clblas`, `metal` |
+| `GO_TAGS`            |   `tts stablediffusion`      | Go tags. Available: `stablediffusion`, `tts` |
 | `CLBLAST_DIR`        |         | Specify a CLBlast directory |
 | `CUDA_LIBPATH`       |         | Specify a CUDA library path |
 

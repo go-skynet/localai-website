@@ -9,6 +9,12 @@ weight = 1
 - Full CUDA GPU offload support ( [PR](https://github.com/go-skynet/go-llama.cpp/pull/105) by [mudler](https://github.com/mudler). Thanks to [chnyda](https://github.com/chnyda) for handing over the GPU access, and [lu-zero](https://github.com/lu-zero) to help in debugging  )
 - Full GPU Metal Support is now fully functional. Thanks to [Soleblaze](https://github.com/Soleblaze) to iron out the Metal Apple silicon support!
 
+Container images:
+- Standard (GPT + `stablediffusion`): `quay.io/go-skynet/local-ai:v1.19.2`
+- FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-ffmpeg`
+- CUDA 11+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda11-ffmpeg`
+- CUDA 12+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda12-ffmpeg`
+
 ## 🔥🔥🔥 06-06-2023: __v1.18.0__ 🚀
 
 This LocalAI release is plenty of new features, bugfixes and updates! Thanks to the community for the help, this was a great community release!
