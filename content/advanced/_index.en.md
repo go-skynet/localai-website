@@ -100,6 +100,8 @@ See also [chatbot-ui](https://github.com/go-skynet/LocalAI/tree/master/examples/
 ### Full config model file reference
 
 ```yaml
+# Model name.
+# The model name is used to identify the model in the API calls.
 name: gpt-3.5-turbo
 
 # Default model parameters
@@ -136,6 +138,10 @@ trimspace:
 # Strings to cut from the response
 cutstrings:
 - "string"
+
+# Directory used to store additional assets
+asset_dir: ""
+
 # define chat roles
 roles:
   user: "HUMAN:"
@@ -147,6 +153,7 @@ template:
   chat: ggml-gpt4all-j
   edit: edit_template
 
+## LLAMA specific options
 # Enable F16 if backend supports it
 f16: true
 # Enable debugging
@@ -157,13 +164,28 @@ embeddings: true
 mirostat_eta: 0.8
 mirostat_tau: 0.9
 mirostat: 1
-
 # GPU Layers (only used when built with cublas)
 gpu_layers: 22
-
-# Directory used to store additional assets (used for stablediffusion)
-asset_dir: ""
+# Enable memory lock
+mmlock: true
+# GPU setting to split the tensor in multiple parts and define a main GPU
+# see llama.cpp for usage
+tensor_split: ""
+main_gpu: ""
+# Define a prompt cache path (relative to the models)
+prompt_cache_path: "prompt-cache"
+# Cache all the prompts
+prompt_cache_all: true
+# Read only
+prompt_cache_ro: false
+# Enable mmap
+mmap: true
+# Enable low vram mode (GPU only)
+low_vram: true
+# Set NUMA mode (CPU only)
+numa: true
 ```
+
 </details>
 
 ### Prompt templates 

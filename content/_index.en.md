@@ -9,16 +9,22 @@ title = "LocalAI"
 
 For a list of the supported model families, see [Model compatibility]({{%relref "model-compatibility" %}}).
 
-
 In a nutshell:
 
 - Local, OpenAI drop-in alternative REST API. You own your data.
-- NO GPU required. NO Internet access is required either. Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "basics/build" %}}). 
-- Supports multiple models, Audio transcription, Text generation with GPTs, Image generation with stable diffusion.
-- Once loaded the first time, it keep models loaded in memory for faster inference
-- Doesn't shell-out, but uses C++ bindings for a faster inference and better performance. 
+- NO GPU required. NO Internet access is required either
+  - Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "basics/build" %}}). 
+- Supports multiple models: 
+  - 🗣 Text to Audio 🎺🆕
+  - 🔈 Audio to Text (Audio transcription with `whisper.cpp`)
+  - 📖 Text generation with GPTs (`llama.cpp`, `gpt4all.cpp`, ... and more)
+  - 🎨 Image generation with stable diffusion
+- 🏃 Once loaded the first time, it keep models loaded in memory for faster inference
+- ⚡ Doesn't shell-out, but uses C++ bindings for a faster inference and better performance. 
 
 LocalAI was created by [Ettore Di Giacinto](https://github.com/mudler/) and is a community-driven project, focused on making the AI accessible to anyone. Any contribution, feedback and PR is welcome! 
+
+
 
 | [ChatGPT OSS alternative](https://github.com/go-skynet/LocalAI/tree/master/examples/chatbot-ui)                                                                                                                | [Image generation](https://localai.io/api-endpoints/index.html#image-generation)                                                                                                              |
 |------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -38,13 +44,6 @@ LocalAI uses C++ bindings for optimizing speed. It is based on [llama.cpp](https
 ![LocalAI](https://github.com/go-skynet/LocalAI/assets/2420543/38de3a9b-3866-48cd-9234-662f9571064a)
 
 </details>
-
-## Features
-
-- Text generation
-- Audio transcription
-- Image generation
-
 
 ## Contribute and help
 
@@ -76,15 +75,18 @@ Feel free to open up a PR to get your project listed!
 ## Short-term roadmap
 
 - [x] Mimic OpenAI API (https://github.com/go-skynet/LocalAI/issues/10)
-- [ ] Binary releases (https://github.com/go-skynet/LocalAI/issues/6)
-- [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) and [gpt4all](https://github.com/go-skynet/LocalAI/issues/85)
+- [x] Binary releases (https://github.com/go-skynet/LocalAI/issues/6)
+- [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) 
+- [x] Upstream [gpt4all](https://github.com/go-skynet/LocalAI/issues/85) bindings
 - [x] Multi-model support
 - [x] Have a webUI!
 - [x] Allow configuration of defaults for models.
 - [x] Support for embeddings
 - [x] Support for audio transcription with https://github.com/ggerganov/whisper.cpp
-- [ ] GPU/CUDA support ( https://github.com/go-skynet/LocalAI/issues/69 )
-- [ ] Enable automatic downloading of models from a curated gallery, with only free-licensed models, directly from the webui.
+- [x] GPU/CUDA support ( https://github.com/go-skynet/LocalAI/issues/69 )
+- [X] Enable automatic downloading of models from a curated gallery
+- [ ] Enable automatic downloading of models from HuggingFace
+- [ ] Enable gallery management directly from the webui.
 
 ## Star history
 
