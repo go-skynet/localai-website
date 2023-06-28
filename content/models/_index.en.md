@@ -11,31 +11,116 @@ weight = 2
 <br>
 </h1>
 
-The model gallery is a curated collection of models created by the community and tested with [LocalAI](https://github.com/go-skynet/LocalAI).
+The model gallery is a (experimental!) collection of models configurations for [LocalAI](https://github.com/go-skynet/LocalAI).
 
-LocalAI to ease out installations of models provide a way to preload models on start and downloading them in runtime. You can set models manually, or use the API to configure, download and verify the model assets.
-
-We encourage contributions to the gallery! However, please note that if you are submitting a pull request (PR), we cannot accept PRs that include URLs to models based on LLaMA or models with licenses that do not allow redistribution. Nevertheless, you can submit a PR with the configuration file without including the downloadable URL.
+LocalAI to ease out installations of models provide a way to preload models on start and downloading and installing them in runtime. You can install models manually by copying them over the `models` directory, or use the API to configure, download and verify the model assets for you. As the UI is still a work in progress, you will find here the documentation about the API Endpoints.
 
 {{% notice note %}}
-Not all models in this list provides URLs to download model. This is due to unclear LICENSE permissions of models.
-
-You can find however most of the models on huggingface (https://huggingface.co/), searching for the models name and "ggml".
+The models in this gallery are not directly maintained by LocalAI. If you find a model that is not working, please open an issue on the model gallery repository.
 {{% /notice %}}
 
-## How to install a model
+{{% notice note %}}
+GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. The official gallery contains only open licensed models.
+{{% /notice %}}
 
-To install a model you will need to use the `/models/apply` LocalAI API endpoint.
 
-<details>
+## Model repositories
 
-The installation requires the model configuration file URL (`url`), optionally a name to install the model (`name`), extra files to install (`files`), and configuration overrides (`overrides`). When calling the API endpoint, LocalAI will download the models files and write the configuration to the folder used to store models.
+You can install a model in runtime, while the API is running and it is started already, or before starting the API by preloading the models.
+
+To install a model in runtime you will need to use the `/models/apply` LocalAI API endpoint.
+
+To enable the `model-gallery` repository you need to start `local-ai` with the `GALLERIES` environment variable:
+
+```
+GALLERIES=[{"name":"<GALLERY_NAME>", "url":"<GALLERY_URL"}]
+```
+
+For example, to enable the `model-gallery` repository, start `local-ai` with:
+
+```
+GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]
+```
+
+where `github:go-skynet/model-gallery/index.yaml` will be expanded automatically to `https://raw.githubusercontent.com/go-skynet/model-gallery/main/index.yaml`.
+
+{{% notice note %}}
+
+As this feature is experimental, you need to run `local-ai` with a list of `GALLERIES`. Currently there are two galleries:
+
+- An official one, containing only definitions and models with a clear LICENSE to avoid any dmca infringment. As I'm not sure what's the best action to do in this case, I'm not going to include any model that is not clearly licensed in this repository which is offically linked to LocalAI.
+- A "community" one that contains an index of `huggingface` models that are compatible with the `ggml` format and lives in the `localai-huggingface-zoo` repository.
+
+To enable the two repositories, start `LocalAI` with the `GALLERIES` environment variable:
+
+```bash
+GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:ci-robbot/localai-huggingface-zoo/index.yaml","name":"huggingface"}]
+```
+
+If running with docker-compose, simply edit the `.env` file and uncomment the `GALLERIES` variable, and add the one you want to use.
+
+{{% /notice %}}
+
+{{% notice note %}}
+You might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/), generally it should be available `~24h` after upload.
+
+By under any circumstances LocalAI and any developer is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Don't install models from authors you don't trust, and, check the appropriate license for your use case. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
+{{% /notice %}}
+
+### List Models
+
+To list all the available models, use the `/models/available` endpoint:
+
+```bash
+curl http://localhost:8080/models/available
+```
+
+To search for a model, you can use `jq`:
+
+```bash
+curl http://localhost:8080/models/available | jq '.[] | select(.name | contains("replit"))'
+```
+
+### How to install a model from the repositories
+
+Models can be installed by passing the full URL of the YAML config file, or either an identifier of the model in the gallery. The gallery is a repository of models that can be installed by passing the model name.
+
+To install a model from the gallery repository, you can pass the model name in the `id` field. For instance, to install the `bert-embeddings` model, you can use the following command:
 
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>"
+     "id": "model-gallery@bert",
+   }'  
+```
+
+where:
+- `model-gallery` is the repository
+- `bert` is the model name in the gallery
+
+## How to install a model (without a gallery)
+
+If you don't want to set any gallery repository, you can still install models by loading a model configuration file.
+
+In the body of the request you must specify the model configuration file URL (`url`), optionally a name to install the model (`name`), extra files to install (`files`), and configuration overrides (`overrides`). When calling the API endpoint, LocalAI will download the models files and write the configuration to the folder used to store models.
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>"
+   }' 
+# or if from a repository
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "id": "<GALLERY>@<MODEL_NAME>"
+   }' 
+```
+
+An example that installs openllama can be:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "https://github.com/go-skynet/model-gallery/blob/main/openllama_3b.yaml"
    }'  
 ```
 
@@ -58,56 +143,46 @@ done
 echo "Job completed"
 ```
 
-</details>
-
-### Additional Files
+To preload models on start instead you can use the `PRELOAD_MODELS` environment variable.
 
 <details>
 
-To download additional files with the model, use the `files` parameter:
+To preload models on start, use the `PRELOAD_MODELS` environment variable by setting it to a JSON array of model uri:
 
 ```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>",
-     "files": [
-        {
-            "uri": "<additional_file_url>",
-            "sha256": "<additional_file_hash>",
-            "filename": "<additional_file_name>"
-        }
-     ]
-   }'  
+PRELOAD_MODELS='[{"url": "<MODEL_URL>"}]'
+```
+
+Note: `url` or `id` must be specified. `url` is used to a url to a model gallery configuration, while an `id` is used to refer to models inside repositories. If both are specified, the `id` will be used.
+
+For example:
+
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]
+```
+
+or as arg:
+
+```bash
+local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]'
+```
+
+or in a YAML file:
+
+```bash
+local-ai --preload-models-config "/path/to/yaml"
+```
+
+YAML:
+```yaml
+- url: github:go-skynet/model-gallery/stablediffusion.yaml
 ```
 
 </details>
-
-### Overriding configuration files
-
-<details>
-
-To override portions of the configuration file, such as the backend or the model file, use the `overrides` parameter:
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>",
-     "overrides": {
-        "backend": "llama"
-     }
-   }'  
-```
-
-</details>
-
-
-## Models
-
-Note: replace `$LOCALAI` with your LocalAI API endpoint.
 
 {{% notice note %}}
+
+You can find already some open licensed models in the [model gallery](https://github.com/go-skynet/model-gallery).
 
 If you don't find the model in the gallery you can try to use the "base" model and provide an URL to LocalAI:
 
@@ -130,6 +205,73 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 </details>
 
 {{% /notice %}}
+
+## Installing a model with a different name
+
+To install a model with a different name, specify a `name` parameter in the request body.
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>"
+   }'  
+```
+
+For example, to install a model as `gpt-3.5-turbo`:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+      "url": "github:go-skynet/model-gallery/gpt4all-j.yaml",
+      "name": "gpt-3.5-turbo"
+   }'  
+```
+## Additional Files
+
+<details>
+
+To download additional files with the model, use the `files` parameter:
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>",
+     "files": [
+        {
+            "uri": "<additional_file_url>",
+            "sha256": "<additional_file_hash>",
+            "filename": "<additional_file_name>"
+        }
+     ]
+   }'  
+```
+
+</details>
+
+## Overriding configuration files
+
+<details>
+
+To override portions of the configuration file, such as the backend or the model file, use the `overrides` parameter:
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>",
+     "overrides": {
+        "backend": "llama",
+        "f16": true,
+        ...
+     }
+   }'  
+```
+
+</details>
+
+## Examples
 
 ### Embeddings: Bert
 
@@ -251,103 +393,7 @@ YAML:
 {{% /tab %}}
 {{< /tabs >}}
 
-### GPT: Airoboros 13B
-
-<details>
-
-```bash
- curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/airoboros.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "airoboros-13B.q5_1.bin" }, "f16": true },
-     "files": [
-        {
-            "uri": "xxx",        
-            "sha256": "68ec4f4434ce4b01512506446a816500fa81ad4cde89f4e61d9ce982774bec06", 
-            "filename": "airoboros-13B.q5_1.bin"       
-        }
-     ]
-   }'
-```
-
-</details>
-
-### GPT: Airoboros
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/airoboros.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "airoboros-7b-ggml-q8_0.bin" }, "f16": true }, 
-     "files": [
-        {
-            "uri": "xxx",
-            "sha256": "a197f49b53865e7e41953ad4d77f2169a6d7d599b21f87bea36858c2d76a0369", 
-            "filename": "airoboros-7b-ggml-q8_0.bin"
-        }
-     ]
-   }'
-```
-</details>
-
-### GPT: Gorilla
-
-> "Gorilla enables LLMs to use tools by invoking APIs. Given a natural language query, Gorilla can write a semantically- and syntactically- correct API to invoke. With Gorilla, we are the first to demonstrate how to use LLMs to invoke 1,600+ (and growing) API calls accurately while reducing hallucination. "
-
-URL: https://shishirpatil.github.io/gorilla/
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/gorilla.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "Gorilla-7B.ggmlv3.q5_0.bin" }, "f16": true }, 
-     "files": [
-        {
-            "uri": "xxx",
-            "sha256": "	c322b772a33c2f5fc038909293d594dd0b79bf7857e3f54affe3d8d368fb9950", 
-            "filename": "Gorilla-7B.ggmlv3.q5_0.bin"
-        }
-     ]
-   }'
-```
-</details>
-
-
-### GPT: Guanaco
-
-> Guanaco is an advanced instruction-following language model built on Meta's LLaMA 7B model. Expanding upon the initial 52K dataset from the Alpaca model, an additional 534,530 entries have been incorporated, covering English, Simplified Chinese, Traditional Chinese (Taiwan), Traditional Chinese (Hong Kong), Japanese, Deutsch, and various linguistic and grammatical tasks. This wealth of data enables Guanaco to perform exceptionally well in multilingual environments.
-
-URL: https://github.com/Guanaco-Model/Guanaco-Model.github.io
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/guanaco.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "guanaco-7B.ggmlv3.q5_0.bin" }, "f16": true }, 
-     "files": [
-        {
-            "uri": "xxx",
-            "sha256": "49cd83ffbbd77452e279aea1e0e6c9e434b517c3347b10b593faf691e6115953", 
-            "filename": "guanaco-7B.ggmlv3.q5_0.bin"
-        }
-     ]
-   }'
-```
-</details>
-
-### GPT: GPT4ALL-J
+### GPTs
 
 <details>
 
@@ -366,210 +412,6 @@ curl $LOCALAI/v1/chat/completions -H "Content-Type: application/json" -d '{
      "model": "gpt4all-j", 
      "messages": [{"role": "user", "content": "How are you?"}],
      "temperature": 0.1 
-   }'
-```
-
-</details>
-
-### GPT: Manticore 13B
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/manticore.yaml",
-     "name": "manticore",
-     "overrides": { "parameters": {"model": "Manticore-13B.ggmlv3.q5_1.bin" }, "f16": true }, 
-     "files": [
-        {
-            "uri": "xxxx",                            
-            "sha256": "7d2c76516bcfdedc0d6282e3c352e2423964989fc871e21b1922f0f1b8acc1db", 
-            "filename": "Manticore-13B.ggmlv3.q5_1.bin" 
-        }
-     ]
-   }'
-```
-
-</details>
-
-### GPT: MPT-7b-Instruct
-
-> A commericially licensable instruct model based on MPT and trained by Mosaic ML.
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/mpt-7b-instruct.yaml",
-     "name": "gpt-3.5-turbo"
-   }'  
-```
-
-### GPT: MPT-7b-Base
-
-> A commercially licensable model base pre-trained by Mosaic ML.
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/mpt-7b-base.yaml",
-     "name": "gpt-3.5-turbo"
-   }'  
-```
-
-### GPT: MPT-7b-Chat
-
-> Current best non-commercially licensable chat model based on MPT and trained by Mosaic ML.
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/mpt-7b-chat.yaml",
-     "name": "gpt-3.5-turbo"
-   }'  
-```
-
-### GPT: RWKV-1b
-
-<details>
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/rwkv-raven-1b.yaml",
-     "name": "rwkv"
-   }'  
-```
-
-To test it:
-
-```bash
-curl $LOCALAI/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "rwkv",            
-     "messages": [{"role": "user", "content": "How are you?"}],
-     "temperature": 0.9, "top_p": 0.8, "top_k": 80
-   }'
-# {"object":"chat.completion","model":"rwkv","choices":[{"message":{"role":"assistant","content":" I am very well! Thank you! How about you?"}}],"usage":{"prompt_tokens":0,"completion_tokens":0,"total_tokens":0}}
-```
-
-</details>
-
-### GPT: RWKV-7b
-
-<details>
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/rwkv-raven-7b.yaml",
-     "name": "rwkv"
-   }'  
-```
-
-To test it:
-
-```bash
-curl $LOCALAI/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "rwkv",            
-     "messages": [{"role": "user", "content": "How are you?"}],
-     "temperature": 0.9, "top_p": 0.8, "top_k": 80
-   }'
-# {"object":"chat.completion","model":"rwkv","choices":[{"message":{"role":"assistant","content":" I am very well! Thank you! How about you?"}}],"usage":{"prompt_tokens":0,"completion_tokens":0,"total_tokens":0}}
-```
-
-</details>
-
-
-### GPT: Samantha
-
-URL: https://erichartford.com/meet-samantha
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/samantha.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "Samantha-7B.ggmlv3.q5_0.bin" }, "f16": true }, 
-     "files": [
-        {
-            "uri": "xxx",
-            "sha256": "237ae2ca2757ac985f17f3c5842557a6b27e5d5659a82c850dadbb6c85b38bd0", 
-            "filename": "Samantha-7B.ggmlv3.q5_0.bin"
-        }
-     ]
-   }'
-```
-</details>
-
-### GPT: Koala
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/koala.yaml",
-     "name": "koala",
-     "overrides": { "parameters": {"model": "koala.bin" } },
-     "files": [
-        {
-            "uri": "https://huggingface.co/xxxx",
-            "sha256": "xxx",
-            "filename": "koala.bin"
-        }
-     ]
-   }'
-```
-
-</details>
-
-
-### GPT: Vicuna
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/vicuna.yaml",
-     "name": "vicuna",
-     "overrides": { "parameters": {"model": "vicuna" } },
-     "files": [
-        {
-            "uri": "https://huggingface.co/xxxx",
-            "sha256": "xxx",
-            "filename": "vicuna"
-        }
-     ]
-   }'
-```
-
-</details>
-
-### GPT: WizardLM
-
-This model definition does not contain a URL. It must be provided with the request.
-
-<details>
-
-```bash
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "github:go-skynet/model-gallery/wizard.yaml",
-     "name": "gpt-3.5-turbo",
-     "overrides": { "parameters": {"model": "WizardLM-7B-uncensored.ggmlv3.q5_1" } },
-     "files": [
-        {
-            "uri": "https://huggingface.co/xxxx",
-            "sha256": "d92a509d83a8ea5e08ba4c2dbaf08f29015932dc2accd627ce0665ac72c2bb2b",
-            "filename": "WizardLM-7B-uncensored.ggmlv3.q5_1"
-        }
-     ]
    }'
 ```
 

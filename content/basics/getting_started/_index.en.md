@@ -126,6 +126,12 @@ LocalAI has a set of images to support CUDA, ffmpeg and 'vanilla' (CPU-only). Th
 - CUDA `11` + FFmpeg tags: `master-cublas-cuda11-ffmpeg`, `v1.18.0-cublas-cuda11-ffmpeg`, ...
 - CUDA `12` + FFmpeg tags: `master-cublas-cuda12-ffmpeg`, `v1.18.0-cublas-cuda12-ffmpeg`, ...
 
+Example:
+
+- Standard (GPT + `stablediffusion`): `quay.io/go-skynet/local-ai:v1.19.2`
+- FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-ffmpeg`
+- CUDA 11+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda11-ffmpeg`
+- CUDA 12+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda12-ffmpeg`
 
 Example of starting the API with `docker`:
 
@@ -179,7 +185,7 @@ In the terminal where LocalAI was started, you should see:
 5:14PM DBG Written config file /models/gpt-3.5-turbo.yaml
 ```
 
-LocalAI will download automatically the OpenLLaMa model and run with GPU. Wait for the download to complete. You can also avoid automatic download of the model by not specifying a `PRELOAD_MODELS` variable.
+LocalAI will download automatically the OpenLLaMa model and run with GPU. Wait for the download to complete. You can also avoid automatic download of the model by not specifying a `PRELOAD_MODELS` variable. For compatible models with GPU support see the [model compatibility table]({{%relref "model-compatibility" %}}).
 
 To test that the API is working run in another terminal:
 

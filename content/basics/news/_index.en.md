@@ -4,10 +4,67 @@ title = "What's New"
 weight = 1
 +++
 
+## 🔥🔥🔥 19-06-2023: __v1.20.0__ 🚀
+
+### Exciting New Features 🎉
+
+* Add Text-to-Audio generation with `go-piper` by @mudler in https://github.com/go-skynet/LocalAI/pull/649 See [API endpoints]({{%relref "api-endpoints" %}}) in our documentation.
+* Add gallery repository by @mudler in https://github.com/go-skynet/LocalAI/pull/663. See [models]({{%relref "models" %}}) for documentation.
+
+### Container images
+- Standard (GPT + `stablediffusion`): `quay.io/go-skynet/local-ai:v1.20.0`
+- FFmpeg: `quay.io/go-skynet/local-ai:v1.20.0-ffmpeg`
+- CUDA 11+FFmpeg: `quay.io/go-skynet/local-ai:v1.20.0-cublas-cuda11-ffmpeg`
+- CUDA 12+FFmpeg: `quay.io/go-skynet/local-ai:v1.20.0-cublas-cuda12-ffmpeg`
+
+### Updates
+
+Updates to `llama.cpp`, `go-transformers`, `gpt4all.cpp` and `rwkv.cpp`.
+
+The NUMA option was enabled by @mudler in https://github.com/go-skynet/LocalAI/pull/684, along with many new parameters (`mmap`,`mmlock`, ..). See [advanced]({{%relref "advanced" %}}) for the full list of parameters.
+
+### Gallery repositories
+
+In this release there is support for gallery repositories. These are repositories that contain models, and can be used to install models. The default gallery which contains only freely licensed models is in Github: https://github.com/go-skynet/model-gallery, but you can use your own gallery by setting the `GALLERIES` environment variable. An automatic index of huggingface models is available as well.
+
+For example, now you can start `LocalAI` with the following environment variable to use both galleries:
+
+```bash
+GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:ci-robbot/localai-huggingface-zoo/index.yaml","name":"huggingface"}]
+```
+
+And in runtime you can install a model from huggingface now with:
+
+```bash
+curl http://localhost:8000/models/apply -H "Content-Type: application/json" -d '{ "id": "huggingface@thebloke__open-llama-7b-open-instruct-ggml__open-llama-7b-open-instruct.ggmlv3.q4_0.bin" }'
+```
+
+or a `tts` voice with:
+
+```bash
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{ "id": "model-gallery@voice-en-us-kathleen-low" }'
+```
+
+See also [models]({{%relref "models" %}}) for a complete documentation.
+
+### Text to Audio
+
+Now `LocalAI` uses [piper](https://github.com/rhasspy/piper) and [go-piper](https://github.com/mudler/go-piper) to generate audio from text. This is an experimental feature, and it requires `GO_TAGS=tts` to be set during build. It is enabled by default in the pre-built container images.
+
+To setup audio models, you can use the new galleries, or setup the models manually as described in [the API section of the documentation]({{%relref "api-endpoints" %}}).
+
+You can check the full changelog in [Github](https://github.com/go-skynet/LocalAI/releases/tag/v1.20.0)
+
 ## 🔥🔥🔥 19-06-2023: __v1.19.0__ 🚀
 
 - Full CUDA GPU offload support ( [PR](https://github.com/go-skynet/go-llama.cpp/pull/105) by [mudler](https://github.com/mudler). Thanks to [chnyda](https://github.com/chnyda) for handing over the GPU access, and [lu-zero](https://github.com/lu-zero) to help in debugging  )
 - Full GPU Metal Support is now fully functional. Thanks to [Soleblaze](https://github.com/Soleblaze) to iron out the Metal Apple silicon support!
+
+Container images:
+- Standard (GPT + `stablediffusion`): `quay.io/go-skynet/local-ai:v1.19.2`
+- FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-ffmpeg`
+- CUDA 11+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda11-ffmpeg`
+- CUDA 12+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda12-ffmpeg`
 
 ## 🔥🔥🔥 06-06-2023: __v1.18.0__ 🚀
 
