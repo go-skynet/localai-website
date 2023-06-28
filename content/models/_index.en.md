@@ -20,15 +20,9 @@ The models in this gallery are not directly maintained by LocalAI. If you find a
 {{% /notice %}}
 
 {{% notice note %}}
-GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. LocalAI is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
+GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. The official gallery contains only open licensed models.
 {{% /notice %}}
 
-
-
-
-{{% notice note %}}
-Finally, you might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/), generally it should be available `~24h` after upload.
-{{% /notice %}}
 
 ## How to install a model
 
@@ -49,6 +43,15 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
      "id": "<GALLERY>@<MODEL_NAME>"
    }' 
+```
+
+An example that installs openllama can be:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "https://github.com/go-skynet/model-gallery/blob/main/openllama_3b.yaml"
+   }'  
 ```
 
 The API will return a job `uuid` that you can use to track the job progress:
@@ -211,6 +214,12 @@ GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.
 
 If running with docker-compose, simply edit the `.env` file and uncomment the `GALLERIES` variable, and add the one you want to use.
 
+{{% /notice %}}
+
+{{% notice note %}}
+You might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/), generally it should be available `~24h` after upload.
+
+By under any circumstances LocalAI and any developer is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Don't install models from authors you don't trust, and, check the appropriate license for your use case. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
 {{% /notice %}}
 
 ### List Models
