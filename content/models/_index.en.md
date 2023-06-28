@@ -13,7 +13,7 @@ weight = 2
 
 The model gallery is a (experimental!) collection of models configurations for [LocalAI](https://github.com/go-skynet/LocalAI).
 
-LocalAI to ease out installations of models provide a way to preload models on start and downloading and installing them in runtime. You can install models manually by copying them over the `models` directory, or use the API to configure, download and verify the model assets for you.
+LocalAI to ease out installations of models provide a way to preload models on start and downloading and installing them in runtime. You can install models manually by copying them over the `models` directory, or use the API to configure, download and verify the model assets for you. As the UI is still a work in progress, you will find here the documentation about the API Endpoints.
 
 {{% notice note %}}
 The models in this gallery are not directly maintained by LocalAI. If you find a model that is not working, please open an issue on the model gallery repository.
@@ -24,174 +24,19 @@ GPT and text generation models might have a license which is not permissive for 
 {{% /notice %}}
 
 
-## How to install a model
+## Model repositories
 
 You can install a model in runtime, while the API is running and it is started already, or before starting the API by preloading the models.
 
 To install a model in runtime you will need to use the `/models/apply` LocalAI API endpoint.
 
-<details>
-
-The installation requires the model configuration file URL (`url`), optionally a name to install the model (`name`), extra files to install (`files`), and configuration overrides (`overrides`). When calling the API endpoint, LocalAI will download the models files and write the configuration to the folder used to store models.
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>"
-   }' 
-# or if from a repository
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "id": "<GALLERY>@<MODEL_NAME>"
-   }' 
-```
-
-An example that installs openllama can be:
-   
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "https://github.com/go-skynet/model-gallery/blob/main/openllama_3b.yaml"
-   }'  
-```
-
-The API will return a job `uuid` that you can use to track the job progress:
-```
-{"uuid":"1059474d-f4f9-11ed-8d99-c4cbe106d571","status":"http://localhost:8080/models/jobs/1059474d-f4f9-11ed-8d99-c4cbe106d571"}
-```
-
-For instance, a small example bash script that waits a job to complete can be (requires `jq`):
-
-```bash
-response=$(curl -s http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{"url": "$model_url"}')
-
-job_id=$(echo "$response" | jq -r '.uuid')
-
-while [ "$(curl -s http://localhost:8080/models/jobs/"$job_id" | jq -r '.processed')" != "true" ]; do 
-  sleep 1
-done
-
-echo "Job completed"
-```
-
-</details>
-
-
-To preload models on start instead you can use the `PRELOAD_MODELS` environment variable.
-
-<details>
-
-To preload models on start, use the `PRELOAD_MODELS` environment variable by setting it to a JSON array of model uri:
-
-```bash
-PRELOAD_MODELS='[{"url": "<MODEL_URL>"}]'
-```
-
-Note: `url` or `id` must be specified. `url` is used to a url to a model gallery configuration, while an `id` is used to refer to models inside repositories. If both are specified, the `id` will be used.
-
-For example:
-
-```bash
-PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]
-```
-
-or as arg:
-
-```bash
-local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]'
-```
-
-or in a YAML file:
-
-```bash
-local-ai --preload-models-config "/path/to/yaml"
-```
-
-YAML:
-```yaml
-- url: github:go-skynet/model-gallery/stablediffusion.yaml
-```
-
-</details>
-
-
-{{% notice note %}}
-
-To install a model with a different name, specify a `name` parameter in the request body.
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>"
-   }'  
-```
-
-For example, to install a model as `gpt-3.5-turbo`:
-   
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-      "url": "github:go-skynet/model-gallery/gpt4all-j.yaml",
-      "name": "gpt-3.5-turbo"
-   }'  
-```
-
-{{% /notice %}}
-
-
-### Additional Files
-
-<details>
-
-To download additional files with the model, use the `files` parameter:
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>",
-     "files": [
-        {
-            "uri": "<additional_file_url>",
-            "sha256": "<additional_file_hash>",
-            "filename": "<additional_file_name>"
-        }
-     ]
-   }'  
-```
-
-</details>
-
-### Overriding configuration files
-
-<details>
-
-To override portions of the configuration file, such as the backend or the model file, use the `overrides` parameter:
-
-```bash
-LOCALAI=http://localhost:8080
-curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "url": "<MODEL_CONFIG_FILE>",
-     "name": "<MODEL_NAME>",
-     "overrides": {
-        "backend": "llama",
-        "f16": true,
-        ...
-     }
-   }'  
-```
-
-</details>
-
-## Model repositories
-
-To enable the `model-gallery` repository we can start `local-ai` with the `GALLERIES` environment variable:
+To enable the `model-gallery` repository you need to start `local-ai` with the `GALLERIES` environment variable:
 
 ```
 GALLERIES=[{"name":"<GALLERY_NAME>", "url":"<GALLERY_URL"}]
 ```
 
-For example, to enable the `model-gallery` repository, we can start `local-ai` with:
+For example, to enable the `model-gallery` repository, start `local-ai` with:
 
 ```
 GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}]
@@ -240,7 +85,7 @@ curl http://localhost:8080/models/available | jq '.[] | select(.name | contains(
 
 Models can be installed by passing the full URL of the YAML config file, or either an identifier of the model in the gallery. The gallery is a repository of models that can be installed by passing the model name.
 
-To install a model from the gallery repository, instead of passing the URL of the model configuration file, you can pass the model name. For instance, to install the `bert-embeddings` model, you can use the following command:
+To install a model from the gallery repository, you can pass the model name in the `id` field. For instance, to install the `bert-embeddings` model, you can use the following command:
 
 ```bash
 LOCALAI=http://localhost:8080
@@ -253,11 +98,91 @@ where:
 - `model-gallery` is the repository
 - `bert` is the model name in the gallery
 
-## Install models from `URL`
+## How to install a model (without a gallery)
 
-Note: replace `$LOCALAI` with your LocalAI API endpoint.
+If you don't want to set any gallery repository, you can still install models by loading a model configuration file.
+
+In the body of the request you must specify the model configuration file URL (`url`), optionally a name to install the model (`name`), extra files to install (`files`), and configuration overrides (`overrides`). When calling the API endpoint, LocalAI will download the models files and write the configuration to the folder used to store models.
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>"
+   }' 
+# or if from a repository
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "id": "<GALLERY>@<MODEL_NAME>"
+   }' 
+```
+
+An example that installs openllama can be:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "https://github.com/go-skynet/model-gallery/blob/main/openllama_3b.yaml"
+   }'  
+```
+
+The API will return a job `uuid` that you can use to track the job progress:
+```
+{"uuid":"1059474d-f4f9-11ed-8d99-c4cbe106d571","status":"http://localhost:8080/models/jobs/1059474d-f4f9-11ed-8d99-c4cbe106d571"}
+```
+
+For instance, a small example bash script that waits a job to complete can be (requires `jq`):
+
+```bash
+response=$(curl -s http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{"url": "$model_url"}')
+
+job_id=$(echo "$response" | jq -r '.uuid')
+
+while [ "$(curl -s http://localhost:8080/models/jobs/"$job_id" | jq -r '.processed')" != "true" ]; do 
+  sleep 1
+done
+
+echo "Job completed"
+```
+
+To preload models on start instead you can use the `PRELOAD_MODELS` environment variable.
+
+<details>
+
+To preload models on start, use the `PRELOAD_MODELS` environment variable by setting it to a JSON array of model uri:
+
+```bash
+PRELOAD_MODELS='[{"url": "<MODEL_URL>"}]'
+```
+
+Note: `url` or `id` must be specified. `url` is used to a url to a model gallery configuration, while an `id` is used to refer to models inside repositories. If both are specified, the `id` will be used.
+
+For example:
+
+```bash
+PRELOAD_MODELS=[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]
+```
+
+or as arg:
+
+```bash
+local-ai --preload-models '[{"url": "github:go-skynet/model-gallery/stablediffusion.yaml"}]'
+```
+
+or in a YAML file:
+
+```bash
+local-ai --preload-models-config "/path/to/yaml"
+```
+
+YAML:
+```yaml
+- url: github:go-skynet/model-gallery/stablediffusion.yaml
+```
+
+</details>
 
 {{% notice note %}}
+
+You can find already some open licensed models in the [model gallery](https://github.com/go-skynet/model-gallery).
 
 If you don't find the model in the gallery you can try to use the "base" model and provide an URL to LocalAI:
 
@@ -280,6 +205,71 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 </details>
 
 {{% /notice %}}
+
+## Installing a model with a different name
+
+To install a model with a different name, specify a `name` parameter in the request body.
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>"
+   }'  
+```
+
+For example, to install a model as `gpt-3.5-turbo`:
+   
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+      "url": "github:go-skynet/model-gallery/gpt4all-j.yaml",
+      "name": "gpt-3.5-turbo"
+   }'  
+```
+## Additional Files
+
+<details>
+
+To download additional files with the model, use the `files` parameter:
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>",
+     "files": [
+        {
+            "uri": "<additional_file_url>",
+            "sha256": "<additional_file_hash>",
+            "filename": "<additional_file_name>"
+        }
+     ]
+   }'  
+```
+
+</details>
+
+## Overriding configuration files
+
+<details>
+
+To override portions of the configuration file, such as the backend or the model file, use the `overrides` parameter:
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_CONFIG_FILE>",
+     "name": "<MODEL_NAME>",
+     "overrides": {
+        "backend": "llama",
+        "f16": true,
+        ...
+     }
+   }'  
+```
+
+</details>
 
 ## Examples
 
