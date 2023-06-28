@@ -55,16 +55,6 @@ To help the project you can:
 
 - If you don't have technological skills you can still help improving documentation or add examples or share your user-stories with our community, any help and contribution is welcome!
 
-## Projects already using LocalAI to run local models
-
-Feel free to open up a PR to get your project listed!
-
-- [Kairos](https://github.com/kairos-io/kairos)
-- [k8sgpt](https://github.com/k8sgpt-ai/k8sgpt#running-local-models)
-- [Spark](https://github.com/cedriking/spark)
-- [autogpt4all](https://github.com/aorumbayev/autogpt4all)
-- [Mods](https://github.com/charmbracelet/mods)
-
 ## Short-term roadmap
 
 - [x] Mimic OpenAI API (https://github.com/go-skynet/LocalAI/issues/10)
