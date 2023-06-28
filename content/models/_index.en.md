@@ -11,7 +11,7 @@ weight = 2
 <br>
 </h1>
 
-The model gallery is a curated collection of models configurations for [LocalAI](https://github.com/go-skynet/LocalAI).
+The model gallery is a (experimental!) collection of models configurations for [LocalAI](https://github.com/go-skynet/LocalAI).
 
 LocalAI to ease out installations of models provide a way to preload models on start and downloading and installing them in runtime. You can install models manually by copying them over the `models` directory, or use the API to configure, download and verify the model assets for you.
 
@@ -22,6 +22,9 @@ The models in this gallery are not directly maintained by LocalAI. If you find a
 {{% notice note %}}
 GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. LocalAI is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
 {{% /notice %}}
+
+
+
 
 {{% notice note %}}
 Finally, you might not find all the models in this gallery. Automated CI updates the gallery automatically. You can find however most of the models on huggingface (https://huggingface.co/), generally it should be available `~24h` after upload.
@@ -192,6 +195,23 @@ GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.
 ```
 
 where `github:go-skynet/model-gallery/index.yaml` will be expanded automatically to `https://raw.githubusercontent.com/go-skynet/model-gallery/main/index.yaml`.
+
+{{% notice note %}}
+
+As this feature is experimental, you need to run `local-ai` with a list of `GALLERIES`. Currently there are two galleries:
+
+- An official one, containing only definitions and models with a clear LICENSE to avoid any dmca infringment. As I'm not sure what's the best action to do in this case, I'm not going to include any model that is not clearly licensed in this repository which is offically linked to LocalAI.
+- A "community" one that contains an index of `huggingface` models that are compatible with the `ggml` format and lives in the `localai-huggingface-zoo` repository.
+
+To enable the two repositories, start `LocalAI` with the `GALLERIES` environment variable:
+
+```bash
+GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:ci-robbot/localai-huggingface-zoo/index.yaml","name":"huggingface"}]
+```
+
+If running with docker-compose, simply edit the `.env` file and uncomment the `GALLERIES` variable, and add the one you want to use.
+
+{{% /notice %}}
 
 ### List Models
 
