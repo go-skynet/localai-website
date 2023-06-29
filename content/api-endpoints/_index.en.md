@@ -238,7 +238,7 @@ Here is a table:
 | --- | --- |
 | `/tts` | Text to Audio generation |
 | `/models/apply` | Apply a model |
-| `/models/jobs/:uid` | Apply a model |
+| `/models/jobs/:uid` | Returns the current status of job _uid_ |
 | `/models/available` | Remove a model |
 
 ### Generate Audio from text - `/tts`
