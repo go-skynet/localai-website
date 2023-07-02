@@ -31,6 +31,24 @@ See the [Getting started]({{%relref "basics/getting_started" %}}) and [examples]
 |------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 |  ![Screenshot from 2023-04-26 23-59-55](https://user-images.githubusercontent.com/2420543/234715439-98d12e03-d3ce-4f94-ab54-2b256808e05e.png)            | ![b6441997879](https://github.com/go-skynet/LocalAI/assets/2420543/d50af51c-51b7-4f39-b6c2-bf04c403894c)                  |
 
+## Short-term roadmap
+
+- [x] Mimic OpenAI API (https://github.com/go-skynet/LocalAI/issues/10)
+- [x] Binary releases (https://github.com/go-skynet/LocalAI/issues/6)
+- [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) 
+- [x] Upstream [gpt4all](https://github.com/go-skynet/LocalAI/issues/85) bindings
+- [x] Multi-model support
+- [x] Have a webUI!
+- [x] Allow configuration of defaults for models.
+- [x] Support for embeddings
+- [x] Support for audio transcription with https://github.com/ggerganov/whisper.cpp
+- [X] Support for text-to-audio
+- [x] GPU/CUDA support ( https://github.com/go-skynet/LocalAI/issues/69 )
+- [X] Enable automatic downloading of models from a curated gallery
+- [x] Enable automatic downloading of models from HuggingFace
+- [ ] Enable gallery management directly from the webui.
+- [ ] 🔥 OpenAI functions: https://github.com/go-skynet/LocalAI/issues/588
+
 ## How does it work?  
 
 <details>
@@ -54,23 +72,6 @@ To help the project you can:
 - If you have technological skills and want to contribute to development, have a look at the open issues. If you are new you can have a look at the [good-first-issue](https://github.com/go-skynet/LocalAI/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and [help-wanted](https://github.com/go-skynet/LocalAI/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) labels.
 
 - If you don't have technological skills you can still help improving documentation or add examples or share your user-stories with our community, any help and contribution is welcome!
-
-## Short-term roadmap
-
-- [x] Mimic OpenAI API (https://github.com/go-skynet/LocalAI/issues/10)
-- [x] Binary releases (https://github.com/go-skynet/LocalAI/issues/6)
-- [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) 
-- [x] Upstream [gpt4all](https://github.com/go-skynet/LocalAI/issues/85) bindings
-- [x] Multi-model support
-- [x] Have a webUI!
-- [x] Allow configuration of defaults for models.
-- [x] Support for embeddings
-- [x] Support for audio transcription with https://github.com/ggerganov/whisper.cpp
-- [x] GPU/CUDA support ( https://github.com/go-skynet/LocalAI/issues/69 )
-- [X] Enable automatic downloading of models from a curated gallery
-- [ ] Enable automatic downloading of models from HuggingFace
-- [ ] Enable gallery management directly from the webui.
-- [ ] 🔥 OpenAI functions: https://github.com/go-skynet/LocalAI/issues/588
 
 ## Star history
 
