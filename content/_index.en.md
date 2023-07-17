@@ -13,19 +13,20 @@ In a nutshell:
 
 - Local, OpenAI drop-in alternative REST API. You own your data.
 - NO GPU required. NO Internet access is required either
-  - Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "basics/build" %}}). 
+  - Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "build" %}}). 
 - Supports multiple models:
   - 📖 Text generation with GPTs (`llama.cpp`, `gpt4all.cpp`, ... and more)
   - 🗣 Text to Audio 🎺🆕
   - 🔈 Audio to Text (Audio transcription with `whisper.cpp`)
   - 🎨 Image generation with stable diffusion
+  - 🧠 Embeddings generation for vector databases
 - 🏃 Once loaded the first time, it keep models loaded in memory for faster inference
 - ⚡ Doesn't shell-out, but uses C++ bindings for a faster inference and better performance. 
 
 LocalAI was created by [Ettore Di Giacinto](https://github.com/mudler/) and is a community-driven project, focused on making the AI accessible to anyone. Any contribution, feedback and PR is welcome! 
 
 
-See the [Getting started]({{%relref "basics/getting_started" %}}) and [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/) sections to learn how to use LocalAI. For a list of curated models check out the [model gallery](https://github.com/go-skynet/model-gallery).
+See the [Getting started]({{%relref "getting_started" %}}) and [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/) sections to learn how to use LocalAI. For a list of curated models check out the [model gallery](https://github.com/go-skynet/model-gallery).
 
 | [ChatGPT OSS alternative](https://github.com/go-skynet/LocalAI/tree/master/examples/chatbot-ui)                                                                                                                | [Image generation](https://localai.io/api-endpoints/index.html#image-generation)                                                                                                              |
 |------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|

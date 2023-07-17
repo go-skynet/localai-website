@@ -2,12 +2,13 @@
 +++
 disableToc = false
 title = "Getting started"
-weight = 2
+weight = 1
+url = '/basics/getting_started/'
 +++
 
 `LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-The easiest way to run LocalAI is by using `docker-compose` (to build locally, see the [build section]({{%relref "basics/build" %}})):
+The easiest way to run LocalAI is by using `docker-compose` (to build locally, see the [build section]({{%relref "build" %}})):
 
 ```bash
 
@@ -79,7 +80,7 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 ```
 
 {{% notice note %}}
-- If running on Apple Silicon (ARM) it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "basics/build" %}}) to use Metal acceleration for full GPU support.
+- If running on Apple Silicon (ARM) it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "build" %}}) to use Metal acceleration for full GPU support.
 - If you are running Apple x86_64 you can use `docker`, there is no additional gain into building it from source.
 {{% /notice %}}
 
@@ -136,7 +137,7 @@ Example:
 Example of starting the API with `docker`:
 
 ```bash
-docker run -p 8080:8080 -ti --rm quay.io/go-skynet/local-ai:latest --models-path /path/to/models --context-size 700 --threads 4
+docker run -p 8080:8080 -v $PWD/models:/models -ti --rm quay.io/go-skynet/local-ai:latest --models-path /models --context-size 700 --threads 4
 ```
 
 You should see:
@@ -152,7 +153,7 @@ You should see:
 ```
 
 {{% notice note %}}
-Note: the binary inside the image is rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
+Note: the binary inside the image is pre-compiled and might not suite all the CPU rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
 {{% /notice %}}
 
 #### CuBLAS:
@@ -354,10 +355,54 @@ affinity: {}
 
 ### Build from source
 
-See the [build section]({{%relref "basics/build" %}}).
+See the [build section]({{%relref "build" %}}).
 
 ### Other examples
 
 ![Screenshot from 2023-04-26 23-59-55](https://user-images.githubusercontent.com/2420543/234715439-98d12e03-d3ce-4f94-ab54-2b256808e05e.png)
 
 To see other examples on how to integrate with other projects for instance for question answering or for using it with chatbot-ui, see: [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/).
+
+
+### Clients
+
+OpenAI clients are already compatible with LocalAI by overriding the basePath, or the target URL.
+
+## Javascript
+
+<details> 
+
+https://github.com/openai/openai-node/
+
+```javascript
+import { Configuration, OpenAIApi } from 'openai';
+
+const configuration = new Configuration({
+  basePath: `http://localhost:8080/v1`
+});
+const openai = new OpenAIApi(configuration);
+```
+
+</details>
+
+## Python
+
+<details>
+
+https://github.com/openai/openai-python
+
+Set the `OPENAI_API_BASE` environment variable, or by code:
+
+```python
+import openai
+
+openai.api_base = "http://localhost:8080/v1"
+
+# create a chat completion
+chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": "Hello world"}])
+
+# print the completion
+print(completion.choices[0].message.content)
+```
+
+</details>

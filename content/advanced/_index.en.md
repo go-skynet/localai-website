@@ -2,7 +2,7 @@
 +++
 disableToc = false
 title = "Advanced"
-weight = 3
+weight = 6
 +++
 
 ### Advanced configuration with YAML files

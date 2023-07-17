@@ -2,7 +2,7 @@
 +++
 disableToc = false
 title = "Model gallery"
-weight = 2
+weight = 7
 +++
 
 <h1 align="center">
@@ -271,6 +271,8 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 
 </details>
 
+
+
 ## Examples
 
 ### Embeddings: Bert
@@ -416,3 +418,52 @@ curl $LOCALAI/v1/chat/completions -H "Content-Type: application/json" -d '{
 ```
 
 </details>
+
+### Note
+
+LocalAI will create a batch process that downloads the required files from a model definition and automatically reload itself to include the new model. 
+
+Input: `url` or `id` (required), `name` (optional), `files` (optional)
+
+```bash
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
+     "url": "<MODEL_DEFINITION_URL>",
+     "id": "<GALLERY>@<MODEL_NAME>",
+     "name": "<INSTALLED_MODEL_NAME>",
+     "files": [
+        {
+            "uri": "<additional_file>",
+            "sha256": "<additional_file_hash>",
+            "filename": "<additional_file_name>"
+        },
+      "overrides": { "backend": "...", "f16": true }
+     ]
+   }
+```
+
+An optional, list of additional files can be specified to be downloaded within `files`. The `name` allows to override the model name. Finally it is possible to override the model config file with `override`.
+
+The `url` is a full URL, or a github url (`github:org/repo/file.yaml`), or a local file (`file:///path/to/file.yaml`).
+The `id` is a string in the form `<GALLERY>@<MODEL_NAME>`, where `<GALLERY>` is the name of the gallery, and `<MODEL_NAME>` is the name of the model in the gallery. Galleries can be specified during startup with the `GALLERIES` environment variable.
+
+Returns an `uuid` and an `url` to follow up the state of the process:
+
+```json
+{ "uuid":"251475c9-f666-11ed-95e0-9a8a4480ac58", "status":"http://localhost:8080/models/jobs/251475c9-f666-11ed-95e0-9a8a4480ac58"}
+```
+
+To see a collection example of curated models definition files, see the [model-gallery](https://github.com/go-skynet/model-gallery).
+
+#### Get model job state `/models/jobs/<uid>`
+
+This endpoint returns the state of the batch job associated to a model installation.
+
+```bash
+curl http://localhost:8080/models/jobs/<JOB_ID>
+```
+
+Returns a json containing the error, and if the job is being processed:
+
+```json
+{"error":null,"processed":true,"message":"completed"}
+```

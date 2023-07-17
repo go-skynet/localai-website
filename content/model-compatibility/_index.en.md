@@ -2,7 +2,7 @@
 +++
 disableToc = false
 title = "Model compatibility"
-weight = 2
+weight = 4
 +++
 
 LocalAI is compatible with the models supported by [llama.cpp](https://github.com/ggerganov/llama.cpp) supports also [GPT4ALL-J](https://github.com/nomic-ai/gpt4all) and [cerebras-GPT with ggml](https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP-ggml).
@@ -19,11 +19,11 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 
 | Backend and Bindings                                                             | Compatible models     | Completion/Chat endpoint | Capability | Embeddings support                | Token stream support | Acceleration |
 |----------------------------------------------------------------------------------|-----------------------|--------------------------|---------------------------|-----------------------------------|----------------------|--------------|
-| [llama](https://github.com/ggerganov/llama.cpp) ([binding](https://github.com/go-skynet/go-llama.cpp))         | Vicuna, Alpaca, LLaMa | yes                      | GPT                        | yes (doesn't seem to be accurate) | yes                  | CUDA, openCL, cuBLAS, Metal |
+| [llama](https://github.com/ggerganov/llama.cpp) ([binding](https://github.com/go-skynet/go-llama.cpp))         | Vicuna, Alpaca, LLaMa | yes                      | GPT and Functions                        | yes** | yes                  | CUDA, openCL, cuBLAS, Metal |
 | [gpt4all-llama](https://github.com/nomic-ai/gpt4all)      | Vicuna, Alpaca, LLaMa | yes                      | GPT                        | no                                | yes                  | N/A  |
 | [gpt4all-mpt](https://github.com/nomic-ai/gpt4all)          | MPT                   | yes                      | GPT                        | no                                | yes                  | N/A  |
 | [gpt4all-j](https://github.com/nomic-ai/gpt4all)           | GPT4ALL-J             | yes                      | GPT                        | no                                | yes                  | N/A  |
-| [falcon](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | Falcon (*** 7b ONLY)             | yes                      | GPT                        | no                                | no                   | N/A |
+| [falcon-ggml](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | Falcon (*)             | yes                      | GPT                        | no                                | no                   | N/A |
 | [gpt2](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))             | GPT2, Cerebras    | yes                      | GPT                        | no                                | no                   | N/A |
 | [dolly](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))            | Dolly                 | yes                      | GPT                        | no                                | no                   | N/A |
 | [gptj](https://github.com/ggerganov/ggml) ([binding](https://github.com/go-skynet/go-ggml-transformers.cpp))        | GPTJ             | yes                      | GPT                        | no                                | no                   | N/A |
@@ -38,6 +38,12 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [stablediffusion](https://github.com/EdVince/Stable-Diffusion-NCNN) ([binding](https://github.com/mudler/go-stable-diffusion))        | stablediffusion               | no                       | Image                 | no                                | no                   | N/A |
 | [langchain-huggingface](https://github.com/tmc/langchaingo)                                                                    | Any text generators available on HuggingFace through API | yes                      | GPT                        | no                                | no                   | N/A |
 | [piper](https://github.com/rhasspy/piper) ([binding](https://github.com/mudler/go-piper))                                                                     | Any piper onnx model | no                      | Text to voice                        | no                                | no                   | N/A |
+| [falcon](https://github.com/cmp-nct/ggllm.cpp/tree/c12b2d65f732a0d8846db2244e070f0f3e73505c) ([binding](https://github.com/mudler/go-ggllm.cpp))                                                                      | Falcon *** | yes                      | GPT                        | no                                | yes                   | CUDA |
+
+
+    * 7b ONLY
+    ** doesn't seem to be accurate
+    *** 7b and 40b with the `ggccv` format, for instance: https://huggingface.co/TheBloke/WizardLM-Uncensored-Falcon-40B-GGML
 
 Tested with:
 
@@ -57,7 +63,7 @@ Tested with:
 - [X] [OpenBuddy 🐶 (Multilingual)](https://github.com/OpenBuddy/OpenBuddy)
 - [X] [Pygmalion 7B / Metharme 7B](https://github.com/ggerganov/llama.cpp#using-pygmalion-7b--metharme-7b)
 - [X] [HuggingFace Inference](https://huggingface.co/inference-api) models available through API
-
+- [X] Falcon
 
 Note: You might need to convert some models from older models to the new format, for indications, see [the README in llama.cpp](https://github.com/ggerganov/llama.cpp#using-gpt4all) for instance to run `gpt4all`.
 

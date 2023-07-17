@@ -2,7 +2,9 @@
 +++
 disableToc = false
 title = "Build"
-weight = 3
+weight = 5
+url = '/basics/build/'
+
 +++
 
 ### Build locally
