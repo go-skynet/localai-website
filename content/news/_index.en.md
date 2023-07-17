@@ -1,14 +1,51 @@
 +++
 disableToc = false
 title = "What's New"
-weight = 1
+weight = 2
+url = '/basics/news/'
+
 +++
+
+## 🔥🔥🔥 17-07-2023: __v1.21.0__ 🚀
+
+* [whisper] Partial support for verbose_json format in transcribe endpoint by `@ldotlopez` in https://github.com/go-skynet/LocalAI/pull/721
+* LocalAI functions by `@mudler` in https://github.com/go-skynet/LocalAI/pull/726
+* `gRPC`-based backends by `@mudler` in https://github.com/go-skynet/LocalAI/pull/743
+* falcon support (7b and 40b) with `ggllm.cpp` by `@mudler` in https://github.com/go-skynet/LocalAI/pull/743
+
+### LocalAI functions
+
+This allows to run OpenAI functions as described in the OpenAI blog post and documentation: https://openai.com/blog/function-calling-and-other-api-updates.
+
+This is a video of running the same example, locally with `LocalAI`:
+![localai-functions-1](https://github.com/ggerganov/llama.cpp/assets/2420543/5bd15da2-78c1-4625-be90-1e938e6823f1)
+
+And here when it actually picks to reply to the user instead of using functions!
+![functions-2](https://github.com/ggerganov/llama.cpp/assets/2420543/e3f89d15-1d2c-45ab-974f-6c9eb8eae41d)
+
+Note: functions are supported only with `llama.cpp`-compatible models.
+
+### gRPC backends
+
+This is an internal refactor which is not user-facing, however, it allows to ease out maintenance and addition of new backends to LocalAI!
+
+### `falcon` support
+
+Now Falcon 7b and 40b models compatible with https://github.com/cmp-nct/ggllm.cpp are supported as well.
+
+The former, ggml-based backend has been renamed to `falcon-ggml`.
+
+### Default pre-compiled binaries
+
+From this release the default behavior of images has changed. Compilation is not triggered on start automatically, to recompile `local-ai` from scratch on start and switch back to the old behavior, you can set `REBUILD=true` in the environment variables. Rebuilding can be necessary if your CPU and/or architecture is old and the pre-compiled binaries are not compatible with your platform. See the [build section]({{%relref "build" %}}) for more information.
+
+[Full release changelog](https://github.com/go-skynet/LocalAI/releases/tag/v1.21.0)
 
 ## 🔥🔥🔥 28-06-2023: __v1.20.0__ 🚀
 
 ### Exciting New Features 🎉
 
-* Add Text-to-Audio generation with `go-piper` by @mudler in https://github.com/go-skynet/LocalAI/pull/649 See [API endpoints]({{%relref "api-endpoints" %}}) in our documentation.
+* Add Text-to-Audio generation with `go-piper` by @mudler in https://github.com/go-skynet/LocalAI/pull/649 See [API endpoints]({{%relref "features/text-to-audio" %}}) in our documentation.
 * Add gallery repository by @mudler in https://github.com/go-skynet/LocalAI/pull/663. See [models]({{%relref "models" %}}) for documentation.
 
 ### Container images
@@ -51,7 +88,7 @@ See also [models]({{%relref "models" %}}) for a complete documentation.
 
 Now `LocalAI` uses [piper](https://github.com/rhasspy/piper) and [go-piper](https://github.com/mudler/go-piper) to generate audio from text. This is an experimental feature, and it requires `GO_TAGS=tts` to be set during build. It is enabled by default in the pre-built container images.
 
-To setup audio models, you can use the new galleries, or setup the models manually as described in [the API section of the documentation]({{%relref "api-endpoints" %}}).
+To setup audio models, you can use the new galleries, or setup the models manually as described in [the API section of the documentation]({{%relref "features/text-to-audio" %}}).
 
 You can check the full changelog in [Github](https://github.com/go-skynet/LocalAI/releases/tag/v1.20.0)
 
@@ -75,7 +112,7 @@ We now support a vast variety of models, while being backward compatible with pr
 ### New features
 
 - ✨ Added support for `falcon`-based model families (7b)  ( [mudler](https://github.com/mudler) )
-- ✨ Experimental support for Metal Apple Silicon GPU - ( [mudler](https://github.com/mudler) and thanks to [Soleblaze](https://github.com/Soleblaze) for testing! ). See the [build section]({{%relref "basics/build#Acceleration" %}}).
+- ✨ Experimental support for Metal Apple Silicon GPU - ( [mudler](https://github.com/mudler) and thanks to [Soleblaze](https://github.com/Soleblaze) for testing! ). See the [build section]({{%relref "build#Acceleration" %}}).
 - ✨ Support for token stream in the `/v1/completions` endpoint ( [samm81](https://github.com/samm81) )
 - ✨ Added huggingface backend ( [Evilfreelancer](https://github.com/EvilFreelancer) )
 - 📷 Stablediffusion now can output `2048x2048` images size with `esrgan`! ( [mudler](https://github.com/mudler) )
@@ -114,7 +151,7 @@ Two new projects offer now direct integration with LocalAI!
 
 Support for OpenCL has been added while building from sources.
 
-You can now build LocalAI from source with `BUILD_TYPE=clblas` to have an OpenCL build. See also the [build section]({{%relref "basics/build#Acceleration" %}}).
+You can now build LocalAI from source with `BUILD_TYPE=clblas` to have an OpenCL build. See also the [build section]({{%relref "build#Acceleration" %}}).
 
 For instructions on how to install OpenCL/CLBlast see [here](https://github.com/ggerganov/llama.cpp#blas-build).
 

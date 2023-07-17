@@ -2,7 +2,7 @@
 +++
 disableToc = false
 title = "FAQ"
-weight = 5
+weight = 9
 +++
 
 ## Frequently asked questions
