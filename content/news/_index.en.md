@@ -25,6 +25,8 @@ And here when it actually picks to reply to the user instead of using functions!
 
 Note: functions are supported only with `llama.cpp`-compatible models.
 
+A full example is available here: https://github.com/go-skynet/LocalAI/tree/master/examples/functions
+
 ### gRPC backends
 
 This is an internal refactor which is not user-facing, however, it allows to ease out maintenance and addition of new backends to LocalAI!
