@@ -90,7 +90,7 @@ To install a model from the gallery repository, you can pass the model name in t
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "id": "model-gallery@bert",
+     "id": "model-gallery@bert"
    }'  
 ```
 
