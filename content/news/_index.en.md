@@ -6,6 +6,28 @@ url = '/basics/news/'
 
 +++
 
+## 🔥🔥🔥 23-07-2023: __v1.22.0__ 🚀
+
+* feat: add llama-master backend by @mudler in https://github.com/go-skynet/LocalAI/pull/752
+* [build] pass build type to cmake on libtransformers.a build by @TonDar0n in https://github.com/go-skynet/LocalAI/pull/741
+* feat: resolve JSONSchema refs (planners) by @mudler in https://github.com/go-skynet/LocalAI/pull/774
+* feat: backends improvements by @mudler in https://github.com/go-skynet/LocalAI/pull/778
+* feat(llama2): add template for chat messages by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/782
+
+## Huggingface embeddings
+
+In this release is now possible to specify to LocalAI external `gRPC` backends that can be used for inferencing https://github.com/go-skynet/LocalAI/pull/778. It is now possible to write internal backends in any language, and a `huggingface-embeddings` backend is now available in the container image to be used with https://github.com/UKPLab/sentence-transformers. See also [Embeddings]({{%relref "features/embeddings" %}}).
+
+## LLaMa 2 has been released!
+
+Thanks to the community effort now LocalAI supports templating for LLaMa2! more at: https://github.com/go-skynet/LocalAI/pull/782 until we update the model gallery with LLaMa2 models!
+
+{{% notice note %}}
+
+To use the OpenAI functions you need to use the `llama-grammar` backend. In this release has been added a `llama` backend for tracking `llama.cpp` master and `llama-grammar` for the grammar functionalities that have not been merged yet upstream. See also the  [section]({{%relref "features/openai-functions" %}})
+
+{{% /notice %}}
+
 ## 🔥🔥🔥 17-07-2023: __v1.21.0__ 🚀
 
 * [whisper] Partial support for verbose_json format in transcribe endpoint by `@ldotlopez` in https://github.com/go-skynet/LocalAI/pull/721
