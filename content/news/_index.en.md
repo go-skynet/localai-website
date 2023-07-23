@@ -14,6 +14,12 @@ url = '/basics/news/'
 * feat: backends improvements by @mudler in https://github.com/go-skynet/LocalAI/pull/778
 * feat(llama2): add template for chat messages by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/782
 
+{{% notice note %}}
+
+From this release to use the OpenAI functions you need to use the `llama-grammar` backend. It has been added a `llama` backend for tracking `llama.cpp` master and `llama-grammar` for the grammar functionalities that have not been merged yet upstream. See also the  [section]({{%relref "features/openai-functions" %}}). Until the feature is merged we will have two llama backends.
+
+{{% /notice %}}
+
 ## Huggingface embeddings
 
 In this release is now possible to specify to LocalAI external `gRPC` backends that can be used for inferencing https://github.com/go-skynet/LocalAI/pull/778. It is now possible to write internal backends in any language, and a `huggingface-embeddings` backend is now available in the container image to be used with https://github.com/UKPLab/sentence-transformers. See also [Embeddings]({{%relref "features/embeddings" %}}).
@@ -22,11 +28,9 @@ In this release is now possible to specify to LocalAI external `gRPC` backends t
 
 Thanks to the community effort now LocalAI supports templating for LLaMa2! more at: https://github.com/go-skynet/LocalAI/pull/782 until we update the model gallery with LLaMa2 models!
 
-{{% notice note %}}
+## Official langchain integration
 
-To use the OpenAI functions you need to use the `llama-grammar` backend. In this release has been added a `llama` backend for tracking `llama.cpp` master and `llama-grammar` for the grammar functionalities that have not been merged yet upstream. See also the  [section]({{%relref "features/openai-functions" %}})
-
-{{% /notice %}}
+Progress has been made to support LocalAI with `langchain`. See: https://github.com/langchain-ai/langchain/pull/8134
 
 ## 🔥🔥🔥 17-07-2023: __v1.21.0__ 🚀
 
