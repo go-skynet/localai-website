@@ -16,7 +16,7 @@ url = '/basics/news/'
 
 {{% notice note %}}
 
-From this release to use the OpenAI functions you need to use the `llama-grammar` backend. It has been added a `llama` backend for tracking `llama.cpp` master and `llama-grammar` for the grammar functionalities that have not been merged yet upstream. See also the  [section]({{%relref "features/openai-functions" %}}). Until the feature is merged we will have two llama backends.
+From this release to use the OpenAI functions you need to use the `llama-grammar` backend. It has been added a `llama` backend for tracking `llama.cpp` master and `llama-grammar` for the grammar functionalities that have not been merged yet upstream. See also [OpenAI functions]({{%relref "features/openai-functions" %}}). Until the feature is merged we will have two llama backends.
 
 {{% /notice %}}
 
