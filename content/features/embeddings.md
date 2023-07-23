@@ -84,6 +84,6 @@ parameters:
 # ...
 ```
 
-## Examples
+## 💡 Examples
 
 - Example that uses LLamaIndex and LocalAI as embedding: [here](https://github.com/go-skynet/LocalAI/tree/master/examples/query_data/).
