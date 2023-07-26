@@ -182,7 +182,6 @@ services:
     restart: always # or also on-failure
     ports:
       - 8080:8080
-    env_file:
     volumes:
       - ./models:/models
     command: ["/usr/bin/local-ai" ]
