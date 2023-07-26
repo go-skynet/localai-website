@@ -160,6 +160,35 @@ Note: the binary inside the image is pre-compiled and might not suite all the CP
 
 Requirement: nvidia-container-toolkit (installation instructions [1](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=nvidia&f=2) [2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html))
 
+To get started using Cuda GPU Update the docker file.
+
+```
+version: '3.6'
+
+services:
+  api:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    image: quay.io/go-skynet/local-ai:master-cublas-cuda12
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true # enable colorized logs
+    restart: always # should this be on-failure ?
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+    volumes:
+      - ./models:/models
+    command: ["/usr/bin/local-ai" ]
+```
+
 You need to run the image with `--gpus all`, and
 
 ```
