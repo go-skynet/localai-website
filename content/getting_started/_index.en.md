@@ -179,7 +179,7 @@ services:
       context: .
       dockerfile: Dockerfile
     tty: true # enable colorized logs
-    restart: always # should this be on-failure ?
+    restart: always # or also on-failure
     ports:
       - 8080:8080
     env_file:
