@@ -160,7 +160,7 @@ Note: the binary inside the image is pre-compiled and might not suite all the CP
 
 Requirement: nvidia-container-toolkit (installation instructions [1](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=nvidia&f=2) [2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html))
 
-To get started using Cuda GPU Update the docker file.
+To get started using CUDA GPU with `docker-compose`, see the following example:
 
 ```
 version: '3.6'
