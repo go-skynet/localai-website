@@ -183,7 +183,6 @@ services:
     ports:
       - 8080:8080
     env_file:
-      - .env
     volumes:
       - ./models:/models
     command: ["/usr/bin/local-ai" ]
