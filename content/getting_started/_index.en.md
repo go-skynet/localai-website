@@ -175,7 +175,6 @@ services:
               count: 1
               capabilities: [gpu]
     image: quay.io/go-skynet/local-ai:master-cublas-cuda12
-      context: .
       dockerfile: Dockerfile
     tty: true # enable colorized logs
     restart: always # or also on-failure
