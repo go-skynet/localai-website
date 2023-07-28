@@ -14,3 +14,4 @@ LocalAI can be used as a drop-in replacement, however, the following projects pr
 - [K8sGPT](https://k8sgpt.ai)
 - [Kairos](https://kairos.io)
 - [Logseq GPT3 OpenAI plugin](https://github.com/briansunter/logseq-plugin-gpt3-openai) allows to set a base URL, and works with LocalAI.
+- [Mattermost OpenOps](https://openops.mattermost.com), an open source platform for applying generative AI to workflows in secure environments.
