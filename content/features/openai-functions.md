@@ -11,10 +11,6 @@ LocalAI supports running OpenAI functions with `llama.cpp` compatible models.
 
 To learn more about OpenAI functions, see the [OpenAI API blog post](https://openai.com/blog/function-calling-and-other-api-updates).
 
-{{% notice note %}}
-This feature is compatible only with the `llama-grammar` backend. A separate backend was created to track a specific `llama.cpp` branch as it depends on https://github.com/ggerganov/llama.cpp/pull/1773 which currently has not been merged yet. Once it will be merged it will be available in the `llama` backend.
-{{% /notice %}}
-
 ## Setup
 
 Specify the `llama-grammar` backend in the model YAML configuration file:
