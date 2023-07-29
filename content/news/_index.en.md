@@ -26,6 +26,8 @@ From this release [OpenAI functions]({{%relref "features/openai-functions" %}}) 
 
 {{% /notice %}}
 
+The full [changelog is available here](https://github.com/go-skynet/LocalAI/releases/tag/v1.23.0)
+
 ## 🔥🔥🔥 23-07-2023: __v1.22.0__ 🚀
 
 * feat: add llama-master backend by @mudler in https://github.com/go-skynet/LocalAI/pull/752
