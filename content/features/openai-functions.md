@@ -13,7 +13,9 @@ To learn more about OpenAI functions, see the [OpenAI API blog post](https://ope
 
 ## Setup
 
-Specify the `llama-grammar` backend in the model YAML configuration file:
+OpenAI functions are available only with `ggml` models compatible with `llama.cpp`.
+
+Specify the `llama` backend in the model YAML configuration file:
 
 ```yaml
 name: openllama
@@ -22,7 +24,7 @@ parameters:
   top_p: 80
   top_k: 0.9
   temperature: 0.1
-backend: llama-grammar # Set the `llama-grammar` backend
+backend: llama # Set the `llama` backend
 ```
 
 ## Usage example
