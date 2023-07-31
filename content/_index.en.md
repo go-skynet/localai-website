@@ -15,7 +15,7 @@ In a nutshell:
 - NO GPU required. NO Internet access is required either
   - Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "build" %}}). 
 - Supports multiple models:
-  - 📖 [Text generation with GPTs](https://localai.io/features/text-generation/) (`llama.cpp`, `gpt4all.cpp`, ... [:book: and more](https://localai.io/model-compatibility/index.html#model-compatibility-table))
+  - 📖 [Text generation with GPTs](https://localai.io/features/text-generation/) (`llama.cpp`, `gpt4all.cpp`, ... [and more](https://localai.io/model-compatibility/index.html#model-compatibility-table))
   - 🗣 [Text to Audio](https://localai.io/features/text-to-audio/)
   - 🔈 [Audio to Text](https://localai.io/features/audio-to-text/) (Audio transcription with `whisper.cpp`)
   - 🎨 [Image generation with stable diffusion](https://localai.io/features/image-generation)
