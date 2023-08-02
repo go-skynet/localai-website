@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "Easy Setup"
+title = "Easy Setup - Docker"
 weight = 2
 +++
 
@@ -10,23 +10,18 @@ We are going to use LocalAI in a `docker-compose` for this set up. If you need a
 Lets download the newest LocalAI from git.
 
 ```bash
-
 git clone https://github.com/go-skynet/LocalAI
-
 ```
 
 Then we will cd into the LocalAI folder.
 
 ```bash
-
 cd LocalAI
-
 ```
 
 At this point we want to set up our .env file, here is a copy for you to use if you wish, please make sure to set it to the same as the docker-compose file for later.
 
 ```txt
-
 ## Set number of threads.
 ## Note: prefer the number of physical cores. Overbooking the CPU degrades performance notably.
 THREADS=2
@@ -71,13 +66,11 @@ REBUILD=true
 ## Specify a default upload limit in MB (whisper)
 # UPLOAD_LIMIT
 HUGGINGFACEHUB_API_TOKEN=Token here
-
 ```
 
 Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CUDA
 
 ```docker
-
 version: '3.6'
 
 services:
@@ -99,13 +92,11 @@ services:
     volumes:
       - ./models:/models
     command: ["/usr/bin/local-ai" ]
-
 ```
 
 This docker-compose file is for CPU Only
 
 ```docker
-
 version: '3.6'
 
 services:
@@ -120,7 +111,6 @@ services:
     volumes:
       - ./models:/models
     command: ["/usr/bin/local-ai" ]
-
 ```
 
 Make sure to save that in the root of the LocalAI folder. Then lets spin up the docker run this in a CMD or BASH
@@ -173,16 +163,37 @@ In the "wizardlm-completion.tmpl" file add
 Complete the following sentence: {{.Input}}
 ```
 
-In the "gpt-4-chat.yaml" file add (If you are not running a GPU remove the things marked with a #, if you are running a GPU remove the #)
+In the "gpt-4-chat.yaml" file if you are running GPU add
 
 ```yaml
 backend: llama
 context_size: 2000
-#f16: true 
-#gpu_layers: 4
-#low_vram: true
-#mmap: true
-#mmlock: false
+f16: true 
+gpu_layers: 4
+low_vram: true
+mmap: true
+mmlock: false
+batch: 512
+name: gpt-4-chat
+parameters:
+  model: wizardlm-13b-v1.2.ggmlv3.q4_0.bin
+  temperature: 0.2
+  top_k: 40
+  top_p: 0.65
+roles:
+  assistant: '### Response:'
+  system: '### System:'
+  user: '### Instruction:'
+template:
+  chat: wizardlm-chat
+  completion: wizardlm-completion
+```
+
+If you are running just CPU please use this
+
+```yaml
+backend: llama
+context_size: 2000
 batch: 512
 name: gpt-4-chat
 parameters:
@@ -201,7 +212,7 @@ template:
 
 Now that we have that fully set up, we need to reboot the docker. Go back to the localai folder and run
 
-```
+```bash
 docker-compose restart
 ```
 
@@ -231,7 +242,7 @@ completion = openai.ChatCompletion.create(
   model="gpt-4-chat",
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Hello!"}
+    {"role": "user", "content": "How are you?"}
   ]
 )
 
