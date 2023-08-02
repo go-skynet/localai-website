@@ -7,17 +7,20 @@ weight = 2
 
 We are going to use LocalAI in a `docker-compose` for this set up. If you need a local set up please see the getting started page
 
+
 Lets download the newest LocalAI from git.
 
 ```bash
 git clone https://github.com/go-skynet/LocalAI
 ```
 
+
 Then we will cd into the LocalAI folder.
 
 ```bash
 cd LocalAI
 ```
+
 
 At this point we want to set up our .env file, here is a copy for you to use if you wish, please make sure to set it to the same as the docker-compose file for later.
 
@@ -68,6 +71,7 @@ REBUILD=true
 HUGGINGFACEHUB_API_TOKEN=Token here
 ```
 
+
 Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CUDA
 
 ```docker
@@ -94,6 +98,7 @@ services:
     command: ["/usr/bin/local-ai" ]
 ```
 
+
 This docker-compose file is for CPU Only
 
 ```docker
@@ -113,11 +118,13 @@ services:
     command: ["/usr/bin/local-ai" ]
 ```
 
+
 Make sure to save that in the root of the LocalAI folder. Then lets spin up the docker run this in a CMD or BASH
 
 ```bash
 docker-compose up -d --pull always
 ```
+
 
 Now we are going to let that set up, once it is down, lets check to make sure our huggingface / localai galleries are working (wait until you see the ready screen to do this)
 
@@ -125,19 +132,17 @@ Now we are going to let that set up, once it is down, lets check to make sure ou
 curl http://localhost:8080/models/available
 ```
 
-Output will look like this!
 
-https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png
+Output will look like this! - https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png
 
-Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML
 
-There are a few ways to do this, way one is old school, download and move the model.
+
+Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, way one is old school, download and move the model.
 
 Link - https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML
 
-Go on over to huggingface and download the wizardlm-13b-v1.2.ggmlv3.q4_0.bin model
+Using that link download the wizardlm-13b-v1.2.ggmlv3.q4_0.bin model, once done, move the model.bin into the models folder.
 
-Once that is done downloading, move the model.bin into the models folder
 
 Now lets make 3 files.
 
@@ -147,7 +152,9 @@ touch wizardlm-completion.tmpl
 touch gpt-4-chat.yaml
 ```
 
+
 Please note the names for later!
+
 
 In the "wizardlm-chat.tmpl" file add
 
@@ -157,11 +164,13 @@ In the "wizardlm-chat.tmpl" file add
 ### Response:
 ```
 
+
 In the "wizardlm-completion.tmpl" file add
 
 ```txt
 Complete the following sentence: {{.Input}}
 ```
+
 
 In the "gpt-4-chat.yaml" file if you are running GPU add
 
@@ -188,6 +197,7 @@ template:
   chat: wizardlm-chat
   completion: wizardlm-completion
 ```
+
 
 If you are running just CPU please use this
 
@@ -216,6 +226,7 @@ Now that we have that fully set up, we need to reboot the docker. Go back to the
 docker-compose restart
 ```
 
+
 Now we can make openai / curl request!
 
 Curl - 
@@ -227,6 +238,7 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
      "temperature": 0.9 
    }'
 ```
+
 
 OpenAI Python -
 
