@@ -15,16 +15,18 @@ In a nutshell:
 - NO GPU required. NO Internet access is required either
   - Optional, GPU Acceleration is available in `llama.cpp`-compatible LLMs. See also the [build section]({{%relref "build" %}}). 
 - Supports multiple models:
-  - 📖 Text generation with GPTs (`llama.cpp`, `gpt4all.cpp`, ... and more)
-  - 🗣 Text to Audio 🎺🆕
-  - 🔈 Audio to Text (Audio transcription with `whisper.cpp`)
-  - 🎨 Image generation with stable diffusion
-  - 🧠 Embeddings generation for vector databases
+  - 📖 [Text generation with GPTs](https://localai.io/features/text-generation/) (`llama.cpp`, `gpt4all.cpp`, ... [and more](https://localai.io/model-compatibility/index.html#model-compatibility-table))
+  - 🗣 [Text to Audio](https://localai.io/features/text-to-audio/)
+  - 🔈 [Audio to Text](https://localai.io/features/audio-to-text/) (Audio transcription with `whisper.cpp`)
+  - 🎨 [Image generation with stable diffusion](https://localai.io/features/image-generation)
+  - 🔥 [OpenAI functions](https://localai.io/features/openai-functions/) 🆕
+  - 🧠 [Embeddings generation for vector databases](https://localai.io/features/embeddings/)
 - 🏃 Once loaded the first time, it keep models loaded in memory for faster inference
 - ⚡ Doesn't shell-out, but uses C++ bindings for a faster inference and better performance. 
 
 LocalAI was created by [Ettore Di Giacinto](https://github.com/mudler/) and is a community-driven project, focused on making the AI accessible to anyone. Any contribution, feedback and PR is welcome! 
 
+Note that this started just as a [fun weekend project](https://localai.io/#backstory) in order to try to create the necessary pieces for a full AI assistant like `ChatGPT`: the community is growing fast and we are working hard to make it better and more stable. If you want to help, please consider contributing (see below)!
 
 See the [Getting started]({{%relref "getting_started" %}}) and [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/) sections to learn how to use LocalAI. For a list of curated models check out the [model gallery](https://github.com/go-skynet/model-gallery).
 

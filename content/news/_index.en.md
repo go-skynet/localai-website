@@ -6,6 +6,28 @@ url = '/basics/news/'
 
 +++
 
+## 🔥🔥 29-07-2023: __v1.23.0__ 🚀
+
+This release focuses mostly on bugfixing and updates, with just a couple of new features:
+
+* feat: add rope settings and negative prompt, drop grammar backend by @mudler in https://github.com/go-skynet/LocalAI/pull/797
+* Added CPU information to entrypoint.sh by @finger42 in https://github.com/go-skynet/LocalAI/pull/794
+* feat: cancel stream generation if client disappears by @tmm1 in https://github.com/go-skynet/LocalAI/pull/792
+  
+Most notably, this release brings important fixes for CUDA (and not only):
+
+* fix: add rope settings during model load, fix CUDA by @mudler in https://github.com/go-skynet/LocalAI/pull/821
+* fix: select function calls if 'name' is set in the request by @mudler in https://github.com/go-skynet/LocalAI/pull/827
+* fix: symlink libphonemize in the container by @mudler in https://github.com/go-skynet/LocalAI/pull/831
+  
+{{% notice note %}}
+
+From this release [OpenAI functions]({{%relref "features/openai-functions" %}}) are available in the `llama` backend. The `llama-grammar` has been deprecated. See also [OpenAI functions]({{%relref "features/openai-functions" %}}).
+
+{{% /notice %}}
+
+The full [changelog is available here](https://github.com/go-skynet/LocalAI/releases/tag/v1.23.0)
+
 ## 🔥🔥🔥 23-07-2023: __v1.22.0__ 🚀
 
 * feat: add llama-master backend by @mudler in https://github.com/go-skynet/LocalAI/pull/752
