@@ -126,7 +126,7 @@ docker-compose up -d --pull always
 ```
 
 
-Now we are going to let that set up, once it is down, lets check to make sure our huggingface / localai galleries are working (wait until you see the ready screen to do this)
+Now we are going to let that set up, once it is done, lets check to make sure our huggingface / localai galleries are working (wait until you see the ready screen to do this)
 
 ```bash
 curl http://localhost:8080/models/available
