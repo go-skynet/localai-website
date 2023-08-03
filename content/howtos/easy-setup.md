@@ -5,10 +5,10 @@ title = "Easy Setup - Docker"
 weight = 2
 +++
 
-We are going to use LocalAI in a `docker-compose` for this set up. If you need a local set up please see the getting started page
+We are going to run LocalAI with `docker-compose` for this set up.
 
 
-Lets download the newest LocalAI from git.
+Lets clone LocalAI with git.
 
 ```bash
 git clone https://github.com/go-skynet/LocalAI
@@ -22,9 +22,9 @@ cd LocalAI
 ```
 
 
-At this point we want to set up our .env file, here is a copy for you to use if you wish, please make sure to set it to the same as the docker-compose file for later.
+At this point we want to set up our `.env` file, here is a copy for you to use if you wish, please make sure to set it to the same as the docker-compose file for later.
 
-```txt
+```bash
 ## Set number of threads.
 ## Note: prefer the number of physical cores. Overbooking the CPU degrades performance notably.
 THREADS=2
@@ -72,7 +72,7 @@ HUGGINGFACEHUB_API_TOKEN=Token here
 ```
 
 
-Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CUDA
+Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CUDA:
 
 ```docker
 version: '3.6'
@@ -99,7 +99,7 @@ services:
 ```
 
 
-This docker-compose file is for CPU Only
+This docker-compose file is for CPU Only:
 
 ```docker
 version: '3.6'
@@ -132,17 +132,15 @@ Now we are going to let that set up, once it is done, lets check to make sure ou
 curl http://localhost:8080/models/available
 ```
 
+Output will look like this:
 
-Output will look like this! - https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png
-
-
+![](https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png)
 
 Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, way one is old school, download and move the model.
 
 Link - https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML
 
 Using that link download the wizardlm-13b-v1.2.ggmlv3.q4_0.bin model, once done, move the model.bin into the models folder.
-
 
 Now lets make 3 files.
 
@@ -152,9 +150,7 @@ touch wizardlm-completion.tmpl
 touch gpt-4-chat.yaml
 ```
 
-
 Please note the names for later!
-
 
 In the "wizardlm-chat.tmpl" file add
 
@@ -163,7 +159,6 @@ In the "wizardlm-chat.tmpl" file add
 
 ### Response:
 ```
-
 
 In the "wizardlm-completion.tmpl" file add
 
