@@ -51,7 +51,8 @@ MODELS_PATH=/models
 DEBUG=true
 
 ## Specify a build type. Available: cublas, openblas, clblas.
-BUILD_TYPE=SETMEPLEASEMAKESUREIMATCHDOCKERCOMPOSE
+# Uncomment to use with CUDA:
+# BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
 REBUILD=true
@@ -68,7 +69,7 @@ REBUILD=true
 
 ## Specify a default upload limit in MB (whisper)
 # UPLOAD_LIMIT
-HUGGINGFACEHUB_API_TOKEN=Token here
+# HUGGINGFACEHUB_API_TOKEN=Token here
 ```
 
 
