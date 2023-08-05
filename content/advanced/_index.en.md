@@ -24,8 +24,6 @@ base ❯ ls -liah examples/chatbot-ui/models
 
 In the `gpt-3.5-turbo.yaml` file it is defined the `gpt-3.5-turbo` model which is an alias to use `gpt4all-j` with pre-defined options.
 
-<details>
-
 For instance, consider the following that declares `gpt-3.5-turbo` backed by the `ggml-gpt4all-j` model:
 
 ```yaml
@@ -104,7 +102,8 @@ See also [chatbot-ui](https://github.com/go-skynet/LocalAI/tree/master/examples/
 # The model name is used to identify the model in the API calls.
 name: gpt-3.5-turbo
 
-# Default model parameters
+# Default model parameters.
+# These options can also be specified in the API calls
 parameters:
   # Relative to the models path
   model: ggml-gpt4all-j
@@ -120,7 +119,17 @@ parameters:
   n_keep: 10
   seed: 
   mode: 
-  step: 
+  step:
+  negative_prompt:
+  typical_p:
+  tfz:
+  frequency_penalty:
+  mirostat_eta:
+  mirostat_tau:
+  mirostat: 
+  rope_freq_base:
+  rope_freq_scale:
+  negative_prompt_scale:
 
 # Default context size
 context_size: 512
@@ -185,8 +194,6 @@ low_vram: true
 # Set NUMA mode (CPU only)
 numa: true
 ```
-
-</details>
 
 ### Prompt templates 
 
