@@ -161,7 +161,17 @@ template:
   completion: completion
   chat: ggml-gpt4all-j
   edit: edit_template
+  function: function_template
 
+function:
+  	disable_no_action: true
+	  no_action_function_name: "reply"
+	  no_action_description_name: "Reply to the AI assistant"
+
+system_prompt:
+rms_norm_eps:
+# Set it to 8 for llama2 70b
+ngqa: 1
 ## LLAMA specific options
 # Enable F16 if backend supports it
 f16: true
