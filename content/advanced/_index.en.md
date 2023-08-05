@@ -164,9 +164,9 @@ template:
   function: function_template
 
 function:
-  	disable_no_action: true
-	  no_action_function_name: "reply"
-	  no_action_description_name: "Reply to the AI assistant"
+	disable_no_action: true
+	no_action_function_name: "reply"
+	no_action_description_name: "Reply to the AI assistant"
 
 system_prompt:
 rms_norm_eps:
