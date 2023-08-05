@@ -11,6 +11,8 @@ LocalAI supports running OpenAI functions with `llama.cpp` compatible models.
 
 To learn more about OpenAI functions, see the [OpenAI API blog post](https://openai.com/blog/function-calling-and-other-api-updates).
 
+💡 Check out also [LocalAGI](https://github.com/mudler/LocalAGI) for an example on how to use LocalAI functions.
+
 ## Setup
 
 OpenAI functions are available only with `ggml` models compatible with `llama.cpp`.
