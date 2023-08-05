@@ -39,7 +39,7 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [langchain-huggingface](https://github.com/tmc/langchaingo)                                                                    | Any text generators available on HuggingFace through API | yes                      | GPT                        | no                                | no                   | N/A |
 | [piper](https://github.com/rhasspy/piper) ([binding](https://github.com/mudler/go-piper))                                                                     | Any piper onnx model | no                      | Text to voice                        | no                                | no                   | N/A |
 | [falcon](https://github.com/cmp-nct/ggllm.cpp/tree/c12b2d65f732a0d8846db2244e070f0f3e73505c) ([binding](https://github.com/mudler/go-ggllm.cpp))                                                                      | Falcon *** | yes                      | GPT                        | no                                | yes                   | CUDA |
-
+| `huggingface-embeddings` [sentence-transformers](https://github.com/UKPLab/sentence-transformers) | BERT                   | no                       | Embeddings only                  | yes                               | no                   | N/A |
 
     * 7b ONLY
     ** doesn't seem to be accurate
