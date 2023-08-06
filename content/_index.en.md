@@ -118,11 +118,17 @@ To help the project you can:
 
 - If you don't have technological skills you can still help improving documentation or add examples or share your user-stories with our community, any help and contribution is welcome!
 
-## Star history
+## 🌟 Star history
 
 [![LocalAI Star history Chart](https://api.star-history.com/svg?repos=go-skynet/LocalAI&type=Date)](https://star-history.com/#go-skynet/LocalAI&Date)
 
-## Acknowledgements
+## 📖 License
+
+LocalAI is a community-driven project created by [Ettore Di Giacinto](https://github.com/mudler/).
+
+MIT - Author Ettore Di Giacinto
+
+## 🙇 Acknowledgements
 
 LocalAI couldn't have been built without the help of great software already available from the community. Thank you!
 
@@ -133,16 +139,8 @@ LocalAI couldn't have been built without the help of great software already avai
 - https://github.com/EdVince/Stable-Diffusion-NCNN
 - https://github.com/ggerganov/whisper.cpp
 - https://github.com/saharNooby/rwkv.cpp
-
-## License
-
-LocalAI is a community-driven project created by [Ettore Di Giacinto](https://github.com/mudler/).
-
-MIT
-
-## Author
-
-Ettore Di Giacinto and others
+- https://github.com/rhasspy/piper
+- https://github.com/cmp-nct/ggllm.cpp
 
 ## Backstory
 
@@ -156,8 +154,9 @@ As if that wasn't exciting enough, as the project gained traction, [mkellerman](
 
 Oh, and let's not forget the real MVP here—[llama.cpp](https://github.com/ggerganov/llama.cpp). Without this extraordinary piece of software, LocalAI wouldn't even exist. So, a big shoutout to the community for making this magic happen!
 
-## Contributors
+## 🤗 Contributors
 
+This is a community project, a special thanks to our contributors! 🤗
 <a href="https://github.com/go-skynet/LocalAI/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=go-skynet/LocalAI" />
 </a>
