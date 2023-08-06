@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "Constrained grammars"
+title = "✍️ Constrained grammars"
 weight = 6
 +++
 
