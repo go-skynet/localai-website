@@ -18,5 +18,6 @@ LocalAI can be used as a drop-in replacement, however, the following projects pr
 - [Logseq GPT3 OpenAI plugin](https://github.com/briansunter/logseq-plugin-gpt3-openai) allows to set a base URL, and works with LocalAI.
 - [BMO Chatbot](https://github.com/longy2k/obsidian-bmo-chatbot)
 - [Mattermost OpenOps](https://openops.mattermost.com)
-- [LocalAGI](https://github.com/mudler/LocalAGI
+- [LocalAGI](https://github.com/mudler/LocalAGI)
+  
 Feel free to open up a PR to get your project listed!
