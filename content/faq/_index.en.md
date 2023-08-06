@@ -70,3 +70,20 @@ There is the availability of localai-webui and chatbot-ui in the examples sectio
 Yes, see the [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/)!
 
 </details>
+
+### How can I troubleshoot when something is wrong?
+
+<details>
+
+Enable the debug mode by setting `DEBUG=true` in the environment variables. This will give you more information on what's going on.
+You can also specify `--debug` in the command line.
+
+</details>
+
+### I'm getting 'invalid pitch' error when running with CUDA, what's wrong?
+
+<details>
+
+This typically happens when your prompt exceeds the context size. Try to reduce the prompt size, or increase the context size.
+
+</details>
