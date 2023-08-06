@@ -102,6 +102,20 @@ where:
 - `model-gallery` is the repository
 - `bert` is the model name in the gallery
 
+{{% notice note %}}
+If the `huggingface` model gallery is enabled, you can install models by specifying directly the huggingface repository, for example, to install wizardlm superhot:
+
+```bash
+LOCALAI=http://localhost:8080
+curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
+     "id": "huggingface@TheBloke/WizardLM-13B-V1-0-Uncensored-SuperHOT-8K-GGML/wizardlm-13b-v1.0-superhot-8k.ggmlv3.q4_K_M.bin"
+   }'  
+```
+
+Note that the `id` can be used similarly when pre-loading models at start.
+{{% /notice %}}
+
+
 ## How to install a model (without a gallery)
 
 If you don't want to set any gallery repository, you can still install models by loading a model configuration file.
