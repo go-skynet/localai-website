@@ -72,6 +72,51 @@ When running the python script, be sure to:
 
 {{% /notice %}}
 
+## Advanced
+
+It is possible to also specify the full function signature (for debugging, or to use with other clients).
+
+The chat endpoint accepts the `grammar_json_functions` additional parameter which takes a JSON schema object.
+
+For example, with curl:
+
+```bash
+curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
+     "model": "gpt-4",
+     "messages": [{"role": "user", "content": "How are you?"}],
+     "temperature": 0.1,
+     "grammar_json_functions": {
+        "oneOf": [
+            {
+                "type": "object",
+                "properties": {
+                    "function": {"const": "create_event"},
+                    "arguments": {
+                        "type": "object",
+                        "properties": {
+                            "title": {"type": "string"},
+                            "date": {"type": "string"},
+                            "time": {"type": "string"}
+                        }
+                    }
+                }
+            },
+            {
+                "type": "object",
+                "properties": {
+                    "function": {"const": "search"},
+                    "arguments": {
+                        "type": "object",
+                        "properties": {
+                            "query": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        ]
+    }
+   }'  
+```
 
 ## 💡 Examples
 
