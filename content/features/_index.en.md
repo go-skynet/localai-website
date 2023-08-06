@@ -13,3 +13,4 @@ This section contains the documentation for the features supported by LocalAI.
 - [🎨 Image generation]({{%relref "features/image-generation" %}})
 - [🧠 Embeddings]({{%relref "features/embeddings" %}})
 - [🔥 OpenAI functions]({{%relref "features/openai-functions" %}})
+- [✍️ Constrained grammars]({{%relref "features/constrained_grammars" %}})
