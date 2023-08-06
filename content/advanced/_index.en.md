@@ -310,6 +310,24 @@ backend: gptj
 # ...
 ```
 
+### Connect external backends
+
+LocalAI backends are internally implemented using `gRPC` services. This also allows `LocalAI` to connect to external `gRPC` services on start and extend LocalAI functionalities via third-party binaries.
+
+The `--external-grpc-backends` parameter in the CLI can be used either to specify a local backend (a file) or a remote URL. The syntax is `<BACKEND_NAME>:<BACKEND_URI>`. Once LocalAI is started with it, the new backend name will be available for all the API endpoints.
+
+So for instance, to register a new backend which is a local file:
+
+```
+./local-ai --debug --external-grpc-backends "my-awesome-backend:/path/to/my/backend.py"
+```
+
+Or a remote URI:
+
+```
+./local-ai --debug --external-grpc-backends "my-awesome-backend:host:port"
+```
+
 ### Environment variables
 
 When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
