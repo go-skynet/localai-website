@@ -23,6 +23,10 @@ The models in this gallery are not directly maintained by LocalAI. If you find a
 GPT and text generation models might have a license which is not permissive for commercial use or might be questionable or without any license at all. Please check the model license before using it. The official gallery contains only open licensed models.
 {{% /notice %}}
 
+## Useful Links and resources
+
+- [Open LLM Leaderboard](https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard) - here you can find a list of the most performing models on the Open LLM benchmark. Keep in mind models compatible with LocalAI must be quantized in the `ggml` format.
+
 
 ## Model repositories
 
