@@ -97,6 +97,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] Enable gallery management directly from the webui.
 - [x] 🔥 OpenAI functions: https://github.com/go-skynet/LocalAI/issues/588
 - [ ] 🔥 GPTQ support: https://github.com/go-skynet/LocalAI/issues/796
+- [ ] 🔥 TTS with Bark: https://github.com/go-skynet/LocalAI/issues/866
 
 ## How does it work?  
 
