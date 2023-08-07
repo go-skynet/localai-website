@@ -99,7 +99,7 @@ curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
 ```
 
 where:
-- `model-gallery` is the repository
+- `model-gallery` is the repository. It is optional and can be omitted. If the repository is omitted LocalAI will search the model by name in all the repositories. In the case the same model name is present in both galleries the first match wins.
 - `bert` is the model name in the gallery
 
 {{% notice note %}}
