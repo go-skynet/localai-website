@@ -8,7 +8,7 @@ url = '/basics/getting_started/'
 
 `LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-The easiest way to run LocalAI is by using `docker-compose` (to build locally, see the [build section]({{%relref "build" %}})):
+The easiest way to run LocalAI is by using `docker-compose` or with `docker` (to build locally, see the [build section]({{%relref "build" %}})), the following example uses `docker-compose`:
 
 ```bash
 
@@ -40,6 +40,7 @@ curl http://localhost:8080/v1/completions -H "Content-Type: application/json" -d
      "temperature": 0.7
    }'
 ```
+
 
 ### Example: Use GPT4ALL-J model with `docker-compose`
 
@@ -156,14 +157,14 @@ You should see:
 Note: the binary inside the image is pre-compiled and might not suite all the CPU rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
 {{% /notice %}}
 
-#### CuBLAS:
+#### CUDA:
 
 Requirement: nvidia-container-toolkit (installation instructions [1](https://www.server-world.info/en/note?os=Ubuntu_22.04&p=nvidia&f=2) [2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html))
 
 You need to run the image with `--gpus all`, and
 
 ```
-docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "f16":true, "gpu_layers": 35, "mmap": true, "batch": 512 } } ]' -e THREADS=1 -e BUILD_TYPE=cublas -v $PWD/models:/models quay.io/go-skynet/local-ai:v0.19.0-cublas-cuda12
+docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "f16":true, "gpu_layers": 35, "mmap": true, "batch": 512 } } ]' -e THREADS=1 -v $PWD/models:/models quay.io/go-skynet/local-ai:v1.23.2-cublas-cuda12
 ```
 
 In the terminal where LocalAI was started, you should see:
