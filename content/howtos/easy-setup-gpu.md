@@ -157,7 +157,7 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the "gpt-4-chat.yaml" file if you are running GPU add
+In the "lunademo.yaml" file
 
 ```yaml
 backend: llama
