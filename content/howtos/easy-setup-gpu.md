@@ -119,7 +119,9 @@ Output will look like this:
 Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, 
 
 Way number one is old school, download and move the model.
+
 Link - https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML
+
 Using that link download the wizardlm-13b-v1.2.ggmlv3.q4_0.bin model, once done, move the model.bin into the models folder.
 
 Way number two is the galleries. In the docker cmd run this.
