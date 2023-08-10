@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "Easy Setup - Docker"
+title = "Easy Setup - GPU Docker"
 weight = 2
 +++
 
@@ -51,8 +51,7 @@ MODELS_PATH=/models
 DEBUG=true
 
 ## Specify a build type. Available: cublas, openblas, clblas.
-# Uncomment to use with CUDA:
-# BUILD_TYPE=cublas
+BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
 REBUILD=true
@@ -100,26 +99,6 @@ services:
 ```
 
 
-This docker-compose file is for CPU Only:
-
-```docker
-version: '3.6'
-
-services:
-  api:
-    image: quay.io/go-skynet/local-ai:master
-    tty: true # enable colorized logs
-    restart: always # should this be on-failure ?
-    ports:
-      - 8080:8080
-    env_file:
-      - .env
-    volumes:
-      - ./models:/models
-    command: ["/usr/bin/local-ai" ]
-```
-
-
 Make sure to save that in the root of the LocalAI folder. Then lets spin up the docker run this in a CMD or BASH
 
 ```bash
@@ -137,18 +116,30 @@ Output will look like this:
 
 ![](https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png)
 
-Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, way one is old school, download and move the model.
+Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, 
+
+Way number one is old school, download and move the model.
 
 Link - https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML
 
 Using that link download the wizardlm-13b-v1.2.ggmlv3.q4_0.bin model, once done, move the model.bin into the models folder.
+
+Way number two is the galleries. In the docker cmd run this.
+```bash
+curl --location 'http://localhost:8080/models/apply' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "TheBloke/wizardlm-13b-v1.2-ggml/wizardlm-13b-v1.2.ggmlv3.q4_0.bin",
+    "name": "lunademo"
+}'
+```
 
 Now lets make 3 files.
 
 ```bash
 touch wizardlm-chat.tmpl
 touch wizardlm-completion.tmpl
-touch gpt-4-chat.yaml
+touch lunademo.yaml
 ```
 
 Please note the names for later!
@@ -168,7 +159,7 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the "gpt-4-chat.yaml" file if you are running GPU add
+In the "lunademo.yaml" file
 
 ```yaml
 backend: llama
@@ -179,29 +170,7 @@ low_vram: true
 mmap: true
 mmlock: false
 batch: 512
-name: gpt-4-chat
-parameters:
-  model: wizardlm-13b-v1.2.ggmlv3.q4_0.bin
-  temperature: 0.2
-  top_k: 40
-  top_p: 0.65
-roles:
-  assistant: '### Response:'
-  system: '### System:'
-  user: '### Instruction:'
-template:
-  chat: wizardlm-chat
-  completion: wizardlm-completion
-```
-
-
-If you are running just CPU please use this
-
-```yaml
-backend: llama
-context_size: 2000
-batch: 512
-name: gpt-4-chat
+name: lunademo
 parameters:
   model: wizardlm-13b-v1.2.ggmlv3.q4_0.bin
   temperature: 0.2
@@ -229,7 +198,7 @@ Curl -
 
 ```bash
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "gpt-4-chat",
+     "model": "lunademo",
      "messages": [{"role": "user", "content": "How are you?"}],
      "temperature": 0.9 
    }'
@@ -247,7 +216,7 @@ OPENAI_API_KEY = "sx-xxx"
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
 completion = openai.ChatCompletion.create(
-  model="gpt-4-chat",
+  model="lunademo",
   messages=[
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "How are you?"}
