@@ -51,7 +51,7 @@ MODELS_PATH=/models
 DEBUG=true
 
 ## Specify a build type. Available: cublas, openblas, clblas.
-# Uncomment to use with CUDA:
+# Do not uncomment this as we are using CPU:
 # BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
@@ -73,34 +73,7 @@ REBUILD=true
 ```
 
 
-Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CUDA:
-
-```docker
-version: '3.6'
-
-services:
-  api:
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-    image: quay.io/go-skynet/local-ai:master-cublas-cuda12
-    tty: true # enable colorized logs
-    restart: always # should this be on-failure ?
-    ports:
-      - 8080:8080
-    env_file:
-      - .env
-    volumes:
-      - ./models:/models
-    command: ["/usr/bin/local-ai" ]
-```
-
-
-This docker-compose file is for CPU Only:
+Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CPU Only:
 
 ```docker
 version: '3.6'
