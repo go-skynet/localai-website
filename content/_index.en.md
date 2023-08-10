@@ -161,3 +161,6 @@ This is a community project, a special thanks to our contributors! 🤗
 <a href="https://github.com/go-skynet/LocalAI/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=go-skynet/LocalAI" />
 </a>
+<a href="https://github.com/go-skynet/LocalAI-website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=go-skynet/LocalAI-website" />
+</a>
