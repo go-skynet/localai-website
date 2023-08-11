@@ -71,6 +71,13 @@ You might not find all the models in this gallery. Automated CI updates the gall
 By under any circumstances LocalAI and any developer is not responsible for the models in this gallery, as CI is just indexing them and providing a convenient way to install with an automatic configuration with a consistent API. Don't install models from authors you don't trust, and, check the appropriate license for your use case. Models are automatically indexed and hosted on huggingface (https://huggingface.co/). For any issue with the models, please open an issue on the model gallery repository if it's a LocalAI misconfiguration, otherwise refer to the huggingface repository. If you think a model should not be listed, please reach to us and we will remove it from the gallery.
 {{% /notice %}}
 
+{{% notice note %}}
+
+There is no documentation yet on how to build a gallery or a repository - but you can find an example in the [model-gallery](https://github.com/go-skynet/model-gallery) repository.
+
+{{% /notice %}}
+
+
 ### List Models
 
 To list all the available models, use the `/models/available` endpoint:

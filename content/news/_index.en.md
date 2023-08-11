@@ -6,6 +6,15 @@ url = '/basics/news/'
 
 +++
 
+## 🔥🔥🔥🔥 xxx: __v1.24.0__ 🔥🔥🔥🔥
+
+Happy to announce this release, which brings four new additional backends to LocalAI:
+
+- 🆕 Bark
+- 🆕 AutoGPTQ
+- 🆕 Exllama
+- 🆕 Diffusers
+
 ## 🔥🔥 29-07-2023: __v1.23.0__ 🚀
 
 This release focuses mostly on bugfixing and updates, with just a couple of new features:
