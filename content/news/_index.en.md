@@ -54,6 +54,8 @@ Now by default the model-gallery repositories are configured in the container im
 
 See it [here in action](https://github.com/mudler/LocalAGI/assets/2420543/9ba43b82-dec5-432a-bdb9-8318e7db59a4) planning a trip for San Francisco! 
 
+The full changelog is available [here](https://github.com/go-skynet/LocalAI/releases/tag/v.1.24.0).
+
 ## 🔥🔥 29-07-2023: __v1.23.0__ 🚀
 
 This release focuses mostly on bugfixing and updates, with just a couple of new features:
