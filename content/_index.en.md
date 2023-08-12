@@ -96,8 +96,8 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) 
 - [ ] Enable gallery management directly from the webui.
 - [x] 🔥 OpenAI functions: https://github.com/go-skynet/LocalAI/issues/588
-- [ ] 🔥 GPTQ support: https://github.com/go-skynet/LocalAI/issues/796
-- [ ] 🔥 TTS with Bark: https://github.com/go-skynet/LocalAI/issues/866
+- [x] 🔥 GPTQ support: https://github.com/go-skynet/LocalAI/issues/796
+- [x] 🔥 TTS with Bark: https://github.com/go-skynet/LocalAI/issues/866
 
 ## How does it work?  
 

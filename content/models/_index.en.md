@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "Model gallery"
+title = "🖼️ Model gallery"
 weight = 7
 +++
 

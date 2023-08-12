@@ -1,10 +1,9 @@
 
 +++
 disableToc = false
-title = "🆕 AutoGPTQ"
+title = "🆕 🦙 AutoGPTQ"
 weight = 3
 +++
-
 
 [AutoGPTQ](https://github.com/PanQiWei/AutoGPTQ) is an easy-to-use LLMs quantization package with user-friendly apis, based on GPTQ algorithm.
 

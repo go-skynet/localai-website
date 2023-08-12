@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "llama.cpp"
+title = "🦙 llama.cpp"
 weight = 1
 +++
 
@@ -45,3 +45,6 @@ LocalAI will automatically download and configure the model in the `model` direc
 
 Models can be also preloaded or downloaded on demand. To learn about model galleries, check out the [model gallery documentation]({{%relref "models" %}}).
 
+### YAML configuration
+
+To use the `llama.cpp` backend, specify

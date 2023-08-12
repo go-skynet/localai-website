@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "🆕 Diffusers"
+title = "🆕 🧨 Diffusers"
 weight = 4
 +++
 
