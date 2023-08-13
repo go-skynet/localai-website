@@ -9,7 +9,9 @@ weight = 3
 
 ## Setup
 
-This is an extra backend - in the container is already available and there is nothing to do for the setup.
+This is an extra backend - in the container images is already available and there is nothing to do for the setup.
+
+If you are building LocalAI locally, you need to install [AutoGPTQ manually](https://github.com/PanQiWei/AutoGPTQ#quick-installation).
 
 
 ## Model setup
