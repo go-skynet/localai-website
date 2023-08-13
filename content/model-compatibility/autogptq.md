@@ -7,7 +7,7 @@ weight = 3
 
 [AutoGPTQ](https://github.com/PanQiWei/AutoGPTQ) is an easy-to-use LLMs quantization package with user-friendly apis, based on GPTQ algorithm.
 
-## Setup
+## Prerequisites
 
 This is an extra backend - in the container images is already available and there is nothing to do for the setup.
 
