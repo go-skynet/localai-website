@@ -7,11 +7,15 @@ weight = 4
 
 LocalAI is compatible with the models supported by [llama.cpp](https://github.com/ggerganov/llama.cpp) supports also [GPT4ALL-J](https://github.com/nomic-ai/gpt4all) and [cerebras-GPT with ggml](https://huggingface.co/lxe/Cerebras-GPT-2.7B-Alpaca-SP-ggml).
 
+{{% notice note %}}
+
+LocalAI will attempt to automatically load models which are not explicitly configured for a specific backend. You can specify the backend to use by configuring a model with a YAML file. See [the advanced section]({{%relref "advanced" %}}) for more details.
+
+{{% /notice %}}
 
 ### Hardware requirements
 
 Depending on the model you are attempting to run might need more RAM or CPU resources. Check out also [here](https://github.com/ggerganov/llama.cpp#memorydisk-requirements) for `ggml` based backends. `rwkv` is less expensive on resources.
-
 
 ### Model compatibility table
 
@@ -39,7 +43,12 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | [langchain-huggingface](https://github.com/tmc/langchaingo)                                                                    | Any text generators available on HuggingFace through API | yes                      | GPT                        | no                                | no                   | N/A |
 | [piper](https://github.com/rhasspy/piper) ([binding](https://github.com/mudler/go-piper))                                                                     | Any piper onnx model | no                      | Text to voice                        | no                                | no                   | N/A |
 | [falcon](https://github.com/cmp-nct/ggllm.cpp/tree/c12b2d65f732a0d8846db2244e070f0f3e73505c) ([binding](https://github.com/mudler/go-ggllm.cpp))                                                                      | Falcon *** | yes                      | GPT                        | no                                | yes                   | CUDA |
-| `huggingface-embeddings` [sentence-transformers](https://github.com/UKPLab/sentence-transformers) | BERT                   | no                       | Embeddings only                  | yes                               | no                   | N/A |
+| 🆕 `huggingface-embeddings` [sentence-transformers](https://github.com/UKPLab/sentence-transformers) | BERT                   | no                       | Embeddings only                  | yes                               | no                   | N/A |
+| 🆕 `bark`  | bark                   | no                       | Audio generation                  | no                               | no                   | yes |
+| 🆕 `AutoGPTQ` | GPTQ                   | yes                       | GPT                  | yes                               | no                   | N/A |
+| 🆕`exllama`  | GPTQ                   | yes                       | GPT only                  | no                               | no                   | N/A |
+| 🆕 `diffusers`  | SD,...                   | no                       | Image generation    | no                               | no                   | N/A |
+
 
     * 7b ONLY
     ** doesn't seem to be accurate
@@ -66,14 +75,3 @@ Tested with:
 - [X] Falcon
 
 Note: You might need to convert some models from older models to the new format, for indications, see [the README in llama.cpp](https://github.com/ggerganov/llama.cpp#using-gpt4all) for instance to run `gpt4all`.
-
-### RWKV
-
-A full example on how to run a rwkv model is in the [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/rwkv).
-
-Note: rwkv models needs to specify the backend `rwkv` in the YAML config files and have an associated tokenizer along that needs to be provided with it:
-
-```
-36464540 -rw-r--r--  1 mudler mudler 1.2G May  3 10:51 rwkv_small
-36464543 -rw-r--r--  1 mudler mudler 2.4M May  3 10:51 rwkv_small.tokenizer.json
-```

@@ -1,10 +1,60 @@
 +++
 disableToc = false
-title = "What's New"
+title = "🆕 What's New"
 weight = 2
 url = '/basics/news/'
 
 +++
+
+## 🔥🔥🔥🔥 12-08-2023: __v1.24.0__ 🔥🔥🔥🔥
+
+This is release brings four(!) new additional backends to LocalAI: [🐶 Bark]({{%relref "model-compatibility/bark" %}}), 🦙 [AutoGPTQ]({{%relref "model-compatibility/autogptq" %}}), [🧨 Diffusers]({{%relref "model-compatibility/diffusers" %}}), 🦙 [exllama]({{%relref "model-compatibility/exllama" %}}) and a lot of improvements!
+
+### Major improvements:
+
+* feat: add bark and AutoGPTQ by @mudler in https://github.com/go-skynet/LocalAI/pull/871
+* feat: Add Diffusers by @mudler in https://github.com/go-skynet/LocalAI/pull/874
+* feat: add API_KEY list support by @neboman11 and @bnusunny in https://github.com/go-skynet/LocalAI/pull/877
+* feat: Add exllama by @mudler in https://github.com/go-skynet/LocalAI/pull/881
+* feat: pre-configure LocalAI galleries by @mudler in https://github.com/go-skynet/LocalAI/pull/886
+
+### 🐶 Bark
+
+[Bark]({{%relref "model-compatibility/bark" %}}) is a text-prompted generative audio model - it combines GPT techniques to generate Audio from text. It is a great addition to LocalAI, and it's available in the container images by default.
+
+It can also generate music, see the example: [lion.webm](https://user-images.githubusercontent.com/5068315/230684766-97f5ea23-ad99-473c-924b-66b6fab24289.webm)
+
+### 🦙 AutoGPTQ
+
+[AutoGPTQ]({{%relref "model-compatibility/autogptq" %}}) is an easy-to-use LLMs quantization package with user-friendly apis, based on GPTQ algorithm.
+
+It is targeted mainly for GPU usage only. Check out the [AutoGPTQ documentation]({{%relref "model-compatibility/autogptq" %}}) for usage.
+
+### 🦙 Exllama
+
+[Exllama]({{%relref "model-compatibility/exllama" %}}) is a "A more memory-efficient rewrite of the HF transformers implementation of Llama for use with quantized weights". It is a faster alternative to run LLaMA models on GPU.Check out the [Exllama documentation]({{%relref "model-compatibility/exllama" %}}) for usage.
+
+### 🧨 Diffusers
+
+[Diffusers]({{%relref "model-compatibility/diffusers" %}}) is the go-to library for state-of-the-art pretrained diffusion models for generating images, audio, and even 3D structures of molecules. Currently it is experimental, and supports generation only of images so you might encounter some issues on models which weren't tested yet. Check out the [Diffusers documentation]({{%relref "model-compatibility/diffusers" %}}) for usage.
+
+### 🔑 API Keys
+
+Thanks to the community contributions now it's possible to specify a list of API keys that can be used to gate API requests.
+
+API Keys can be specified with the `API_KEY` environment variable as a comma-separated list of keys. 
+
+### 🖼️ Galleries
+
+Now by default the model-gallery repositories are configured in the container images
+
+### 💡 New project
+
+[LocalAGI](https://github.com/mudler/LocalAGI) is a simple agent that uses LocalAI functions to have a full locally runnable assistant (with no API keys needed). 
+
+See it [here in action](https://github.com/mudler/LocalAGI/assets/2420543/9ba43b82-dec5-432a-bdb9-8318e7db59a4) planning a trip for San Francisco! 
+
+The full changelog is available [here](https://github.com/go-skynet/LocalAI/releases/tag/v.1.24.0).
 
 ## 🔥🔥 29-07-2023: __v1.23.0__ 🚀
 
