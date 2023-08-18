@@ -87,17 +87,15 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 
 ## 🔥🔥 Hot topics / Roadmap
 
-- [x] Support for embeddings
-- [x] Support for audio transcription with https://github.com/ggerganov/whisper.cpp
-- [X] Support for text-to-audio
-- [x] GPU/CUDA support ( https://github.com/go-skynet/LocalAI/issues/69 )
-- [X] Enable automatic downloading of models from a curated gallery
-- [X] Enable automatic downloading of models from HuggingFace
-- [ ] Upstream our golang bindings to llama.cpp (https://github.com/ggerganov/llama.cpp/issues/351) 
-- [ ] Enable gallery management directly from the webui.
-- [x] 🔥 OpenAI functions: https://github.com/go-skynet/LocalAI/issues/588
-- [x] 🔥 GPTQ support: https://github.com/go-skynet/LocalAI/issues/796
-- [x] 🔥 TTS with Bark: https://github.com/go-skynet/LocalAI/issues/866
+- [ ] Enable gallery management directly from the webui. https://github.com/go-skynet/LocalAI/issues/918
+- [ ] llama.cpp lora adapters: https://github.com/go-skynet/LocalAI/issues/919
+- [ ] image variants and edits: https://github.com/go-skynet/LocalAI/issues/921
+- [ ] esrgan for diffusers: https://github.com/go-skynet/LocalAI/issues/917
+- [ ] ggml-stablediffusion: https://github.com/go-skynet/LocalAI/issues/916
+- [ ] SAM: https://github.com/go-skynet/LocalAI/issues/915
+- [ ] diffusers lora adapters: https://github.com/go-skynet/LocalAI/issues/914
+- [ ] resource management and control: https://github.com/go-skynet/LocalAI/issues/912
+- [ ] ChatGLM: https://github.com/go-skynet/LocalAI/issues/754
 
 ## How does it work?  
 
