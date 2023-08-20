@@ -96,6 +96,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] diffusers lora adapters: https://github.com/go-skynet/LocalAI/issues/914
 - [ ] resource management and control: https://github.com/go-skynet/LocalAI/issues/912
 - [ ] ChatGLM: https://github.com/go-skynet/LocalAI/issues/754
+- [ ] text-to-video : https://github.com/go-skynet/LocalAI/issues/933
 
 ## How does it work?  
 
