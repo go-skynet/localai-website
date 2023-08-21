@@ -5,7 +5,7 @@ title = "Easy Request - Curl"
 weight = 2
 +++
 
-Now we can make openai / curl request!
+Now we can make a curl request!
 
 Curl - 
 
