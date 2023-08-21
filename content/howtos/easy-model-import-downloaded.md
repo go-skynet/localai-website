@@ -64,3 +64,5 @@ Now that we have that fully set up, we need to reboot the docker. Go back to the
 ```bash
 docker-compose restart
 ```
+
+Now that we got that setup, lets test it out but sending a request by using [Curl]({{%relref "easy-request-curl" %}}) Or use the [Openai Python API]({{%relref "easy-request-openai" %}})! 
