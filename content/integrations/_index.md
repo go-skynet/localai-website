@@ -20,5 +20,6 @@ LocalAI can be used as a drop-in replacement, however, the following projects pr
 - [Mattermost OpenOps](https://openops.mattermost.com)
 - [LocalAGI](https://github.com/mudler/LocalAGI)
 - [LinGoose](https://github.com/henomis/lingoose)
+- [LLMStack](https://github.com/trypromptly/LLMStack)
   
 Feel free to open up a PR to get your project listed!
