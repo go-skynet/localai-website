@@ -7,7 +7,7 @@ weight = 2
 
 Now we can make a curl request!
 
-Curl - 
+Curl Chat API - 
 
 ```bash
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
@@ -15,6 +15,20 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
      "messages": [{"role": "user", "content": "How are you?"}],
      "temperature": 0.9 
    }'
+```
+
+Curl Completion API -
+
+```bash
+curl --request POST \
+  --url http://localhost:8080/completions \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "model": "lunademo",
+    "prompt": "function downloadFile(string url, string outputPath) {",
+    "max_tokens": 256,
+    "temperature": 0.5
+}'
 ```
 
 Have fun using LocalAI!
