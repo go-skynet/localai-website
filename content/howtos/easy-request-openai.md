@@ -44,7 +44,7 @@ completion = openai.Completion.create(
   max_tokens=256,
   temperature=0.5)
 
-print(completion.choices[0].message)
+print(completion.choices[0].text)
 ```
 
 Have fun using LocalAI!
