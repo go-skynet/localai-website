@@ -22,6 +22,7 @@ name: text-embedding-ada-002 # The model name used in the API
 parameters:
   model: <model_file>
 backend: "<backend>"
+embeddings: true
 # .. other parameters
 ```
 
@@ -55,6 +56,7 @@ To use `sentence-formers` and models in `huggingface` you can use the `huggingfa
 ```yaml
 name: text-embedding-ada-002
 backend: huggingface-embeddings
+embeddings: true
 parameters:
   model: all-MiniLM-L6-v2
 ```
@@ -78,7 +80,7 @@ Embeddings with `llama.cpp` are supported with the `llama` backend.
 ```yaml
 name: my-awesome-model
 backend: llama
-embeddings: true # Enable Embeddings with the llama backend
+embeddings: true
 parameters:
   model: ggml-file.bin
 # ...
