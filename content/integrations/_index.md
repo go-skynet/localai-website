@@ -19,7 +19,7 @@ LocalAI can be used as a drop-in replacement, however, the following projects pr
 - [BMO Chatbot](https://github.com/longy2k/obsidian-bmo-chatbot)
 - [Mattermost OpenOps](https://openops.mattermost.com)
 - [LocalAGI](https://github.com/mudler/LocalAGI)
-- [LinGoose](https://github.com/henomis/lingoose)
+- [LinGoose](https://github.com/henomis/lingoose) [example](https://github.com/henomis/lingoose/blob/v0.0.10/examples/llm/openai/localai)
 - [LLMStack](https://github.com/trypromptly/LLMStack)
   
 Feel free to open up a PR to get your project listed!
