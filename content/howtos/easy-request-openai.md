@@ -38,13 +38,11 @@ openai.api_key = "sx-xxx"
 OPENAI_API_KEY = "sx-xxx"
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
-completion = openai.ChatCompletion.create(
+completion = openai.Completion.create(
   model="lunademo",
-  messages=[
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "How are you?"}
-  ]
-)
+  prompt="function downloadFile(string url, string outputPath) ",
+  max_tokens=256,
+  temperature=0.5)
 
 print(completion.choices[0].message)
 ```
