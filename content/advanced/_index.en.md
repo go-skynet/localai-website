@@ -203,6 +203,11 @@ mmap: true
 low_vram: true
 # Set NUMA mode (CPU only)
 numa: true
+# Lora settings
+lora_adapter: "/path/to/lora/adapter"
+lora_base: "/path/to/lora/base"
+# Disable mulmatq (CUDA)
+no_mulmatq: true
 ```
 
 ### Prompt templates 

@@ -5,6 +5,33 @@ weight = 2
 url = '/basics/news/'
 
 +++
+## 26-08-2023: __v1.25.0__
+
+This release brings a lot of new features, bugfixes and updates! Thanks to the community for the help, this was a great community release!
+
+### Attention 🚨
+
+From this release the `llama` backend supports only `gguf` files (see https://github.com/go-skynet/LocalAI/pull/943). LocalAI ships a version of llama.cpp before that change in a separate backend, named `llama-stable` to allow still loading `ggml` files. If you were specifying the `llama` backend manually to load `ggml` files from this release you should use `llama-stable` instead, or do not specify a backend at all (LocalAI will automatically handle this).
+
+### Breaking Changes 🛠
+* feat: bump llama.cpp, add gguf support by @mudler in https://github.com/go-skynet/LocalAI/pull/943
+
+
+### Exciting New Features 🎉
+
+* feat(Makefile): allow to restrict backend builds by @mudler in https://github.com/go-skynet/LocalAI/pull/890
+* feat(diffusers): various enhancements by @mudler in https://github.com/go-skynet/LocalAI/pull/895
+* feat: make initializer accept gRPC delay times by @mudler in https://github.com/go-skynet/LocalAI/pull/900
+* feat(diffusers): add DPMSolverMultistepScheduler++, DPMSolverMultistepSchedulerSDE++, guidance_scale by @mudler in https://github.com/go-skynet/LocalAI/pull/903
+* feat(diffusers): overcome prompt limit by @mudler in https://github.com/go-skynet/LocalAI/pull/904
+* feat(diffusers): add img2img and clip_skip, support more kernels schedulers by @mudler in https://github.com/go-skynet/LocalAI/pull/906
+* Usage Features by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/863
+* feat(diffusers): be consistent with pipelines, support also depthimg2img by @mudler in https://github.com/go-skynet/LocalAI/pull/926
+* feat: add --single-active-backend to allow only one backend active at the time by @mudler in https://github.com/go-skynet/LocalAI/pull/925
+* feat: add llama-stable backend by @mudler in https://github.com/go-skynet/LocalAI/pull/932
+* feat: allow to customize rwkv tokenizer by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/937
+* feat: backend monitor shutdown endpoint, process based by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/938
+* feat: Allow to load lora adapters for llama.cpp by @mudler in https://github.com/go-skynet/LocalAI/pull/955
 
 ## 🔥🔥🔥🔥 12-08-2023: __v1.24.0__ 🔥🔥🔥🔥
 
