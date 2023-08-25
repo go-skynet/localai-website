@@ -23,4 +23,4 @@ Once you have moved that model into the models folder. Open a new CMD or Bash wi
 
 Open on the (Linux or Mac) SH or (Windows) BAT file, this will install all of the things needed for the program.
 
-Enjoy localai!
+Enjoy localai! (If you need help contact Luna Midori on Discord)
