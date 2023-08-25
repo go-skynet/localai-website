@@ -24,4 +24,6 @@ Move the Wizard model into the models folder. Do not rename it.
 
 Once localai is done setting up, in a new CMD or Bash window.
 
-type `python main.py` and enjoy your localai setup
+Open on the (Linux) SH or (Windows) BAT file, this will install all of the things needed for the program.
+
+Then once that is done, type `python main.py` and enjoy localai!
