@@ -12,9 +12,16 @@ This demo is going to act like you have nothing already installed, if you alread
 
 Download these
 
-`Docker Desktop` - https://docs.docker.com/engine/install/
-`Demo Rar File` - https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing
-`Demo Model` - 
+[Docker Desktop](https://docs.docker.com/engine/install/), [Demo Rar File](https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing), [Demo Model](https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q4_0.bin)
 
 Install docker... Cool!
-Unrar the demo file, move it into the
+
+Unrar the demo rar file into a folder called `LocalAi`
+
+Open a CMD or Bash window. 
+
+Type in `docker-compose up --pull always` -> This installs a LocalAi docker
+
+Once localai is done setting up, in a new CMD or Bash window.
+
+type `python main.py` and enjoy your localai setup
