@@ -11,8 +11,10 @@ The goal of this how to is to get you setup with a demo fast.
 This demo is going to act like you have nothing already installed, if you already have docker or other tools installed feel free to skip the step listed.
 
 Download these
-Docker Desktop - https://docs.docker.com/engine/install/
-Demo Rar File - 
+
+`Docker Desktop` - https://docs.docker.com/engine/install/
+`Demo Rar File` - https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing
+`Demo Model` - 
 
 Install docker... Cool!
 Unrar the demo file, move it into the
