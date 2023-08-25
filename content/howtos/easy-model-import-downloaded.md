@@ -41,7 +41,7 @@ Complete the following sentence: {{.Input}}
 In the `"lunademo.yaml"` file
 
 ```yaml
-backend: llama
+backend: llama-stable
 context_size: 2000
 batch: 512
 name: lunademo
