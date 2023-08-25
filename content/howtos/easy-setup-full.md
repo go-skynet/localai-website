@@ -21,6 +21,6 @@ Move the Wizard model into the models folder. Do not rename it.
 
 Once you have moved that model into the models folder. Open a new CMD or Bash window.
 
-Open on the (Linux or Mac) SH or (Windows) BAT file, this will install all of the things needed for the program.
+Run `Setup.sh` (Linux or Mac) or `Setup.bat` (Windows), this will setup everything for you.
 
 Enjoy localai! (If you need help contact Luna Midori on Discord)
