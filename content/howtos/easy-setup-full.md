@@ -16,14 +16,10 @@ Install docker... Cool!
 
 Unrar the demo rar file into a folder called `LocalAi`
 
-Open a CMD or Bash window. 
-
-Type in `docker-compose up --pull always` -> This installs a LocalAi docker
-
 Move the Wizard model into the models folder. Do not rename it.
 
-Once localai is done setting up, in a new CMD or Bash window.
+Once you have moved that model into the models folder. Open a new CMD or Bash window.
 
 Open on the (Linux) SH or (Windows) BAT file, this will install all of the things needed for the program.
 
-Then once that is done, type `python main.py` and enjoy localai!
+Enjoy localai!
