@@ -5,9 +5,9 @@ title = "Easy Request - Openai"
 weight = 2
 +++
 
-Now we can make a `openai` request!
+Now we can make a openai request!
 
-`OpenAI Chat API Python` -
+OpenAI Chat API Python -
 
 ```python
 import os
@@ -28,7 +28,7 @@ completion = openai.ChatCompletion.create(
 print(completion.choices[0].message.content)
 ```
 
-`OpenAI Completion API Python` -
+OpenAI Completion API Python -
 
 ```python
 import os
