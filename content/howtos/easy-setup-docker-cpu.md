@@ -5,10 +5,10 @@ title = "Easy Setup - CPU Docker"
 weight = 2
 +++
 
-We are going to run LocalAI with `docker-compose` for this set up.
+We are going to run `LocalAI` with `docker-compose` for this set up.
 
 
-Lets clone LocalAI with git.
+Lets clone `LocalAI` with git.
 
 ```bash
 git clone https://github.com/go-skynet/LocalAI
@@ -22,7 +22,7 @@ cd LocalAI
 ```
 
 
-At this point we want to set up our `.env` file, here is a copy for you to use if you wish, please make sure to set it to the same as the docker-compose file for later.
+At this point we want to set up our `.env` file, here is a copy for you to use if you wish, please make sure to set it to the same as the `docker-compose` file for later.
 
 ```bash
 ## Set number of threads.
@@ -73,7 +73,7 @@ REBUILD=true
 ```
 
 
-Now that we have the .env set lets set up our docker-compose file, this docker-compose file is for CPU Only:
+Now that we have the `.env` set lets set up our `docker-compose` file, this `docker-compose` file is for `CPU` Only:
 
 ```docker
 version: '3.6'
@@ -93,7 +93,7 @@ services:
 ```
 
 
-Make sure to save that in the root of the LocalAI folder. Then lets spin up the docker run this in a CMD or BASH
+Make sure to save that in the root of the `LocalAI` folder. Then lets spin up the docker run this in a `CMD` or `BASH`
 
 ```bash
 docker-compose up -d --pull always
@@ -110,4 +110,4 @@ Output will look like this:
 
 ![](https://cdn.discordapp.com/attachments/1116933141895053322/1134037542845566976/image.png)
 
-Now that we got that setup, lets go download a model by [Downloading]({{%relref "easy-model-import-downloaded" %}}) Or use the [Gallery]({{%relref "easy-model-import-gallery" %}})! 
+Now that we got that setup, lets go download a model by [Downloading It]({{%relref "easy-model-import-downloaded" %}}) Or use the [Gallery]({{%relref "easy-model-import-gallery" %}})! 
