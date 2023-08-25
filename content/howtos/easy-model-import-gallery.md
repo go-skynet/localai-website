@@ -5,9 +5,9 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use WizardLM-13B-V1.2-GGML, there are a few ways to do this, 
+Now lets pick a model to download and test out. We are going to use `WizardLM-13B-V1.2-GGML`, there are a few ways to do this, 
 
-In the docker cmd run this. This uses the Gallery to download the model, it may also set up the yaml file, but we will need to override that for the how to setup!
+In the `docker` cmd run this. This uses the Gallery to download the model, it may also set up the yaml file, but we will need to override that for the how to setup!
 ```bash
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
@@ -20,14 +20,14 @@ curl --location 'http://localhost:8080/models/apply' \
 Now lets make 3 files. (You may delete or edit if the gallery already made them)
 
 ```bash
-touch wizardlm-chat.tmpl
-touch wizardlm-completion.tmpl
+touch lunademo-chat.tmpl
+touch lunademo-completion.tmpl
 touch lunademo.yaml
 ```
 
 Please note the names for later!
 
-In the "wizardlm-chat.tmpl" file add
+In the `"lunademo-chat.tmpl"` file add
 
 ```txt
 {{.Input}}
@@ -35,14 +35,14 @@ In the "wizardlm-chat.tmpl" file add
 ### Response:
 ```
 
-In the "wizardlm-completion.tmpl" file add
+In the `"lunademo-completion.tmpl"` file add
 
 ```txt
 Complete the following sentence: {{.Input}}
 ```
 
 
-In the "lunademo.yaml" file
+In the `"lunademo.yaml"` file
 
 ```yaml
 backend: llama
@@ -59,8 +59,8 @@ roles:
   system: '### System:'
   user: '### Instruction:'
 template:
-  chat: wizardlm-chat
-  completion: wizardlm-completion
+  chat: lunademo-chat
+  completion: lunademo-completion
 ```
 
 Now that we have that fully set up, we need to reboot the docker. Go back to the localai folder and run
