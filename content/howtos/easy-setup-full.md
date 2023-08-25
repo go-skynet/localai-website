@@ -11,7 +11,7 @@ The goal of this how to is to get you setup with a demo fast.
 
 This demo is going to act like you have nothing already installed, if you already have docker or other tools installed feel free to skip the step listed.
 
-Download these --> [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11]([https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing](https://www.python.org/downloads/release/python-3110/)), [Demo Rar File](https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing), [Demo Model](https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q4_0.bin)
+Download these --> [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11](https://www.python.org/downloads/release/python-3110/), [Demo Rar File](https://drive.google.com/file/d/1p2_-WdS15aVvR8yoJixvlg1t9nHgAhqQ/view?usp=sharing), [Demo Model](https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML/resolve/main/wizardlm-13b-v1.2.ggmlv3.q4_0.bin)
 
 Install docker... Cool!
 
