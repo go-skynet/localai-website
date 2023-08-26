@@ -36,6 +36,7 @@ There are few situation why this could occur. Some tips are:
 - Don't use HDD to store your models. Prefer SSD over HDD. In case you are stuck with HDD, disable `mmap` in the model config file so it loads everything in memory.
 - Watch out CPU overbooking. Ideally the `--threads` should match the number of physical cores. For instance if your CPU has 4 cores, you would ideally allocate `<= 4` threads to a model.
 - Run LocalAI with `DEBUG=true`. This gives more information, including stats on the token inference speed.
+- Check that you are actually getting an output: run a simple curl request with `"stream": true` to see how fast the model is responding. 
 
 </details>
 
