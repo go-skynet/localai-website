@@ -15,7 +15,7 @@ Download these --> [Docker Desktop](https://docs.docker.com/engine/install/), [P
 
 If you use `Git Bash` for windows, please use the windows cmd, I am working on a fix!
 
-Install docker, python, and git... Cool! (Skip this if you already have them installed)
+Install `docker`, `python`, and `git`... Cool! (Skip this if you already have them installed)
 
 Make a folder named `LocalAi` then run `git clone https://github.com/lunamidori5/localai-lunademo.git`
 
