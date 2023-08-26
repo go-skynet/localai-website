@@ -40,10 +40,14 @@ There is an ongoing effort in the community to better handling of resources. See
 
 Thanks to the community efforts now we have a new [how-to section]({{%relref "howtos" %}}) with various examples on how to use LocalAI. This is a great starting point for new users! We are currently working on improving it, a huge shout out to {{< github "lunamidori5" >}} from the community for the impressive efforts on this!
 
+#### 💡 More examples!
+
+- Open source autopilot? See the new addition by {{< github "gruberdev" >}} in our [examples](https://github.com/go-skynet/LocalAI/tree/master/examples/continue) on how to use Continue with LocalAI!
+- Want to try LocalAI with Insomnia? Check out the new [Insomnia example](https://github.com/go-skynet/LocalAI/tree/master/examples/insomnia) by {{< github "dave-gray101" >}}!
+
 #### LocalAGI in discord!
 
 Did you know that we have now few cool bots in our Discord? come check them out! We also have an instance of [LocalAGI](https://github.com/mudler/LocalAGI) ready to help you out!
-
 
 
 
