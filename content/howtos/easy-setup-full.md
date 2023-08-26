@@ -13,6 +13,8 @@ This demo is going to act like you have nothing already installed, if you alread
 
 Download these --> [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11](https://www.python.org/downloads/release/python-3110/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
+If you use `Git Bash` for windows, please use the windows cmd, I am working on a fix!
+
 Install docker, python, and git... Cool! (Skip this if you already have them installed)
 
 Make a folder named `LocalAi` then run `git clone https://github.com/lunamidori5/localai-lunademo.git`
