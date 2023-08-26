@@ -7,31 +7,70 @@ url = '/basics/news/'
 +++
 ## 26-08-2023: __v1.25.0__
 
-This release brings a lot of new features, bugfixes and updates! Thanks to the community for the help, this was a great community release!
+Hey everyone, [Ettore](https://github.com/mudler/) here, I'm so happy to share this release out - while this summer is hot apparently doesn't stop LocalAI development  :)
+
+This release brings a lot of new features, bugfixes and updates! Also a big shout out to the community, this was a great release!
 
 ### Attention 🚨
 
-From this release the `llama` backend supports only `gguf` files (see https://github.com/go-skynet/LocalAI/pull/943). LocalAI ships a version of llama.cpp before that change in a separate backend, named `llama-stable` to allow still loading `ggml` files. If you were specifying the `llama` backend manually to load `ggml` files from this release you should use `llama-stable` instead, or do not specify a backend at all (LocalAI will automatically handle this).
+From this release the `llama` backend supports only `gguf` files (see {{< pr "943" >}}). LocalAI ships a version of llama.cpp before that change in a separate backend, named `llama-stable` to allow still loading `ggml` files. If you were specifying the `llama` backend manually to load `ggml` files from this release you should use `llama-stable` instead, or do not specify a backend at all (LocalAI will automatically handle this).
 
-### Breaking Changes 🛠
-* feat: bump llama.cpp, add gguf support by @mudler in https://github.com/go-skynet/LocalAI/pull/943
+### Image generation enhancements
+
+The [Diffusers]({{%relref "model-compatibility/diffusers" %}}) backend got now various enhancements, including support to generate images from images, longer prompts, and support for more kernels schedulers. See the [Diffusers]({{%relref "model-compatibility/diffusers" %}}) documentation for more information.
+
+### Lora adapters
+
+Now it's possible to load lora adapters for llama.cpp. See {{< pr "955" >}} for more information.
+
+### Device management
+
+It is now possible for single-devices with one GPU to specify `--single-active-backend` to allow only one backend active at the time {{< pr "925" >}}.
+
+### Community spotlight
+
+#### Resources management
+
+Thanks to the continous community efforts (another cool contribution from {{< github "dave-gray101" >}} ) now it's possible to shutdown a backend programmatically via the API.
+There is an ongoing effort in the community to better handling of resources. See also the [🔥Roadmap](https://localai.io/#-hot-topics--roadmap).
+
+#### New how-to section
+
+Thanks to the community efforts now we have a new [how-to section]({{%relref "howtos" %}}) with various examples on how to use LocalAI. This is a great starting point for new users! We are currently working on improving it, a huge shout out to {{< github "lunamidori5" >}} from the community for the impressive efforts on this!
+
+#### LocalAGI in discord!
+
+Did you know that we have now few cool bots in our Discord? come check them out! We also have an instance of [LocalAGI](https://github.com/mudler/LocalAGI) ready to help you out!
 
 
-### Exciting New Features 🎉
 
-* feat(Makefile): allow to restrict backend builds by @mudler in https://github.com/go-skynet/LocalAI/pull/890
-* feat(diffusers): various enhancements by @mudler in https://github.com/go-skynet/LocalAI/pull/895
-* feat: make initializer accept gRPC delay times by @mudler in https://github.com/go-skynet/LocalAI/pull/900
-* feat(diffusers): add DPMSolverMultistepScheduler++, DPMSolverMultistepSchedulerSDE++, guidance_scale by @mudler in https://github.com/go-skynet/LocalAI/pull/903
-* feat(diffusers): overcome prompt limit by @mudler in https://github.com/go-skynet/LocalAI/pull/904
-* feat(diffusers): add img2img and clip_skip, support more kernels schedulers by @mudler in https://github.com/go-skynet/LocalAI/pull/906
-* Usage Features by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/863
-* feat(diffusers): be consistent with pipelines, support also depthimg2img by @mudler in https://github.com/go-skynet/LocalAI/pull/926
-* feat: add --single-active-backend to allow only one backend active at the time by @mudler in https://github.com/go-skynet/LocalAI/pull/925
-* feat: add llama-stable backend by @mudler in https://github.com/go-skynet/LocalAI/pull/932
-* feat: allow to customize rwkv tokenizer by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/937
-* feat: backend monitor shutdown endpoint, process based by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/938
-* feat: Allow to load lora adapters for llama.cpp by @mudler in https://github.com/go-skynet/LocalAI/pull/955
+
+### Changelog summary
+
+#### Breaking Changes 🛠
+* feat: bump llama.cpp, add gguf support by {{< github "mudler" >}} in {{< pr "943" >}}
+
+#### Exciting New Features 🎉
+
+* feat(Makefile): allow to restrict backend builds by {{< github "mudler" >}} in {{< pr "890" >}}
+* feat(diffusers): various enhancements by {{< github "mudler" >}} in {{< pr "895" >}}
+* feat: make initializer accept gRPC delay times by {{< github "mudler" >}} in {{< pr "900" >}}
+* feat(diffusers): add DPMSolverMultistepScheduler++, DPMSolverMultistepSchedulerSDE++, guidance_scale by {{< github "mudler" >}} in {{< pr "903" >}}
+* feat(diffusers): overcome prompt limit by {{< github "mudler" >}} in {{< pr "904" >}}
+* feat(diffusers): add img2img and clip_skip, support more kernels schedulers by {{< github "mudler" >}} in {{< pr "906" >}}
+* Usage Features by {{< github "dave-gray101" >}}  in {{< pr "863" >}}
+* feat(diffusers): be consistent with pipelines, support also depthimg2img by {{< github "mudler" >}} in {{< pr "926" >}}
+* feat: add --single-active-backend to allow only one backend active at the time by {{< github "mudler" >}} in {{< pr "925" >}}
+* feat: add llama-stable backend by {{< github "mudler" >}} in {{< pr "932" >}}
+* feat: allow to customize rwkv tokenizer by {{< github "dave-gray101" >}}  in {{< pr "937" >}}
+* feat: backend monitor shutdown endpoint, process based by {{< github "dave-gray101" >}}  in {{< pr "938" >}}
+* feat: Allow to load lora adapters for llama.cpp by {{< github "mudler" >}} in {{< pr "955" >}}
+
+Join our Discord community! our vibrant community is growing fast, and we are always happy to help!  https://discord.gg/uJAeKSAGDy
+
+The full changelog is available [here](https://github.com/go-skynet/LocalAI/releases/tag/v.1.25.0).
+
+--- 
 
 ## 🔥🔥🔥🔥 12-08-2023: __v1.24.0__ 🔥🔥🔥🔥
 
@@ -39,11 +78,11 @@ This is release brings four(!) new additional backends to LocalAI: [🐶 Bark]({
 
 ### Major improvements:
 
-* feat: add bark and AutoGPTQ by @mudler in https://github.com/go-skynet/LocalAI/pull/871
-* feat: Add Diffusers by @mudler in https://github.com/go-skynet/LocalAI/pull/874
-* feat: add API_KEY list support by @neboman11 and @bnusunny in https://github.com/go-skynet/LocalAI/pull/877
-* feat: Add exllama by @mudler in https://github.com/go-skynet/LocalAI/pull/881
-* feat: pre-configure LocalAI galleries by @mudler in https://github.com/go-skynet/LocalAI/pull/886
+* feat: add bark and AutoGPTQ by {{< github "mudler" >}} in {{< pr "871" >}}
+* feat: Add Diffusers by {{< github "mudler" >}} in {{< pr "874" >}}
+* feat: add API_KEY list support by {{< github "neboman11" >}} and {{< github "bnusunny" >}} in {{< pr "877" >}}
+* feat: Add exllama by {{< github "mudler" >}} in {{< pr "881" >}}
+* feat: pre-configure LocalAI galleries by {{< github "mudler" >}} in {{< pr "886" >}}
 
 ### 🐶 Bark
 
@@ -83,19 +122,21 @@ See it [here in action](https://github.com/mudler/LocalAGI/assets/2420543/9ba43b
 
 The full changelog is available [here](https://github.com/go-skynet/LocalAI/releases/tag/v.1.24.0).
 
+--- 
+
 ## 🔥🔥 29-07-2023: __v1.23.0__ 🚀
 
 This release focuses mostly on bugfixing and updates, with just a couple of new features:
 
-* feat: add rope settings and negative prompt, drop grammar backend by @mudler in https://github.com/go-skynet/LocalAI/pull/797
-* Added CPU information to entrypoint.sh by @finger42 in https://github.com/go-skynet/LocalAI/pull/794
-* feat: cancel stream generation if client disappears by @tmm1 in https://github.com/go-skynet/LocalAI/pull/792
+* feat: add rope settings and negative prompt, drop grammar backend by {{< github "mudler" >}} in {{< pr "797" >}}
+* Added CPU information to entrypoint.sh by @finger42 in {{< pr "794" >}}
+* feat: cancel stream generation if client disappears by @tmm1 in {{< pr "792" >}}
   
 Most notably, this release brings important fixes for CUDA (and not only):
 
-* fix: add rope settings during model load, fix CUDA by @mudler in https://github.com/go-skynet/LocalAI/pull/821
-* fix: select function calls if 'name' is set in the request by @mudler in https://github.com/go-skynet/LocalAI/pull/827
-* fix: symlink libphonemize in the container by @mudler in https://github.com/go-skynet/LocalAI/pull/831
+* fix: add rope settings during model load, fix CUDA by {{< github "mudler" >}} in {{< pr "821" >}}
+* fix: select function calls if 'name' is set in the request by {{< github "mudler" >}} in {{< pr "827" >}}
+* fix: symlink libphonemize in the container by {{< github "mudler" >}} in {{< pr "831" >}}
   
 {{% notice note %}}
 
@@ -105,13 +146,15 @@ From this release [OpenAI functions]({{%relref "features/openai-functions" %}}) 
 
 The full [changelog is available here](https://github.com/go-skynet/LocalAI/releases/tag/v1.23.0)
 
+--- 
+
 ## 🔥🔥🔥 23-07-2023: __v1.22.0__ 🚀
 
-* feat: add llama-master backend by @mudler in https://github.com/go-skynet/LocalAI/pull/752
-* [build] pass build type to cmake on libtransformers.a build by @TonDar0n in https://github.com/go-skynet/LocalAI/pull/741
-* feat: resolve JSONSchema refs (planners) by @mudler in https://github.com/go-skynet/LocalAI/pull/774
-* feat: backends improvements by @mudler in https://github.com/go-skynet/LocalAI/pull/778
-* feat(llama2): add template for chat messages by @dave-gray101 in https://github.com/go-skynet/LocalAI/pull/782
+* feat: add llama-master backend by {{< github "mudler" >}} in {{< pr "752" >}}
+* [build] pass build type to cmake on libtransformers.a build by @TonDar0n in {{< pr "741" >}}
+* feat: resolve JSONSchema refs (planners) by {{< github "mudler" >}} in {{< pr "774" >}}
+* feat: backends improvements by {{< github "mudler" >}} in {{< pr "778" >}}
+* feat(llama2): add template for chat messages by {{< github "dave-gray101" >}}  in {{< pr "782" >}}
 
 {{% notice note %}}
 
@@ -121,22 +164,24 @@ From this release to use the OpenAI functions you need to use the `llama-grammar
 
 ## Huggingface embeddings
 
-In this release is now possible to specify to LocalAI external `gRPC` backends that can be used for inferencing https://github.com/go-skynet/LocalAI/pull/778. It is now possible to write internal backends in any language, and a `huggingface-embeddings` backend is now available in the container image to be used with https://github.com/UKPLab/sentence-transformers. See also [Embeddings]({{%relref "features/embeddings" %}}).
+In this release is now possible to specify to LocalAI external `gRPC` backends that can be used for inferencing {{< pr "778" >}}. It is now possible to write internal backends in any language, and a `huggingface-embeddings` backend is now available in the container image to be used with https://github.com/UKPLab/sentence-transformers. See also [Embeddings]({{%relref "features/embeddings" %}}).
 
 ## LLaMa 2 has been released!
 
-Thanks to the community effort now LocalAI supports templating for LLaMa2! more at: https://github.com/go-skynet/LocalAI/pull/782 until we update the model gallery with LLaMa2 models!
+Thanks to the community effort now LocalAI supports templating for LLaMa2! more at: {{< pr "782" >}} until we update the model gallery with LLaMa2 models!
 
 ## Official langchain integration
 
 Progress has been made to support LocalAI with `langchain`. See: https://github.com/langchain-ai/langchain/pull/8134
 
+--- 
+
 ## 🔥🔥🔥 17-07-2023: __v1.21.0__ 🚀
 
-* [whisper] Partial support for verbose_json format in transcribe endpoint by `@ldotlopez` in https://github.com/go-skynet/LocalAI/pull/721
-* LocalAI functions by `@mudler` in https://github.com/go-skynet/LocalAI/pull/726
-* `gRPC`-based backends by `@mudler` in https://github.com/go-skynet/LocalAI/pull/743
-* falcon support (7b and 40b) with `ggllm.cpp` by `@mudler` in https://github.com/go-skynet/LocalAI/pull/743
+* [whisper] Partial support for verbose_json format in transcribe endpoint by `@ldotlopez` in {{< pr "721" >}}
+* LocalAI functions by `@mudler` in {{< pr "726" >}}
+* `gRPC`-based backends by `@mudler` in {{< pr "743" >}}
+* falcon support (7b and 40b) with `ggllm.cpp` by `@mudler` in {{< pr "743" >}}
 
 ### LocalAI functions
 
@@ -168,12 +213,14 @@ From this release the default behavior of images has changed. Compilation is not
 
 [Full release changelog](https://github.com/go-skynet/LocalAI/releases/tag/v1.21.0)
 
+--- 
+
 ## 🔥🔥🔥 28-06-2023: __v1.20.0__ 🚀
 
 ### Exciting New Features 🎉
 
-* Add Text-to-Audio generation with `go-piper` by @mudler in https://github.com/go-skynet/LocalAI/pull/649 See [API endpoints]({{%relref "features/text-to-audio" %}}) in our documentation.
-* Add gallery repository by @mudler in https://github.com/go-skynet/LocalAI/pull/663. See [models]({{%relref "models" %}}) for documentation.
+* Add Text-to-Audio generation with `go-piper` by {{< github "mudler" >}} in {{< pr "649" >}} See [API endpoints]({{%relref "features/text-to-audio" %}}) in our documentation.
+* Add gallery repository by {{< github "mudler" >}} in {{< pr "663" >}}. See [models]({{%relref "models" %}}) for documentation.
 
 ### Container images
 - Standard (GPT + `stablediffusion`): `quay.io/go-skynet/local-ai:v1.20.0`
@@ -185,7 +232,7 @@ From this release the default behavior of images has changed. Compilation is not
 
 Updates to `llama.cpp`, `go-transformers`, `gpt4all.cpp` and `rwkv.cpp`.
 
-The NUMA option was enabled by @mudler in https://github.com/go-skynet/LocalAI/pull/684, along with many new parameters (`mmap`,`mmlock`, ..). See [advanced]({{%relref "advanced" %}}) for the full list of parameters.
+The NUMA option was enabled by {{< github "mudler" >}} in {{< pr "684" >}}, along with many new parameters (`mmap`,`mmlock`, ..). See [advanced]({{%relref "advanced" %}}) for the full list of parameters.
 
 ### Gallery repositories
 
@@ -219,6 +266,8 @@ To setup audio models, you can use the new galleries, or setup the models manual
 
 You can check the full changelog in [Github](https://github.com/go-skynet/LocalAI/releases/tag/v1.20.0)
 
+--- 
+
 ## 🔥🔥🔥 19-06-2023: __v1.19.0__ 🚀
 
 - Full CUDA GPU offload support ( [PR](https://github.com/go-skynet/go-llama.cpp/pull/105) by [mudler](https://github.com/mudler). Thanks to [chnyda](https://github.com/chnyda) for handing over the GPU access, and [lu-zero](https://github.com/lu-zero) to help in debugging  )
@@ -229,6 +278,8 @@ Container images:
 - FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-ffmpeg`
 - CUDA 11+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda11-ffmpeg`
 - CUDA 12+FFmpeg: `quay.io/go-skynet/local-ai:v1.19.2-cublas-cuda12-ffmpeg`
+
+--- 
 
 ## 🔥🔥🔥 06-06-2023: __v1.18.0__ 🚀
 
@@ -274,6 +325,8 @@ Two new projects offer now direct integration with LocalAI!
 
 [Full release changelog](https://github.com/go-skynet/LocalAI/releases/tag/v1.18.0)
 
+--- 
+
 ## 29-05-2023: __v1.17.0__
 
 Support for OpenCL has been added while building from sources.
@@ -283,6 +336,8 @@ You can now build LocalAI from source with `BUILD_TYPE=clblas` to have an OpenCL
 For instructions on how to install OpenCL/CLBlast see [here](https://github.com/ggerganov/llama.cpp#blas-build).
 
 rwkv.cpp has been updated to the new ggml format [commit](https://github.com/saharNooby/rwkv.cpp/commit/dea929f8cad90b7cf2f820c5a3d6653cfdd58c4e).
+
+--- 
 
 ## 27-05-2023: __v1.16.0__ 
 
@@ -317,11 +372,11 @@ See also the [advanced section]({{%relref "advanced" %}}).
 
 ## Previous 
 
-- 23-05-2023: __v1.15.0__ released. `go-gpt2.cpp` backend got renamed to `go-ggml-transformers.cpp` updated including https://github.com/ggerganov/llama.cpp/pull/1508 which breaks compatibility with older models. This impacts RedPajama, GptNeoX, MPT(not `gpt4all-mpt`), Dolly, GPT2 and Starcoder based models. [Binary releases available](https://github.com/go-skynet/LocalAI/releases), various fixes, including https://github.com/go-skynet/LocalAI/pull/341 .
+- 23-05-2023: __v1.15.0__ released. `go-gpt2.cpp` backend got renamed to `go-ggml-transformers.cpp` updated including https://github.com/ggerganov/llama.cpp/pull/1508 which breaks compatibility with older models. This impacts RedPajama, GptNeoX, MPT(not `gpt4all-mpt`), Dolly, GPT2 and Starcoder based models. [Binary releases available](https://github.com/go-skynet/LocalAI/releases), various fixes, including {{< pr "341" >}} .
 - 21-05-2023: __v1.14.0__ released. Minor updates to the `/models/apply` endpoint, `llama.cpp` backend updated including https://github.com/ggerganov/llama.cpp/pull/1508 which breaks compatibility with older models. `gpt4all` is still compatible with the old format. 
-- 19-05-2023: __v1.13.0__ released! 🔥🔥 updates to the `gpt4all` and `llama` backend, consolidated CUDA support ( https://github.com/go-skynet/LocalAI/pull/310 thanks to @bubthegreat and @Thireus ), preliminar support for [installing models via API]({{%relref "advanced#" %}}).
-- 17-05-2023:  __v1.12.0__ released! 🔥🔥 Minor fixes, plus CUDA (https://github.com/go-skynet/LocalAI/pull/258) support for `llama.cpp`-compatible models and image generation (https://github.com/go-skynet/LocalAI/pull/272).
-- 16-05-2023: 🔥🔥🔥 Experimental support for CUDA (https://github.com/go-skynet/LocalAI/pull/258) in the `llama.cpp` backend and Stable diffusion CPU image generation (https://github.com/go-skynet/LocalAI/pull/272) in `master`.
+- 19-05-2023: __v1.13.0__ released! 🔥🔥 updates to the `gpt4all` and `llama` backend, consolidated CUDA support ( {{< pr "310" >}} thanks to @bubthegreat and @Thireus ), preliminar support for [installing models via API]({{%relref "advanced#" %}}).
+- 17-05-2023:  __v1.12.0__ released! 🔥🔥 Minor fixes, plus CUDA ({{< pr "258" >}}) support for `llama.cpp`-compatible models and image generation ({{< pr "272" >}}).
+- 16-05-2023: 🔥🔥🔥 Experimental support for CUDA ({{< pr "258" >}}) in the `llama.cpp` backend and Stable diffusion CPU image generation ({{< pr "272" >}}) in `master`.
 
 Now LocalAI can generate images too:
 
@@ -332,9 +387,9 @@ Now LocalAI can generate images too:
 - 14-05-2023: __v1.11.1__ released! `rwkv` backend patch release
 - 13-05-2023: __v1.11.0__ released! 🔥 Updated `llama.cpp` bindings: This update includes a breaking change in the model files ( https://github.com/ggerganov/llama.cpp/pull/1405 ) - old models should still work with the `gpt4all-llama` backend.
 - 12-05-2023: __v1.10.0__ released! 🔥🔥 Updated `gpt4all` bindings. Added support for GPTNeox (experimental), RedPajama (experimental), Starcoder (experimental), Replit (experimental), MosaicML MPT. Also now `embeddings` endpoint supports tokens arrays. See the [langchain-chroma](https://github.com/go-skynet/LocalAI/tree/master/examples/langchain-chroma) example! Note - this update does NOT include https://github.com/ggerganov/llama.cpp/pull/1405 which makes models incompatible.
-- 11-05-2023: __v1.9.0__ released! 🔥 Important whisper updates ( https://github.com/go-skynet/LocalAI/pull/233 https://github.com/go-skynet/LocalAI/pull/229 ) and extended gpt4all model families support ( https://github.com/go-skynet/LocalAI/pull/232 ). Redpajama/dolly experimental ( https://github.com/go-skynet/LocalAI/pull/214 )
-- 10-05-2023: __v1.8.0__ released! 🔥 Added support for fast and accurate embeddings with `bert.cpp` ( https://github.com/go-skynet/LocalAI/pull/222 )
-- 09-05-2023: Added experimental support for transcriptions endpoint ( https://github.com/go-skynet/LocalAI/pull/211 )
-- 08-05-2023: Support for embeddings with models using the `llama.cpp` backend ( https://github.com/go-skynet/LocalAI/pull/207 )
-- 02-05-2023: Support for `rwkv.cpp` models ( https://github.com/go-skynet/LocalAI/pull/158 ) and for `/edits` endpoint
-- 01-05-2023: Support for SSE stream of tokens in `llama.cpp` backends ( https://github.com/go-skynet/LocalAI/pull/152 )
+- 11-05-2023: __v1.9.0__ released! 🔥 Important whisper updates ( {{< pr "233" >}} {{< pr "229" >}} ) and extended gpt4all model families support ( {{< pr "232" >}} ). Redpajama/dolly experimental ( {{< pr "214" >}} )
+- 10-05-2023: __v1.8.0__ released! 🔥 Added support for fast and accurate embeddings with `bert.cpp` ( {{< pr "222" >}} )
+- 09-05-2023: Added experimental support for transcriptions endpoint ( {{< pr "211" >}} )
+- 08-05-2023: Support for embeddings with models using the `llama.cpp` backend ( {{< pr "207" >}} )
+- 02-05-2023: Support for `rwkv.cpp` models ( {{< pr "158" >}} ) and for `/edits` endpoint
+- 01-05-2023: Support for SSE stream of tokens in `llama.cpp` backends ( {{< pr "152" >}} )
