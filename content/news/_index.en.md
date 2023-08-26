@@ -13,7 +13,7 @@ This release brings a lot of new features, bugfixes and updates! Also a big shou
 
 ### Attention 🚨
 
-From this release the `llama` backend supports only `gguf` files (see {{< pr "943" >}}). LocalAI ships a version of llama.cpp before that change in a separate backend, named `llama-stable` to allow still loading `ggml` files. If you were specifying the `llama` backend manually to load `ggml` files from this release you should use `llama-stable` instead, or do not specify a backend at all (LocalAI will automatically handle this).
+From this release the `llama` backend supports only `gguf` files (see {{< pr "943" >}}). LocalAI  however still supports `ggml` files. We ship a version of llama.cpp before that change in a separate backend, named `llama-stable` to allow still loading `ggml` files. If you were specifying the `llama` backend manually to load `ggml` files from this release you should use `llama-stable` instead, or do not specify a backend at all (LocalAI will automatically handle this).
 
 ### Image generation enhancements
 
@@ -28,6 +28,8 @@ Now it's possible to load lora adapters for llama.cpp. See {{< pr "955" >}} for 
 It is now possible for single-devices with one GPU to specify `--single-active-backend` to allow only one backend active at the time {{< pr "925" >}}.
 
 ### Community spotlight
+
+![2023_08_26_15_09_27](https://github.com/go-skynet/localai-website/assets/2420543/f0204f8f-7462-4cdd-9154-4538683c1eef)
 
 #### Resources management
 
