@@ -88,12 +88,12 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 ## 🔥🔥 Hot topics / Roadmap
 
 - [ ] Enable gallery management directly from the webui. https://github.com/go-skynet/LocalAI/issues/918
-- [ ] llama.cpp lora adapters: https://github.com/go-skynet/LocalAI/issues/919
+- [x] llama.cpp lora adapters: https://github.com/go-skynet/LocalAI/issues/919
 - [ ] image variants and edits: https://github.com/go-skynet/LocalAI/issues/921
 - [ ] esrgan for diffusers: https://github.com/go-skynet/LocalAI/issues/917
 - [ ] ggml-stablediffusion: https://github.com/go-skynet/LocalAI/issues/916
 - [ ] SAM: https://github.com/go-skynet/LocalAI/issues/915
-- [ ] diffusers lora adapters: https://github.com/go-skynet/LocalAI/issues/914
+- [x] diffusers lora adapters: https://github.com/go-skynet/LocalAI/issues/914
 - [ ] resource management and control: https://github.com/go-skynet/LocalAI/issues/912
 - [ ] ChatGLM: https://github.com/go-skynet/LocalAI/issues/754
 - [ ] text-to-video : https://github.com/go-skynet/LocalAI/issues/933
