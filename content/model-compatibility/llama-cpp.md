@@ -7,6 +7,12 @@ weight = 1
 
 [llama.cpp](https://github.com/ggerganov/llama.cpp) is a popular port of Facebook's LLaMA model in C/C++.
 
+{{% notice note %}}
+
+The `ggml` file format has been deprecated. If you are using `ggml` models and you are configuring your model with a YAML file, specify, use the `llama-stable` backend instead. If you are relying in automatic detection of the model, you should be fine.
+
+{{% /notice %}}
+
 ## Features
 
 The `llama.cpp` model supports the following features:

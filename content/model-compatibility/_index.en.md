@@ -23,7 +23,7 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 
 | Backend and Bindings                                                             | Compatible models     | Completion/Chat endpoint | Capability | Embeddings support                | Token stream support | Acceleration |
 |----------------------------------------------------------------------------------|-----------------------|--------------------------|---------------------------|-----------------------------------|----------------------|--------------|
-| [llama](https://github.com/ggerganov/llama.cpp) ([binding](https://github.com/go-skynet/go-llama.cpp))         | Vicuna, Alpaca, LLaMa | yes                      | GPT and Functions                        | yes** | yes                  | CUDA, openCL, cuBLAS, Metal |
+| [llama](https://github.com/ggerganov/llama.cpp) and `llama-stable`**** ([binding](https://github.com/go-skynet/go-llama.cpp))         | Vicuna, Alpaca, LLaMa | yes                      | GPT and Functions                        | yes** | yes                  | CUDA, openCL, cuBLAS, Metal |
 | [gpt4all-llama](https://github.com/nomic-ai/gpt4all)      | Vicuna, Alpaca, LLaMa | yes                      | GPT                        | no                                | yes                  | N/A  |
 | [gpt4all-mpt](https://github.com/nomic-ai/gpt4all)          | MPT                   | yes                      | GPT                        | no                                | yes                  | N/A  |
 | [gpt4all-j](https://github.com/nomic-ai/gpt4all)           | GPT4ALL-J             | yes                      | GPT                        | no                                | yes                  | N/A  |
@@ -49,10 +49,12 @@ Besides llama based models, LocalAI is compatible also with other architectures.
 | 🆕`exllama`  | GPTQ                   | yes                       | GPT only                  | no                               | no                   | N/A |
 | 🆕 `diffusers`  | SD,...                   | no                       | Image generation    | no                               | no                   | N/A |
 
+Note: any backend name listed above can be used in the `backend` field of the model configuration file (See [the advanced section]({{%relref "advanced" %}})).
 
-    * 7b ONLY
-    ** doesn't seem to be accurate
-    *** 7b and 40b with the `ggccv` format, for instance: https://huggingface.co/TheBloke/WizardLM-Uncensored-Falcon-40B-GGML
+- \* 7b ONLY
+- ** doesn't seem to be accurate
+- *** 7b and 40b with the `ggccv` format, for instance: https://huggingface.co/TheBloke/WizardLM-Uncensored-Falcon-40B-GGML
+- **** the `llama-stable` backend is used for `ggml` files, `llama` for `gguf` files.
 
 Tested with:
 
