@@ -25,7 +25,7 @@ The setup file will start up a python env - you will see the folder be made. It 
 
 Enjoy localai! (If you need help contact Luna Midori on Discord)
 
-{{% notice Known Issues %}}
+{{% notice Issues %}}
 - `Git Bash` on Windows is not working.
 - Running over `SSH` or other remote cmd may bug out, load slowly, or crash.
 {{% /notice %}}
