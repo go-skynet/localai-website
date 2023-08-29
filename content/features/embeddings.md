@@ -73,7 +73,7 @@ The `huggingface` backend uses Python [sentence-transformers](https://github.com
 {{% /notice %}}
 
 
-## Lama.cpp embeddings
+## Llama.cpp embeddings
 
 Embeddings with `llama.cpp` are supported with the `llama` backend.
 
