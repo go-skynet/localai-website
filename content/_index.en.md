@@ -98,6 +98,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] ChatGLM: https://github.com/go-skynet/LocalAI/issues/754
 - [ ] text-to-video : https://github.com/go-skynet/LocalAI/issues/933
 - [ ] rustformers: https://github.com/go-skynet/LocalAI/issues/939
+- [ ] Vall-e: https://github.com/go-skynet/LocalAI/issues/985
 
 ## How does it work?  
 
