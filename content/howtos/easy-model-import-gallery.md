@@ -5,14 +5,14 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `WizardLM-13B-V1.2-GGML`, there are a few ways to do this, 
+Now lets pick a model to download and test out. We are going to use `llama-2-13b-chat.ggmlv3.q4_0.bin`, there are a few ways to do this, https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/blob/main/
 
 In the `docker` cmd run this. This uses the Gallery to download the model, it may also set up the yaml file, but we will need to override that for the how to setup!
 ```bash
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "TheBloke/wizardlm-13b-v1.2-ggml/wizardlm-13b-v1.2.ggmlv3.q4_0.bin",
+    "id": "TheBloke/Llama-2-13B-chat-GGML/llama-2-13b-chat.ggmlv3.q4_0.bin",
     "name": "lunademo"
 }'
 ```
@@ -50,7 +50,7 @@ context_size: 2000
 batch: 512
 name: lunademo
 parameters:
-  model: wizardlm-13b-v1.2.ggmlv3.q4_0.bin
+  model: llama-2-13b-chat.ggmlv3.q4_0.bin
   temperature: 0.2
   top_k: 40
   top_p: 0.65
