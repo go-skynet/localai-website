@@ -5,27 +5,55 @@ title = "Easy Setup Demo"
 weight = 2
 +++
 
-This is for `Linux`, `Mac OS`, or `Windows` Hosts.
+This is for `Linux`, `Mac OS`, or `Windows` Hosts. - [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11](https://www.python.org/downloads/release/python-3110/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-The goal of this how to is to get you setup with a demo fast.
+Linux Hosts:
 
-This demo is going to act like you have nothing already installed, if you already have docker or other tools installed feel free to skip the step listed.
+There is a Full_Auto installer for some types of Linuxs, feel free to use them but please note, they may not fully work so please use the links at the top if you need to install something.
 
-Download these --> [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11](https://www.python.org/downloads/release/python-3110/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+```bash
+git clone https://github.com/lunamidori5/localai-lunademo.git
 
-Install `docker`, `python3.11`, and `git`... Cool! (Skip this if you already have them installed)
+cd localai-lunademo
 
-Make a folder named `LocalAi` then run `git clone https://github.com/lunamidori5/localai-lunademo.git`
+#Pick your type of linux for the Full Autos, if you already have python, docker, and docker-compose installed skip this chmod. But make sure you chmod the setup_linux file.
 
-Move into the folder that github made `localai-lunademo`.
+chmod 777 Full_Auto_setup_Debian.sh or chmod 777 Full_Auto_setup_Ubutnu.sh
 
-Run `Setup.sh` (Linux or Mac) or `Setup.bat` (Windows), this will setup everything for you.
+chmod 777 Setup_Linux.sh
 
-The setup file will start up a python env - you will see the folder be made. It will then auto install all of the pip installs it needs to work inside of the python env. Then it will run the main.py, you can also bypass what ever steps you want or use the code how you want, but if you change the code and need support please let the support person know.
+./(the setupfile you wish to run)
+```
+
+Windows Hosts:
+
+```batch
+REM Make sure you have git, docker-desktop, and python 3.11 installed
+
+git clone https://github.com/lunamidori5/localai-lunademo.git
+
+cd localai-lunademo
+
+call Setup.bat
+```
+
+MacOS Hosts: 
+
+{{% notice Note %}}
+- I need some help working on a MacOS Setup file, if you are willing to help out, please contact Luna Midori on discord or put in a PR on Luna Midori's github.
+{{% /notice %}}
+
+Video How Tos 
+
+Ubuntu - ``COMING SOON``
+Debian - ``COMING SOON``
+Windows - ``COMING SOON``
+MacOS - ``PLANED - NEED HELP``
 
 Enjoy localai! (If you need help contact Luna Midori on Discord)
 
-{{% notice Known Issues %}}
+{{% notice Issues %}}
 - `Git Bash` on Windows is not working.
 - Running over `SSH` or other remote cmd may bug out, load slowly, or crash.
+- There seems to be a bug with docker-compose not running. (Main.py workaround added)
 {{% /notice %}}

@@ -5,11 +5,11 @@ title = "Easy Model Import - Downloaded"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `WizardLM-13B-V1.2-GGML`, there are a few ways to do this, 
+Now lets pick a model to download and test out. We are going to use `llama-2-13b-chat.ggmlv3.q4_0.bin`, there are a few ways to do this, 
 
 Now lets download and move the model.
 
-Link - https://huggingface.co/TheBloke/WizardLM-13B-V1.2-GGML
+Link - https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/blob/main/llama-2-13b-chat.ggmlv3.q4_0.bin
 
 Using that link download the `wizardlm-13b-v1.2.ggmlv3.q4_0.bin` model, once done, move the model.bin into the models folder.
 
@@ -46,7 +46,7 @@ context_size: 2000
 batch: 512
 name: lunademo
 parameters:
-  model: wizardlm-13b-v1.2.ggmlv3.q4_0.bin
+  model: llama-2-13b-chat.ggmlv3.q4_0.bin
   temperature: 0.2
   top_k: 40
   top_p: 0.65
