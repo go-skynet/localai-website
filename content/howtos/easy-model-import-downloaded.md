@@ -43,6 +43,7 @@ In the `"lunademo.yaml"` file
 ```yaml
 backend: llama-stable
 context_size: 2000
+gpu_layers: 4
 batch: 512
 name: lunademo
 parameters:
