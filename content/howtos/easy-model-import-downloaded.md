@@ -38,7 +38,7 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the `"lunademo.yaml"` file
+In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
 
 ```yaml
 backend: llama-stable
