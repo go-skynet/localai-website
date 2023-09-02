@@ -45,10 +45,10 @@ MacOS Hosts:
 
 Video How Tos 
 
-Ubuntu - ``COMING SOON``
-Debian - ``COMING SOON``
-Windows - ``COMING SOON``
-MacOS - ``PLANED - NEED HELP``
+- Ubuntu - ``COMING SOON``
+- Debian - ``COMING SOON``
+- Windows - ``COMING SOON``
+- MacOS - ``PLANED - NEED HELP``
 
 Enjoy localai! (If you need help contact Luna Midori on Discord)
 
