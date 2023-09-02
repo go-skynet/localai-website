@@ -15,7 +15,7 @@ git clone https://github.com/go-skynet/LocalAI
 ```
 
 
-Then we will cd into the LocalAI folder.
+Then we will cd into the ``LocalAI`` folder.
 
 ```bash
 cd LocalAI
