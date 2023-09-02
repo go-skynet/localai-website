@@ -11,7 +11,7 @@ Now lets download and move the model.
 
 Link - https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/blob/main/llama-2-13b-chat.ggmlv3.q4_0.bin
 
-Using that link download the `wizardlm-13b-v1.2.ggmlv3.q4_0.bin` model, once done, move the model.bin into the models folder.
+Using that link download the `llama-2-13b-chat.ggmlv3.q4_0.bin` model, once done, move the model.bin into the models folder.
 
 Now lets make 3 files.
 
