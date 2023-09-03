@@ -41,7 +41,7 @@ embeddings: true
 # .. other parameters
 ```
 
-The `bert` backend uses [bert.cpp](https://github.com/skeskinen/bert.cpp) and uses `ggml` models. 
+The `bert` backend uses [bert.cpp](https://github.com/skeskinen/bert.cpp) and uses `ggml` models.
 
 For instance you can download the `ggml` quantized version of `all-MiniLM-L6-v2` from https://huggingface.co/skeskinen/ggml:
 
@@ -51,7 +51,7 @@ wget https://huggingface.co/skeskinen/ggml/resolve/main/all-MiniLM-L6-v2/ggml-mo
 
 ## Huggingface embeddings
 
-To use `sentence-formers` and models in `huggingface` you can use the `huggingface` embedding backend. 
+To use `sentence-formers` and models in `huggingface` you can use the `huggingface` embedding backend.
 
 ```yaml
 name: text-embedding-ada-002
@@ -63,7 +63,6 @@ parameters:
 
 The `huggingface` backend uses Python [sentence-transformers](https://github.com/UKPLab/sentence-transformers). For a list of all pre-trained models available see here: https://github.com/UKPLab/sentence-transformers#pre-trained-models
 
-
 {{% notice note %}}
 
 - The `huggingface` backend is an optional backend of LocalAI and uses Python. If you are running `LocalAI` from the containers you are good to go and should be already configured for use. If you are running `LocalAI` manually you must install the python dependencies (`pip install -r /path/to/LocalAI/extra/requirements`) and specify the extra backend in the `EXTERNAL_GRPC_BACKENDS` environment variable ( `EXTERNAL_GRPC_BACKENDS="huggingface-embeddings:/path/to/LocalAI/extra/grpc/huggingface/huggingface.py"` ) .
@@ -71,7 +70,6 @@ The `huggingface` backend uses Python [sentence-transformers](https://github.com
 - No models are required to be downloaded before using the `huggingface` backend. The models will be downloaded automatically the first time the API is used.
 
 {{% /notice %}}
-
 
 ## Llama.cpp embeddings
 

@@ -5,7 +5,6 @@ title = "🎨 Image generation"
 weight = 2
 +++
 
-
 ![anime_girl](https://github.com/go-skynet/LocalAI/assets/2420543/8aaca62a-e864-4011-98ae-dcc708103928)
 (Generated with [AnimagineXL](https://huggingface.co/Linaqruf/animagine-xl))
 
@@ -20,9 +19,9 @@ To generate an image you can send a POST request to the `/v1/images/generations`
 ```bash
 # 512x512 is supported too
 curl http://localhost:8080/v1/images/generations -H "Content-Type: application/json" -d '{
-            "prompt": "A cute baby sea otter",
-            "size": "256x256" 
-          }'
+  "prompt": "A cute baby sea otter",
+  "size": "256x256"
+}'
 ```
 
 Available additional parameters: `mode`, `step`.
@@ -31,9 +30,9 @@ Note: To set a negative prompt, you can split the prompt with `|`, for instance:
 
 ```bash
 curl http://localhost:8080/v1/images/generations -H "Content-Type: application/json" -d '{
-            "prompt": "floating hair, portrait, ((loli)), ((one girl)), cute face, hidden hands, asymmetrical bangs, beautiful detailed eyes, eye shadow, hair ornament, ribbons, bowties, buttons, pleated skirt, (((masterpiece))), ((best quality)), colorful|((part of the head)), ((((mutated hands and fingers)))), deformed, blurry, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, blur, out of focus, long neck, long body, Octane renderer, lowres, bad anatomy, bad hands, text",
-            "size": "256x256"
-          }'
+  "prompt": "floating hair, portrait, ((loli)), ((one girl)), cute face, hidden hands, asymmetrical bangs, beautiful detailed eyes, eye shadow, hair ornament, ribbons, bowties, buttons, pleated skirt, (((masterpiece))), ((best quality)), colorful|((part of the head)), ((((mutated hands and fingers)))), deformed, blurry, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, blur, out of focus, long neck, long body, Octane renderer, lowres, bad anatomy, bad hands, text",
+  "size": "256x256"
+}'
 ```
 
 ## stablediffusion-cpp
@@ -54,10 +53,11 @@ Note: In order to use the `images/generation` endpoint with the `stablediffusion
 {{% tab name="Prepare the model in runtime" %}}
 
 While the API is running, you can install the model by using the `/models/apply` endpoint and point it to the `stablediffusion` model in the [models-gallery](https://github.com/go-skynet/model-gallery#image-generation-stable-diffusion):
+
 ```bash
-curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{         
-     "url": "github:go-skynet/model-gallery/stablediffusion.yaml"
-   }'
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
+  "url": "github:go-skynet/model-gallery/stablediffusion.yaml"
+}'
 ```
 
 {{% /tab %}}
@@ -82,6 +82,7 @@ local-ai --preload-models-config "/path/to/yaml"
 ```
 
 YAML:
+
 ```yaml
 - url: github:go-skynet/model-gallery/stablediffusion.yaml
 ```
@@ -97,12 +98,13 @@ backend: stablediffusion
 parameters:
   model: stablediffusion_assets
 ```
+
 2. Create a `stablediffusion_assets` directory inside your `models` directory
 3. Download the ncnn assets from https://github.com/EdVince/Stable-Diffusion-NCNN#out-of-box and place them in `stablediffusion_assets`.
 
 The models directory should look like the following:
 
-```
+```bash
 models
 ├── stablediffusion_assets
 │   ├── AutoencoderKL-256-256-fp16-opt.param
