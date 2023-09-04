@@ -21,7 +21,7 @@ Curl Completion API -
 
 ```bash
 curl --request POST \
-  --url http://localhost:8080/completions \
+  --url http://localhost:8080/v1/completions \
   --header 'Content-Type: application/json' \
   --data '{
     "model": "lunademo",

@@ -40,17 +40,17 @@ call Setup.bat
 MacOS Hosts: 
 
 {{% notice Note %}}
-- I need some help working on a MacOS Setup file, if you are willing to help out, please contact Luna Midori on discord or put in a PR on Luna Midori's github.
+- I need some help working on a MacOS Setup file, if you are willing to help out, please contact Luna Midori on [discord](https://discord.com/channels/1096914990004457512/1099364883755171890/1147591145057157200) or put in a PR on [Luna Midori's github](https://github.com/lunamidori5/localai-lunademo).
 {{% /notice %}}
 
 Video How Tos 
 
-Ubuntu - ``COMING SOON``
-Debian - ``COMING SOON``
-Windows - ``COMING SOON``
-MacOS - ``PLANED - NEED HELP``
+- Ubuntu - ``COMING SOON``
+- Debian - ``COMING SOON``
+- Windows - ``COMING SOON``
+- MacOS - ``PLANED - NEED HELP``
 
-Enjoy localai! (If you need help contact Luna Midori on Discord)
+Enjoy localai! (If you need help contact Luna Midori on [Discord](https://discord.com/channels/1096914990004457512/1099364883755171890/1147591145057157200))
 
 {{% notice Issues %}}
 - `Git Bash` on Windows is not working.

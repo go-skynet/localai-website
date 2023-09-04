@@ -42,11 +42,12 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the `"lunademo.yaml"` file
+In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
 
 ```yaml
 backend: llama-stable
 context_size: 2000
+gpu_layers: 4
 batch: 512
 name: lunademo
 parameters:
