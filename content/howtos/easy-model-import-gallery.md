@@ -12,7 +12,7 @@ In the `docker` cmd run this. This uses the Gallery to download the model, it ma
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "TheBloke/Llama-2-13B-chat-GGML/llama-2-13b-chat.ggmlv3.q4_0.bin",
+    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGML/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin",
     "name": "lunademo"
 }'
 ```
