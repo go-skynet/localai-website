@@ -23,8 +23,8 @@ For example, to constrain the output to either `yes`, `no`:
 
 ```bash
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "gpt-4",
-     "messages": [{"role": "user", "content": "Do you like apples?"}],
-     "grammar": "root ::= (\"yes\" | \"no\")"
+  "model": "gpt-4",
+  "messages": [{"role": "user", "content": "Do you like apples?"}],
+  "grammar": "root ::= (\"yes\" | \"no\")"
 }'
 ```
