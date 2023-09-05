@@ -8,7 +8,7 @@ url = '/basics/getting_started/'
 
 `LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page. 
+For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
 
 The easiest way to run LocalAI is by using [docker-compose](https://docs.docker.com/compose/install/) or with [docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker-compose`:
 
@@ -37,12 +37,11 @@ curl http://localhost:8080/v1/models
 # {"object":"list","data":[{"id":"your-model.bin","object":"model"}]}
 
 curl http://localhost:8080/v1/completions -H "Content-Type: application/json" -d '{
-     "model": "your-model.bin",            
+     "model": "your-model.bin",
      "prompt": "A long time ago in a galaxy far, far away",
      "temperature": 0.7
    }'
 ```
-
 
 ### Example: Use GPT4ALL-J model with `docker-compose`
 
@@ -76,7 +75,7 @@ curl http://localhost:8080/v1/models
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
      "model": "ggml-gpt4all-j",
      "messages": [{"role": "user", "content": "How are you?"}],
-     "temperature": 0.9 
+     "temperature": 0.9
    }'
 
 # {"model":"ggml-gpt4all-j","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
@@ -145,14 +144,14 @@ docker run -p 8080:8080 -v $PWD/models:/models -ti --rm quay.io/go-skynet/local-
 
 You should see:
 ```
-┌───────────────────────────────────────────────────┐ 
-│                   Fiber v2.42.0                   │ 
-│               http://127.0.0.1:8080               │ 
-│       (bound on host 0.0.0.0 and port 8080)       │ 
-│                                                   │ 
-│ Handlers ............. 1  Processes ........... 1 │ 
-│ Prefork ....... Disabled  PID ................. 1 │ 
-└───────────────────────────────────────────────────┘ 
+┌───────────────────────────────────────────────────┐
+│                   Fiber v2.42.0                   │
+│               http://127.0.0.1:8080               │
+│       (bound on host 0.0.0.0 and port 8080)       │
+│                                                   │
+│ Handlers ............. 1  Processes ........... 1 │
+│ Prefork ....... Disabled  PID ................. 1 │
+└───────────────────────────────────────────────────┘
 ```
 
 {{% notice note %}}
@@ -373,7 +372,7 @@ OpenAI clients are already compatible with LocalAI by overriding the basePath, o
 
 ## Javascript
 
-<details> 
+<details>
 
 https://github.com/openai/openai-node/
 

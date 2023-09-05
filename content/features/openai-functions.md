@@ -115,9 +115,9 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
             }
         ]
     }
-   }'  
+   }'
 ```
 
 ## 💡 Examples
 
-A full e2e example with `docker-compose` is available here: https://github.com/go-skynet/LocalAI/tree/master/examples/functions
+A full e2e example with `docker-compose` is available [here](https://github.com/go-skynet/LocalAI/tree/master/examples/functions).

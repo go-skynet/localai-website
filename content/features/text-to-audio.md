@@ -13,9 +13,9 @@ For example, to generate an audio file, you can send a POST request to the `/tts
 
 ```bash
 curl http://localhost:8080/tts -H "Content-Type: application/json" -d '{
-            "input": "Hello world",
-            "model": "tts"
-          }'
+  "input": "Hello world",
+  "model": "tts"
+}'
 ```
 
 Returns an `audio/wav` file.
@@ -29,13 +29,14 @@ To install audio models manually:
 - Run the following command to test the model is working:
 
 ```bash
-curl http://localhost:8080/tts -H "Content-Type: application/json" -d '{         
-     "model":"it-riccardo_fasol-x-low.onnx",
-     "input": "Ciao, sono Ettore"
-   }' | aplay
+curl http://localhost:8080/tts -H "Content-Type: application/json" -d '{
+  "model":"it-riccardo_fasol-x-low.onnx",
+  "input": "Ciao, sono Ettore"
+}' | aplay
 ```
 
-Note: 
+Note:
+
 - `aplay` is a Linux command. You can use other tools to play the audio file.
 - The model name is the filename with the extension.
 - The model name is case sensitive.
