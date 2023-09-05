@@ -5,13 +5,15 @@ title = "Easy Model Import - Downloaded"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `llama-2-13b-chat.ggmlv3.q4_0.bin`, there are a few ways to do this, 
+Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin`, there are a few ways to do this, 
 
 Now lets download and move the model.
 
-Link - https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/blob/main/llama-2-13b-chat.ggmlv3.q4_0.bin
+Link - https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
 
-Using that link download the `llama-2-13b-chat.ggmlv3.q4_0.bin` model, once done, move the model.bin into the models folder.
+Using that link download the `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin` model, once done, move the model.bin into the models folder.
+
+Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
 Now lets make 3 files.
 
@@ -20,7 +22,6 @@ touch lunademo-chat.tmpl
 touch lunademo-completion.tmpl
 touch lunademo.yaml
 ```
-
 Please note the names for later!
 
 In the `"lunademo-chat.tmpl"` file add
@@ -28,7 +29,7 @@ In the `"lunademo-chat.tmpl"` file add
 ```txt
 {{.Input}}
 
-### Response:
+ASSISTANT:
 ```
 
 In the `"lunademo-completion.tmpl"` file add
@@ -47,14 +48,14 @@ gpu_layers: 4
 batch: 512
 name: lunademo
 parameters:
-  model: llama-2-13b-chat.ggmlv3.q4_0.bin
+  model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
   temperature: 0.2
   top_k: 40
   top_p: 0.65
 roles:
-  assistant: '### Response:'
-  system: '### System:'
-  user: '### Instruction:'
+  assistant: 'ASSISTANT:'
+  system: 'SYSTEM:'
+  user: 'USER:'
 template:
   chat: lunademo-chat
   completion: lunademo-completion
