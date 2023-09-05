@@ -5,7 +5,7 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `llama-2-13b-chat.ggmlv3.q4_0.bin`, there are a few ways to do this, https://huggingface.co/TheBloke/Llama-2-13B-chat-GGML/blob/main/
+Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
 
 In the `docker` cmd run this. This uses the Gallery to download the model, it may also set up the yaml file, but we will need to override that for the how to setup!
 ```bash
@@ -16,6 +16,8 @@ curl --location 'http://localhost:8080/models/apply' \
     "name": "lunademo"
 }'
 ```
+
+Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
 Now lets make 3 files. (You may delete or edit if the gallery already made them)
 
@@ -32,7 +34,7 @@ In the `"lunademo-chat.tmpl"` file add
 ```txt
 {{.Input}}
 
-### Response:
+ASSISTANT:
 ```
 
 In the `"lunademo-completion.tmpl"` file add
@@ -51,14 +53,14 @@ gpu_layers: 4
 batch: 512
 name: lunademo
 parameters:
-  model: llama-2-13b-chat.ggmlv3.q4_0.bin
+  model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
   temperature: 0.2
   top_k: 40
   top_p: 0.65
 roles:
-  assistant: '### Response:'
-  system: '### System:'
-  user: '### Instruction:'
+  assistant: 'ASSISTANT:'
+  system: 'SYSTEM:'
+  user: 'USER:'
 template:
   chat: lunademo-chat
   completion: lunademo-completion
