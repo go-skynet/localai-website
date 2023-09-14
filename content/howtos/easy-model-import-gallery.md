@@ -19,7 +19,15 @@ curl --location 'http://localhost:8080/models/apply' \
 
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
-Now lets make 3 files. (You may delete or edit if the gallery already made them)
+{{% notice note %}}
+You will need to delete the following 3 files that hugging face downloaded...
+
+- chat.tmpl
+- completion.tmpl
+- lunademo.yaml
+{{% /notice %}}
+
+Now lets make 3 files. 
 
 ```bash
 touch lunademo-chat.tmpl
@@ -49,6 +57,7 @@ In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link]
 ```yaml
 backend: llama-stable
 context_size: 2000
+f16: true ## If you are using cpu set this to false
 gpu_layers: 4
 batch: 512
 name: lunademo

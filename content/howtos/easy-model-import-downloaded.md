@@ -44,6 +44,7 @@ In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link]
 ```yaml
 backend: llama-stable
 context_size: 2000
+f16: true ## If you are using cpu set this to false
 gpu_layers: 4
 batch: 512
 name: lunademo
