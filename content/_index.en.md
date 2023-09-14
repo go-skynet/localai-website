@@ -103,6 +103,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] Falcon/GPTNeoX on llama.cpp: https://github.com/go-skynet/LocalAI/issues/1009
 - [ ] transformers/vllm: https://github.com/go-skynet/LocalAI/issues/1015
 - [ ] TortoiseTTS: https://github.com/go-skynet/LocalAI/issues/1016
+- [ ] Exllama2: https://github.com/go-skynet/LocalAI/issues/1053
 
 ## How does it work?
 
