@@ -107,6 +107,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] ctransformers: https://github.com/go-skynet/LocalAI/issues/1056
 - [ ] GPTQ for LLama: https://github.com/go-skynet/LocalAI/issues/1055
 - [ ] LLaVA and miniGPT-4: https://github.com/go-skynet/LocalAI/issues/1054
+- [ ] Test generation inference: https://github.com/go-skynet/LocalAI/issues/1042
 - [ ] docs - extending LocalAI with external backends: https://github.com/go-skynet/LocalAI/issues/1057
 
 
