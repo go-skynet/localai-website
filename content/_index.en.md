@@ -104,10 +104,14 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - [ ] transformers/vllm: https://github.com/go-skynet/LocalAI/issues/1015
 - [ ] TortoiseTTS: https://github.com/go-skynet/LocalAI/issues/1016
 - [ ] Exllama2: https://github.com/go-skynet/LocalAI/issues/1053
+- [ ] ctransformers: https://github.com/go-skynet/LocalAI/issues/1056
+- [ ] GPTQ for LLama: https://github.com/go-skynet/LocalAI/issues/1055
+- [ ] LLaVA and miniGPT-4: https://github.com/go-skynet/LocalAI/issues/1054
+
 
 ## How does it work?
 
-LocalAI is an API written in Go that serves as an OpenAI shim, enabling software already developed with OpenAI SDKs to seamlessly integrate with LocalAI. It can be effortlessly implemented as a substitute, even on consumer-grade hardware. This capability is achieved by employing various C++ backends, including [ggml](https://github.com/ggerganov/ggml), to perform inference on LLMs using both CPU and, if desired, GPU.
+LocalAI is an API written in Go that serves as an OpenAI shim, enabling software already developed with OpenAI SDKs to seamlessly integrate with LocalAI. It can be effortlessly implemented as a substitute, even on consumer-grade hardware. This capability is achieved by employing various C++ backends, including [ggml](https://github.com/ggerganov/ggml), to perform inference on LLMs using both CPU and, if desired, GPU. Internally LocalAI backends are just gRPC server, indeed you can specify and build your own gRPC server and extend LocalAI in runtime as well. It is possible to specify external gRPC server and/or binaries that LocalAI will manage internally.
 
 LocalAI uses C++ bindings for optimizing speed. It is based on [llama.cpp](https://github.com/ggerganov/llama.cpp), [gpt4all](https://github.com/nomic-ai/gpt4all), [rwkv.cpp](https://github.com/saharNooby/rwkv.cpp), [ggml](https://github.com/ggerganov/ggml), [whisper.cpp](https://github.com/ggerganov/whisper.cpp) for audio transcriptions, [bert.cpp](https://github.com/skeskinen/bert.cpp) for embedding and [StableDiffusion-NCN](https://github.com/EdVince/Stable-Diffusion-NCNN) for image generation. See [the model compatibility table]({{%relref "model-compatibility" %}}) to learn about all the components of LocalAI.
 
