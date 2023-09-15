@@ -43,7 +43,7 @@ curl http://localhost:8080/v1/completions -H "Content-Type: application/json" -d
    }'
 ```
 
-### Example: Use GPT4ALL-J model with `docker-compose`
+### Example: Use luna-ai-llama2 model with `docker-compose`
 
 
 ```bash
@@ -55,14 +55,16 @@ cd LocalAI
 # (optional) Checkout a specific LocalAI tag
 # git checkout -b build <TAG>
 
-# Download gpt4all-j to models/
-wget https://gpt4all.io/models/ggml-gpt4all-j.bin -O models/ggml-gpt4all-j
+# Download luna-ai-llama2 to models/
+wget  https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin -O models/luna-ai-llama2
 
 # Use a template from the examples
-cp -rf prompt-templates/ggml-gpt4all-j.tmpl models/
+cp -rf prompt-templates/llama2-13b-chat.tmpl models/
 
 # (optional) Edit the .env file to set things like context size and threads
 # vim .env
+
+# Edit the llama2-13b-chat.yaml (model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin)
 
 # start with docker-compose
 docker-compose up -d --pull always
@@ -70,15 +72,15 @@ docker-compose up -d --pull always
 # docker-compose up -d --build
 # Now API is accessible at localhost:8080
 curl http://localhost:8080/v1/models
-# {"object":"list","data":[{"id":"ggml-gpt4all-j","object":"model"}]}
+# {"object":"list","data":[{"id":"llama2-13b-chat","object":"model"}]}
 
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "ggml-gpt4all-j",
+     "model": "llama2-13b-chat",
      "messages": [{"role": "user", "content": "How are you?"}],
      "temperature": 0.9
    }'
 
-# {"model":"ggml-gpt4all-j","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
+# {"model":"llama2-13b-chat","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
 ```
 
 {{% notice note %}}
