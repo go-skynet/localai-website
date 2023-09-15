@@ -17,21 +17,21 @@ base ❯ ls -liah examples/chatbot-ui/models
 36487587 drwxr-xr-x 2 mudler mudler 4.0K May  3 12:27 .
 36487586 drwxr-xr-x 3 mudler mudler 4.0K May  3 10:42 ..
 36465214 -rw-r--r-- 1 mudler mudler   10 Apr 27 07:46 completion.tmpl
-36464855 -rw-r--r-- 1 mudler mudler 3.6G Apr 27 00:08 ggml-gpt4all-j
+36464855 -rw-r--r-- 1 mudler mudler   ?G Apr 27 00:08 luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
 36464537 -rw-r--r-- 1 mudler mudler  245 May  3 10:42 gpt-3.5-turbo.yaml
-36467388 -rw-r--r-- 1 mudler mudler  180 Apr 27 07:46 gpt4all.tmpl
+36467388 -rw-r--r-- 1 mudler mudler  180 Apr 27 07:46 chat.tmpl
 ```
 
-In the `gpt-3.5-turbo.yaml` file it is defined the `gpt-3.5-turbo` model which is an alias to use `gpt4all-j` with pre-defined options.
+In the `gpt-3.5-turbo.yaml` file it is defined the `gpt-3.5-turbo` model which is an alias to use `luna-ai-llama2` with pre-defined options.
 
-For instance, consider the following that declares `gpt-3.5-turbo` backed by the `ggml-gpt4all-j` model:
+For instance, consider the following that declares `gpt-3.5-turbo` backed by the `luna-ai-llama2` model:
 
 ```yaml
 name: gpt-3.5-turbo
 # Default model parameters
 parameters:
   # Relative to the models path
-  model: ggml-alpaca
+  model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
   # temperature
   temperature: 0.3
   # all the OpenAI request options here..
@@ -40,7 +40,7 @@ parameters:
 context_size: 512
 threads: 10
 # Define a backend (optional). By default it will try to guess the backend the first time the model is interacted with.
-backend: llama # available: llama, stablelm, gpt2, gptj rwkv
+backend: llama-stable # available: llama, stablelm, gpt2, gptj rwkv
 
 # Enable prompt caching
 prompt_cache_path: "alpaca-cache"
@@ -52,12 +52,13 @@ stopwords:
 - "### Response:"
 # define chat roles
 roles:
-  user: "HUMAN:"
-  system: "GPT:"
+  assistant: '### Response:'
+  system: '### System Instruction:'
+  user: '### Instruction:'
 template:
   # template file ".tmpl" with the prompt template to use by default on the endpoint call. Note there is no extension in the files
   completion: completion
-  chat: ggml-gpt4all-j
+  chat: chat
 ```
 
 Specifying a `config-file` via CLI allows to declare models in a single file as a list, for instance:
@@ -76,7 +77,7 @@ Specifying a `config-file` via CLI allows to declare models in a single file as 
     system: "GPT:"
   template:
     completion: completion
-    chat: ggml-gpt4all-j
+    chat: chat
 - name: list2
   parameters:
     model: testmodel
@@ -90,7 +91,7 @@ Specifying a `config-file` via CLI allows to declare models in a single file as 
     system: "GPT:"
   template:
     completion: completion
-   chat: ggml-gpt4all-j
+   chat: chat
 ```
 
 See also [chatbot-ui](https://github.com/go-skynet/LocalAI/tree/master/examples/chatbot-ui) as an example on how to use config files.
@@ -106,7 +107,7 @@ name: gpt-3.5-turbo
 # These options can also be specified in the API calls
 parameters:
   # Relative to the models path
-  model: ggml-gpt4all-j
+  model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
   # temperature
   temperature: 0.3
   # all the OpenAI request options here..
@@ -136,7 +137,7 @@ context_size: 512
 # Default number of threads
 threads: 10
 # Define a backend (optional). By default it will try to guess the backend the first time the model is interacted with.
-backend: gptj # available: llama, stablelm, gpt2, gptj rwkv
+backend: llama-stable # available: llama, stablelm, gpt2, gptj rwkv
 # stopwords (if supported by the backend)
 stopwords:
 - "HUMAN:"
@@ -159,7 +160,7 @@ roles:
 template:
   # template file ".tmpl" with the prompt template to use by default on the endpoint call. Note there is no extension in the files
   completion: completion
-  chat: ggml-gpt4all-j
+  chat: chat
   edit: edit_template
   function: function_template
 
@@ -251,13 +252,15 @@ Instead of installing models manually, you can use the LocalAI API endpoints and
 
 A curated collection of model files is in the [model-gallery](https://github.com/go-skynet/model-gallery) (work in progress!). The files of the model gallery are different from the model files used to configure LocalAI models. The model gallery files contains information about the model setup, and the files necessary to run the model locally.
 
-To install for example `gpt4all-j`, you can send a POST call to the `/models/apply` endpoint with the model definition url (`url`) and the name of the model should have in LocalAI (`name`, optional):
+To install for example `lunademo`, you can send a POST call to the `/models/apply` endpoint with the model definition url (`url`) and the name of the model should have in LocalAI (`name`, optional):
 
-```
-curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
-     "url": "https://raw.githubusercontent.com/go-skynet/model-gallery/main/gpt4all-j.yaml",
-     "name": "gpt4all-j"
-   }'  
+```bash
+curl --location 'http://localhost:8080/models/apply' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGML/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin",
+    "name": "lunademo"
+}'
 ```
 
 
@@ -311,7 +314,7 @@ parameters:
   # Relative to the models path
   model: ...
 
-backend: gptj
+backend: llama-stable
 # ...
 ```
 
