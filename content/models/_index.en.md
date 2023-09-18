@@ -101,13 +101,14 @@ To install a model from the gallery repository, you can pass the model name in t
 ```bash
 LOCALAI=http://localhost:8080
 curl $LOCALAI/models/apply -H "Content-Type: application/json" -d '{
-     "id": "model-gallery@bert"
+     "id": "model-gallery@bert-embeddings"
    }'  
 ```
 
 where:
 - `model-gallery` is the repository. It is optional and can be omitted. If the repository is omitted LocalAI will search the model by name in all the repositories. In the case the same model name is present in both galleries the first match wins.
-- `bert` is the model name in the gallery
+- `bert-embeddings` is the model name in the gallery
+  (read its [config here](https://github.com/go-skynet/model-gallery/blob/main/bert-embeddings.yaml)).
 
 {{% notice note %}}
 If the `huggingface` model gallery is enabled (it's enabled by default),
