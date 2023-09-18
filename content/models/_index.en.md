@@ -110,7 +110,11 @@ where:
 - `bert` is the model name in the gallery
 
 {{% notice note %}}
-If the `huggingface` model gallery is enabled, you can install models by specifying directly the huggingface repository, for example, to install wizardlm superhot:
+If the `huggingface` model gallery is enabled (it's enabled by default),
+and the model has an entry in the model gallery's associated YAML config
+(for `huggingface`, see [`model-gallery/huggingface.yaml`](https://github.com/go-skynet/model-gallery/blob/main/huggingface.yaml)),
+you can install models by specifying directly the model's `id`.
+For example, to install wizardlm superhot:
 
 ```bash
 LOCALAI=http://localhost:8080
