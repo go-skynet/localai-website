@@ -75,7 +75,7 @@ curl http://localhost:8080/v1/models
 # {"object":"list","data":[{"id":"luna-ai-llama2","object":"model"}]}
 
 curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
-     "model": "llama2-13b-chat",
+     "model": "luna-ai-llama2",
      "messages": [{"role": "user", "content": "How are you?"}],
      "temperature": 0.9
    }'
