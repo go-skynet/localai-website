@@ -59,7 +59,7 @@ cd LocalAI
 wget  https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin -O models/luna-ai-llama2
 
 # Use a template from the examples
-cp -rf prompt-templates/llama2-13b-chat.tmpl models/
+cp -rf prompt-templates/luna-ai-llama2.tmpl models/
 
 # (optional) Edit the .env file to set things like context size and threads
 # vim .env
