@@ -56,15 +56,14 @@ cd LocalAI
 # git checkout -b build <TAG>
 
 # Download luna-ai-llama2 to models/
-wget  https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin -O models/luna-ai-llama2
+wget  https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/blob/main/luna-ai-llama2-uncensored.Q4_0.gguf -O models/luna-ai-llama2
 
 # Use a template from the examples
-cp -rf prompt-templates/luna-ai-llama2.tmpl models/
+cp -rf prompt-templates/getting_started.tmpl models/luna-ai-llama2.tmpl
 
 # (optional) Edit the .env file to set things like context size and threads
 # vim .env
 
-# Edit the llama2-13b-chat.yaml (model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin)
 # start with docker compose
 docker compose up -d --pull always
 # or you can build the images with:
