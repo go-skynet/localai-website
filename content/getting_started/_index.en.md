@@ -78,7 +78,7 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
      "temperature": 0.9
    }'
 
-# {"model":"llama2-13b-chat","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
+# {"model":"luna-ai-llama2","choices":[{"message":{"role":"assistant","content":"I'm doing well, thanks. How about you?"}}]}
 ```
 
 {{% notice note %}}
