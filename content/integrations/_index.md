@@ -9,6 +9,7 @@ weight = 8
 
 LocalAI can be used as a drop-in replacement, however, the following projects provides specific integrations with LocalAI:
 
+- [Bionic GPT](https://github.com/purton-tech/bionicgpt) a ChatGPT replacement for confidential data use LocalAI.
 - [Flowise](https://github.com/FlowiseAI/Flowise) [example](https://github.com/go-skynet/LocalAI/tree/master/examples/flowise)
 - [Kairos](https://github.com/kairos-io/kairos)
 - [K8sGPT](https://github.com/k8sgpt-ai/k8sgpt#running-local-models)
