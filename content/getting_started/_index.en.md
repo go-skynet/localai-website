@@ -10,7 +10,7 @@ url = '/basics/getting_started/'
 
 For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
 
-The easiest way to run LocalAI is by using [docker-compose](https://docs.docker.com/compose/install/) or with [docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker-compose`:
+The easiest way to run LocalAI is by using [docker compose](https://docs.docker.com/compose/install/) or with [docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker compose`:
 
 ```bash
 
@@ -27,10 +27,10 @@ cp your-model.bin models/
 # (optional) Edit the .env file to set things like context size and threads
 # vim .env
 
-# start with docker-compose
-docker-compose up -d --pull always
+# start with docker compose
+docker compose up -d --pull always
 # or you can build the images with:
-# docker-compose up -d --build
+# docker compose up -d --build
 
 # Now API is accessible at localhost:8080
 curl http://localhost:8080/v1/models
@@ -43,7 +43,7 @@ curl http://localhost:8080/v1/completions -H "Content-Type: application/json" -d
    }'
 ```
 
-### Example: Use luna-ai-llama2 model with `docker-compose`
+### Example: Use luna-ai-llama2 model with `docker compose`
 
 
 ```bash
@@ -65,11 +65,10 @@ cp -rf prompt-templates/luna-ai-llama2.tmpl models/
 # vim .env
 
 # Edit the llama2-13b-chat.yaml (model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin)
-
-# start with docker-compose
-docker-compose up -d --pull always
+# start with docker compose
+docker compose up -d --pull always
 # or you can build the images with:
-# docker-compose up -d --build
+# docker compose up -d --build
 # Now API is accessible at localhost:8080
 curl http://localhost:8080/v1/models
 # {"object":"list","data":[{"id":"luna-ai-llama2","object":"model"}]}
