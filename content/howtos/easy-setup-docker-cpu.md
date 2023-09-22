@@ -100,7 +100,19 @@ docker-compose up -d --pull always
 ```
 
 
-Now we are going to let that set up, once it is done, lets check to make sure our huggingface / localai galleries are working (wait until you see the ready screen to do this)
+Now we are going to let that set up, once it is done, lets check to make sure our huggingface / localai galleries are working (wait until you see this screen to do this)
+
+You should see:
+```
+┌───────────────────────────────────────────────────┐
+│                   Fiber v2.42.0                   │
+│               http://127.0.0.1:8080               │
+│       (bound on host 0.0.0.0 and port 8080)       │
+│                                                   │
+│ Handlers ............. 1  Processes ........... 1 │
+│ Prefork ....... Disabled  PID ................. 1 │
+└───────────────────────────────────────────────────┘
+```
 
 ```bash
 curl http://localhost:8080/models/available
