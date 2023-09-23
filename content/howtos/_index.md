@@ -6,7 +6,7 @@ weight = 9
 
 ## How-tos
 
-This section includes LocalAI end-to-end examples, tutorial and how-tos.
+This section includes LocalAI end-to-end examples, tutorial and how-tos curated by the community and maintained by [lunamidori5](https://github.com/lunamidori5).
 
 - [Easy Setup with Docker on CPU]({{%relref "howtos/easy-setup-docker-cpu" %}})
 - [Easy Setup with Docker With CUDA]({{%relref "howtos/easy-setup-docker-gpu" %}})
