@@ -17,9 +17,9 @@ cd localai-lunademo
 
 #Pick your type of linux for the Full Autos, if you already have python, docker, and docker-compose installed skip this chmod. But make sure you chmod the setup_linux file.
 
-chmod 777 Full_Auto_setup_Debian.sh or chmod 777 Full_Auto_setup_Ubutnu.sh
+chmod +x Full_Auto_setup_Debian.sh or chmod +x Full_Auto_setup_Ubutnu.sh
 
-chmod 777 Setup_Linux.sh
+chmod +x Setup_Linux.sh
 
 ./(the setupfile you wish to run)
 ```
@@ -52,7 +52,7 @@ Video How Tos
 Enjoy localai! (If you need help contact Luna Midori on [Discord](https://discord.com/channels/1096914990004457512/1099364883755171890/1147591145057157200))
 
 {{% notice Issues %}}
-- `Git Bash` on Windows is not working.
+- Trying to run ``Setup.bar`` or ``Setup_Linux.sh`` from `Git Bash` on Windows is not working.
 - Running over `SSH` or other remote cmd may bug out, load slowly, or crash.
 - There seems to be a bug with docker-compose not running. (Main.py workaround added)
 {{% /notice %}}
