@@ -4,7 +4,7 @@ title = "Easy Setup Embeddings"
 weight = 2
 +++
 
-To install a embedding model run 
+To install an embedding model, run the following command
 
 ```bash
 curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
