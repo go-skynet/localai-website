@@ -3,3 +3,25 @@ disableToc = false
 title = "Easy Setup Embeddings"
 weight = 2
 +++
+
+To install a embedding model run 
+
+```bash
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
+     "id": "model-gallery@bert-embeddings"
+   }'  
+```
+
+When you would like to request the model from CLI you can do 
+
+```bash
+curl http://localhost:8080/v1/embeddings \
+  -H "Authorization: Bearer $OPENAI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "input": "The food was delicious and the waiter...",
+    "model": "text-embedding-ada-002"
+  }'
+```
+
+See [OpenAI Embedding](https://platform.openai.com/docs/api-reference/embeddings/object) for more info!
