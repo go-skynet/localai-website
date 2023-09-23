@@ -8,7 +8,7 @@ This is for `Linux`, `Mac OS`, or `Windows` Hosts. - [Docker Desktop](https://do
 
 Linux Hosts:
 
-There is a Full_Auto installer for some types of Linuxs, feel free to use them but please note, they may not fully work so please use the links at the top if you need to install something.
+There is a Full_Auto installer for some types of Linuxes, feel free to use them, but note that they may not fully work. If you need to install something, please use the links at the top.
 
 ```bash
 git clone https://github.com/lunamidori5/localai-lunademo.git
