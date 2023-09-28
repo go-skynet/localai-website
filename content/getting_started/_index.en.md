@@ -84,7 +84,7 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 {{% notice note %}}
 - If running on Apple Silicon (ARM) it is **not** suggested to run on Docker due to emulation. Follow the [build instructions]({{%relref "build" %}}) to use Metal acceleration for full GPU support.
 - If you are running Apple x86_64 you can use `docker`, there is no additional gain into building it from source.
-- If you are on Windows, please run ``docker-compose`` not ``docker compose``
+- If you are on Windows, please run ``docker-compose`` not ``docker compose`` and make sure the project is in the Linux Filesystem, otherwise loading models might be slow. For more Info: [Microsoft Docs](https://learn.microsoft.com/en-us/windows/wsl/filesystems)
 {{% /notice %}}
 
 ### From binaries
