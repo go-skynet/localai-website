@@ -14,3 +14,6 @@ This section includes LocalAI end-to-end examples, tutorial and how-tos curated 
 - [Model Setup by Downloading Model]({{%relref "howtos/easy-model-import-downloaded" %}})
 - [Making requests via OpenAi API]({{%relref "howtos/easy-request-openai" %}})
 - [Making requests via Curl]({{%relref "howtos/easy-request-curl" %}})
+
+This section includes Full auto setup, install, and use of LocalAI by [lunamidori5](https://github.com/lunamidori5).
+- [Full Demo]({{%relref "howtos/easy-setup-full" %}})
