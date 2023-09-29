@@ -49,7 +49,8 @@ For instance you can download the `ggml` quantized version of `all-MiniLM-L6-v2`
 wget https://huggingface.co/skeskinen/ggml/resolve/main/all-MiniLM-L6-v2/ggml-model-q4_0.bin -O models/bert
 ```
 
-To play around, you can use `curl` locally (and `jq` at the end to prettify):
+To test locally (LocalAI server running on `localhost`),
+you can use `curl` (and `jq` at the end to prettify):
 
 ```bash
 curl http://localhost:8080/embeddings -X POST -H "Content-Type: application/json" -d '{
