@@ -55,7 +55,7 @@ you can use `curl` (and `jq` at the end to prettify):
 ```bash
 curl http://localhost:8080/embeddings -X POST -H "Content-Type: application/json" -d '{
   "input": "Your text string goes here",
-  "model": "bert-embeddings"
+  "model": "text-embedding-ada-002"
 }' | jq "."
 ```
 
