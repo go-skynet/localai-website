@@ -49,6 +49,16 @@ For instance you can download the `ggml` quantized version of `all-MiniLM-L6-v2`
 wget https://huggingface.co/skeskinen/ggml/resolve/main/all-MiniLM-L6-v2/ggml-model-q4_0.bin -O models/bert
 ```
 
+To test locally (LocalAI server running on `localhost`),
+you can use `curl` (and `jq` at the end to prettify):
+
+```bash
+curl http://localhost:8080/embeddings -X POST -H "Content-Type: application/json" -d '{
+  "input": "Your text string goes here",
+  "model": "text-embedding-ada-002"
+}' | jq "."
+```
+
 ## Huggingface embeddings
 
 To use `sentence-formers` and models in `huggingface` you can use the `huggingface` embedding backend.
