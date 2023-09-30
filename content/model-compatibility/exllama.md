@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "🆕 🦙 Exllama"
+title = "🦙 Exllama"
 weight = 2
 +++
 

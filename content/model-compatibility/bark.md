@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "🆕 🐶 Bark"
+title = "🐶 Bark"
 weight = 4
 +++
 
