@@ -58,7 +58,7 @@ docker run --rm -ti -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e THREADS
 
 Building on Mac (M1 or M2) works, but you may need to install some prerequisites using `brew`. 
 
-The below has been tested by one mac user and found to work. Note that this doesn't use docker to run the server:
+The below has been tested by one mac user and found to work. Note that this doesn't use Docker to run the server:
 
 ```
 # install build dependencies

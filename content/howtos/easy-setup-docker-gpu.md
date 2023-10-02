@@ -99,7 +99,7 @@ services:
 ```
 
 
-Make sure to save that in the root of the `LocalAI` folder. Then lets spin up the docker run this in a `CMD` or `BASH`
+Make sure to save that in the root of the `LocalAI` folder. Then lets spin up the Docker run this in a `CMD` or `BASH`
 
 ```bash
 docker-compose up -d --pull always
