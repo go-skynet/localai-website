@@ -1,6 +1,6 @@
 +++
 disableToc = false
-title = "Easy Setup Stable Diffusion"
+title = "Easy Setup - Stable Diffusion"
 weight = 2
 +++
 

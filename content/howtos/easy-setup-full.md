@@ -1,6 +1,6 @@
 +++
 disableToc = false
-title = "Easy Setup Demo"
+title = "Easy Setup - Demo"
 weight = 2
 +++
 
