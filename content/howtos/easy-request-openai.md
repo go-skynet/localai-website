@@ -46,5 +46,5 @@ completion = openai.Completion.create(
 
 print(completion.choices[0].text)
 ```
-
+See [OpenAI Embedding](https://platform.openai.com/docs/api-reference/embeddings/object) for more info!
 Have fun using LocalAI!
