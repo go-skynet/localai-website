@@ -75,7 +75,7 @@ REBUILD=true
 
 Now that we have the `.env` set lets set up our `docker-compose` file.
 It will use a container from [quay.io](https://quay.io/repository/go-skynet/local-ai?tab=tags).
-Also sote this `docker-compose` file is for `CPU` only.
+Also note this `docker-compose` file is for `CPU` only.
 
 ```docker
 version: '3.6'
