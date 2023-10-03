@@ -27,7 +27,6 @@ When you would like to request the model from CLI you can do
 
 ```bash
 curl http://localhost:8080/v1/embeddings \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "input": "The food was delicious and the waiter...",
