@@ -31,4 +31,5 @@ curl --request POST \
 }'
 ```
 
+See [OpenAI API](https://platform.openai.com/docs/api-reference) for more info!
 Have fun using LocalAI!
