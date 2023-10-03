@@ -5,7 +5,7 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
+Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_0.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
 
 The below command requires the Docker container already running,
 and uses the Model Gallery to download the model.
@@ -31,7 +31,7 @@ You will need to delete the following 3 files that hugging face downloaded...
 - lunademo.yaml
 {{% /notice %}}
 
-Now lets make 3 files. 
+Now lets make 3 files in the models folder. 
 
 ```bash
 touch lunademo-chat.tmpl
@@ -59,13 +59,13 @@ Complete the following sentence: {{.Input}}
 In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
 
 ```yaml
-backend: llama-stable
+backend: llama
 context_size: 2000
 f16: true ## If you are using cpu set this to false
 gpu_layers: 4
 name: lunademo
 parameters:
-  model: luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
+  model: luna-ai-llama2-uncensored.Q4_0.gguf
   temperature: 0.2
   top_k: 40
   top_p: 0.65
