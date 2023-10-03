@@ -73,7 +73,9 @@ REBUILD=true
 ```
 
 
-Now that we have the `.env` set lets set up our `docker-compose` file, this `docker-compose` file is for `CPU` Only:
+Now that we have the `.env` set lets set up our `docker-compose` file.
+It will use a container from https://quay.io/repository/go-skynet/local-ai?tab=tags.
+Also sote this `docker-compose` file is for `CPU` only.
 
 ```docker
 version: '3.6'
@@ -93,7 +95,7 @@ services:
 ```
 
 
-Make sure to save that in the root of the `LocalAI` folder. Then lets spin up the docker run this in a `CMD` or `BASH`
+Make sure to save that in the root of the `LocalAI` folder. Then lets spin up the Docker run this in a `CMD` or `BASH`
 
 ```bash
 docker-compose up -d --pull always

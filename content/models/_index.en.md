@@ -61,7 +61,7 @@ To enable the two repositories, start `LocalAI` with the `GALLERIES` environment
 GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:go-skynet/model-gallery/huggingface.yaml","name":"huggingface"}]
 ```
 
-If running with docker-compose, simply edit the `.env` file and uncomment the `GALLERIES` variable, and add the one you want to use.
+If running with `docker-compose`, simply edit the `.env` file and uncomment the `GALLERIES` variable, and add the one you want to use.
 
 {{% /notice %}}
 

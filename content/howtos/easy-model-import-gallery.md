@@ -7,7 +7,11 @@ weight = 2
 
 Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGML/blob/main/luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin
 
-In the `docker` cmd run this. This uses the Gallery to download the model, it may also set up the yaml file, but we will need to override that for the how to setup!
+The below command requires the Docker container already running,
+and uses the Model Gallery to download the model.
+it may also set up a model YAML config file,
+but we will need to override that for this how to setup!
+
 ```bash
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
@@ -74,7 +78,7 @@ template:
   completion: lunademo-completion
 ```
 
-Now that we have that fully set up, we need to reboot the docker. Go back to the localai folder and run
+Now that we have that fully set up, we need to reboot the Docker container. Go back to the localai folder and run
 
 ```bash
 docker-compose restart

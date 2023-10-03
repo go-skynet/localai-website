@@ -10,7 +10,7 @@ url = '/basics/getting_started/'
 
 For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
 
-The easiest way to run LocalAI is by using [docker compose](https://docs.docker.com/compose/install/) or with [docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker compose`:
+The easiest way to run LocalAI is by using [`docker compose`](https://docs.docker.com/compose/install/) or with [Docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker compose`:
 
 ```bash
 

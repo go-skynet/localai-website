@@ -54,5 +54,5 @@ Enjoy localai! (If you need help contact Luna Midori on [Discord](https://discor
 {{% notice Issues %}}
 - Trying to run ``Setup.bar`` or ``Setup_Linux.sh`` from `Git Bash` on Windows is not working.
 - Running over `SSH` or other remote cmd may bug out, load slowly, or crash.
-- There seems to be a bug with docker-compose not running. (Main.py workaround added)
+- There seems to be a bug with `docker-compose` not running. (Main.py workaround added)
 {{% /notice %}}
