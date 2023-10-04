@@ -22,7 +22,7 @@ cd LocalAI
 ```
 
 
-At this point we want to set up our `.env` file, here is a copy for you to use if you wish, please make sure to set it to the same as the `docker-compose` file for later.
+At this point we want to set up our `.env` file, here is a copy for you to use if you wish, please make sure to set it to the same as in the `docker-compose` file for later.
 
 ```bash
 ## Set number of threads.
@@ -73,8 +73,8 @@ REBUILD=true
 
 
 Now that we have the `.env` set lets set up our `docker-compose` file.
-It will use a container from https://quay.io/repository/go-skynet/local-ai?tab=tags.
-Also sote this `docker-compose` file is for `CUDA` only.
+It will use a container from [quay.io](https://quay.io/repository/go-skynet/local-ai?tab=tags).
+Also note this `docker-compose` file is for `CUDA` only.
 
 ```docker
 version: '3.6'

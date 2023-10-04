@@ -46,5 +46,5 @@ completion = openai.Completion.create(
 
 print(completion.choices[0].text)
 ```
-
+See [OpenAI API](https://platform.openai.com/docs/api-reference) for more info!
 Have fun using LocalAI!
