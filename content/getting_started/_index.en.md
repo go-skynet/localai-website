@@ -56,7 +56,7 @@ cd LocalAI
 # git checkout -b build <TAG>
 
 # Download luna-ai-llama2 to models/
-wget  https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/blob/main/luna-ai-llama2-uncensored.Q4_0.gguf -O models/luna-ai-llama2
+wget https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_0.gguf -O models/luna-ai-llama2
 
 # Use a template from the examples
 cp -rf prompt-templates/getting_started.tmpl models/luna-ai-llama2.tmpl
