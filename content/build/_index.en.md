@@ -119,7 +119,7 @@ List of the variables available to customize the build:
 
 | Variable | Default | Description |
 | ---------------------| ------- | ----------- |
-| `BUILD_TYPE`         |   None      | Build type. Available: `cublas`, `openblas`, `clblas`, `metal` |
+| `BUILD_TYPE`         |   None      | Build type. Available: `cublas`, `openblas`, `clblas`, `metal`,`hipblas` |
 | `GO_TAGS`            |   `tts stablediffusion`      | Go tags. Available: `stablediffusion`, `tts` |
 | `CLBLAST_DIR`        |         | Specify a CLBlast directory |
 | `CUDA_LIBPATH`       |         | Specify a CUDA library path |
@@ -147,6 +147,22 @@ make BUILD_TYPE=cublas build
 ```
 
 More informations available in the upstream PR: https://github.com/ggerganov/llama.cpp/pull/1412
+
+#### Hipblas (AMD GPU)
+
+AMD GPU Acceleration
+
+Requirement: ROCm
+
+```
+make BUILD_TYPE=hipblas build
+```
+
+Specific GPU targets can be specified with `GPU_TARGETS`:
+  
+```
+make BUILD_TYPE=hipblas GPU_TARGETS=gfx90a build
+```
 
 #### ClBLAS
 

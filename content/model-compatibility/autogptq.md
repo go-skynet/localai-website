@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "🆕 🦙 AutoGPTQ"
+title = "🦙 AutoGPTQ"
 weight = 3
 +++
 
