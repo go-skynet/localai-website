@@ -11,7 +11,7 @@ Now lets download and move the model.
 
 Link - https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_0.gguf
 
-Using that link download the `luna-ai-llama2-uncensored.ggmlv3.q5_K_M.bin` model, once done, move the model.bin into the models folder.
+Using that link download the `luna-ai-llama2-uncensored.Q4_0.gguf` model, once done, move the model.bin into the models folder.
 
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
