@@ -9,7 +9,7 @@ weight = 1
 
 {{% notice note %}}
 
-The `ggml` file format has been deprecated. If you are using `ggml` models and you are configuring your model with a YAML file, specify, use the `llama-stable` backend instead. If you are relying in automatic detection of the model, you should be fine.
+The `ggml` file format has been deprecated. If you are using `ggml` models and you are configuring your model with a YAML file, specify, use the `llama-stable` backend instead. If you are relying in automatic detection of the model, you should be fine. For `gguf` models, use the `llama` backend.
 
 {{% /notice %}}
 
@@ -27,7 +27,7 @@ LocalAI supports `llama.cpp` models out of the box. You can use the `llama.cpp` 
 
 ### Manual setup
 
-It is sufficient to copy the `ggml` model files in the `models` folder. You can refer to the model in the `model` parameter in the API calls.
+It is sufficient to copy the `ggml` or `guf` model files in the `models` folder. You can refer to the model in the `model` parameter in the API calls.
 
 [You can optionally create an associated YAML]({{%relref "advanced" %}}) model config file to tune the model's parameters or apply a template to the prompt.
 
@@ -35,7 +35,7 @@ Prompt templates are useful for models that are fine-tuned towards a specific pr
 
 ### Automatic setup
 
-LocalAI supports model galleries which are indexes of models. For instance, the huggingface gallery contains a large curated index of models from the huggingface model hub for `ggml` models.
+LocalAI supports model galleries which are indexes of models. For instance, the huggingface gallery contains a large curated index of models from the huggingface model hub for `ggml` or `gguf` models.
 
 For instance, if you have the galleries enabled, you can just start chatting with models in huggingface by running:
 
@@ -53,4 +53,29 @@ Models can be also preloaded or downloaded on demand. To learn about model galle
 
 ### YAML configuration
 
-To use the `llama.cpp` backend, specify
+To use the `llama.cpp` backend, specify `llama` as the backend in the YAML file:
+
+```yaml
+name: llama
+backend: llama
+parameters:
+  # Relative to the models path
+  model: file.gguf.bin
+```
+
+In the example above we specify `llama` as the backend to restrict loading `gguf` models only. 
+
+For instance, to use the `llama-stable` backend for `ggml` models:
+
+```yaml
+name: llama
+backend: llama-stable
+parameters:
+  # Relative to the models path
+  model: file.ggml.bin
+```
+
+### Reference
+
+- [llama](https://github.com/ggerganov/llama.cpp)
+- [binding](https://github.com/go-skynet/go-llama.cpp)
