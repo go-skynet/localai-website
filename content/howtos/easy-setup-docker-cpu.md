@@ -5,6 +5,11 @@ title = "Easy Setup - CPU Docker"
 weight = 2
 +++
 
+{{% notice Note %}}
+- You will need about 10gb of RAM Free
+- You will need about 15gb of space free on C drive for ``Docker-compose``
+{{% /notice %}}
+
 We are going to run `LocalAI` with `docker-compose` for this set up.
 
 
