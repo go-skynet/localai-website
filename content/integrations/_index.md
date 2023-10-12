@@ -23,4 +23,4 @@ LocalAI can be used as a drop-in replacement, however, the following projects pr
 - [LinGoose](https://github.com/henomis/lingoose) [example](https://github.com/henomis/lingoose/tree/main/examples/llm/openai/localai)
 - [LLMStack](https://github.com/trypromptly/LLMStack)
   
-Feel free to open up a PR to get your project listed!
+Feel free to open up a [issue](https://github.com/go-skynet/localai-website/issues) to get a page for your project made!
