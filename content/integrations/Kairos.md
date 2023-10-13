@@ -2,10 +2,7 @@
 
 [Kairos](https://github.com/kairos-io/kairos) - Kubernetes-focused, Cloud Native Linux meta-distribution
 
-<p align="center">
-     <br>
-    The immutable Linux meta-distribution for edge Kubernetes.
-</p>
+The immutable Linux meta-distribution for edge Kubernetes.
 
 ## Github Link - https://github.com/kairos-io/kairos
 
