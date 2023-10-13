@@ -8,7 +8,7 @@ weight = 2
 # [BMO Chatbot](https://github.com/longy2k/obsidian-bmo-chatbot) for Obsidian
 Generate and brainstorm ideas while creating your notes using Large Language Models (LLMs) such as OpenAI's "gpt-3.5-turbo" and "gpt-4" for Obsidian.
 
-![](https://github.com/longy2k/obsidian-bmo-chatbot/blob/main/README_images/Screenshot-1.png)
+![](https://raw.githubusercontent.com/longy2k/obsidian-bmo-chatbot/main/README_images/Screenshot-1.png)
 
 ## Github Link - https://github.com/longy2k/obsidian-bmo-chatbot
 
