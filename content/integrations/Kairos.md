@@ -11,7 +11,7 @@ weight = 2
 
 The immutable Linux meta-distribution for edge Kubernetes.
 
-## Github Link - https://github.com/kairos-io/kairos
+Github Link - https://github.com/kairos-io/kairos
 
 ## Intro
 
