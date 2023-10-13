@@ -1,3 +1,10 @@
+
++++
+disableToc = false
+title = "Mods"
+weight = 2
++++
+
 # [Mods](https://github.com/charmbracelet/mods)!
 
 <p>
