@@ -3,6 +3,8 @@ Generate and brainstorm ideas while creating your notes using Large Language Mod
 
 ![Screenshot-1](https://github.com/longy2k/obsidian-bmo-chatbot/blob/main/README_images/Screenshot-1.png)
 
+## Github Link - https://github.com/longy2k/obsidian-bmo-chatbot
+
 ## Features
 - **Chat from anywhere in Obsidian:** Chat with your bot from anywhere within Obsidian.
 - **Chat with current note:** Use your chatbot to reference and engage within your current note.
