@@ -4,10 +4,6 @@
 
 # [Flowise](https://github.com/FlowiseAI/Flowise) - Build LLM Apps Easily
 
-[![Release Notes](https://img.shields.io/github/release/FlowiseAI/Flowise)](https://github.com/FlowiseAI/Flowise/releases)
-[![GitHub fork](https://img.shields.io/github/forks/FlowiseAI/Flowise?style=social)](https://github.com/FlowiseAI/Flowise/fork)
-
-<h3>Drag & drop UI to build your customized LLM flow</h3>
 <a href="https://github.com/FlowiseAI/Flowise">
 <img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true"></a>
 
