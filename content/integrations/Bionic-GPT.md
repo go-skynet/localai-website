@@ -5,7 +5,9 @@ title = "BionicGPT"
 weight = 2
 +++
 
-![Alt text](https://github.com/purton-tech/bionicgpt/blob/main/website/static/github-readme.png)<h1 align="center">BionicGPT</h1>
+![](https://github.com/purton-tech/bionicgpt/blob/main/website/static/github-readme.png)
+
+<h1 align="center">BionicGPT</h1>
 
 <div align="center">
  <strong>
