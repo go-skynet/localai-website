@@ -1,4 +1,5 @@
-<h1 align="center">BionicGPT</h1>
+![Alt text](https://github.com/purton-tech/bionicgpt/blob/main/website/static/github-readme.png)<h1 align="center">BionicGPT</h1>
+
 <div align="center">
  <strong>
    BionicGPT is an on-premise replacement for ChatGPT, offering the advantages of Generative AI while maintaining strict data confidentiality
@@ -17,8 +18,6 @@
 </div>
 
 <br />
-
-![Alt text](https://github.com/purton-tech/bionicgpt/blob/main/website/static/github-readme.png)
 
 ## Github link - https://github.com/purton-tech/bionicgpt
 
