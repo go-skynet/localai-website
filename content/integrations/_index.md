@@ -9,7 +9,6 @@ weight = 8
 
 LocalAI can be used as a drop-in replacement, however, the following projects provides specific integrations with LocalAI:
 
-- [Kairos](https://github.com/kairos-io/kairos)
 - [Spark](https://github.com/cedriking/spark)
 - [autogpt4all](https://github.com/aorumbayev/autogpt4all)
 - [Mods](https://github.com/charmbracelet/mods)
