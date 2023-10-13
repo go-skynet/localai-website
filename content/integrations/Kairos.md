@@ -1,3 +1,10 @@
+
++++
+disableToc = false
+title = "Kairos"
+weight = 2
++++
+
 ![Kairos Logo](https://user-images.githubusercontent.com/2420543/193010398-72d4ba6e-7efe-4c2e-b7ba-d3a826a55b7d.png)
 
 [Kairos](https://github.com/kairos-io/kairos) - Kubernetes-focused, Cloud Native Linux meta-distribution
