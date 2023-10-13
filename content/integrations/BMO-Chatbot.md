@@ -1,3 +1,10 @@
+
++++
+disableToc = false
+title = "BMO Chatbo"
+weight = 2
++++
+
 # [BMO Chatbot](https://github.com/longy2k/obsidian-bmo-chatbot) for Obsidian
 Generate and brainstorm ideas while creating your notes using Large Language Models (LLMs) such as OpenAI's "gpt-3.5-turbo" and "gpt-4" for Obsidian.
 
