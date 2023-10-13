@@ -27,12 +27,6 @@ Download and Install [NodeJS](https://nodejs.org/en/download) >= 18.15.0
     npx flowise start
     ```
 
-    With username & password
-
-    ```bash
-    npx flowise start --FLOWISE_USERNAME=user --FLOWISE_PASSWORD=1234
-    ```
-
 3. Open [http://localhost:3000](http://localhost:3000)
 
 ## 🐳 Docker
@@ -43,24 +37,15 @@ Download and Install [NodeJS](https://nodejs.org/en/download) >= 18.15.0
 2. Copy `.env.example` file, paste it into the same location, and rename to `.env`
 3. `docker-compose up -d`
 4. Open [http://localhost:3000](http://localhost:3000)
-5. You can bring the containers down by `docker-compose stop`
+5. You can bring the containers down by `docker-compose stop --rmi all`
 
-### Docker Image
+### Docker Compose (Flowise + LocalAI)
 
-1. Build the image locally:
-    ```bash
-    docker build --no-cache -t flowise .
-    ```
-2. Run image:
-
-    ```bash
-    docker run -d --name flowise -p 3000:3000 flowise
-    ```
-
-3. Stop image:
-    ```bash
-    docker stop flowise
-    ```
+1. In a command line Run ``git clone https://github.com/go-skynet/LocalAI``
+2. Then run ``cd LocalAI/examples/flowise``
+3. Then run ``docker-compose up -d --pull always``
+4. Open [http://localhost:3000](http://localhost:3000)
+5. You can bring the containers down by `docker-compose stop --rmi all`
 
 ## 🌱 Env Variables
 
