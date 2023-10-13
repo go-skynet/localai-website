@@ -5,11 +5,11 @@ title = "Flowise"
 weight = 2
 +++
 
-![Flowise](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png)
+![Flowise](https://raw.githubusercontent.com/FlowiseAI/Flowise/main/images/flowise.png)
 
 # [Flowise](https://github.com/FlowiseAI/Flowise) - Build LLM Apps Easily
 
-![Flowise](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif)
+![Flowise](https://raw.githubusercontent.com/FlowiseAI/Flowise/blob/main/images/flowise.gif)
 
 ## Github Link - https://github.com/FlowiseAI/Flowise
 
