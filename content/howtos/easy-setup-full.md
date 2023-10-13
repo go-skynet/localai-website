@@ -1,6 +1,6 @@
 +++
 disableToc = false
-title = "Easy Setup - Demo"
+title = "Full Python - LocalAI Demo"
 weight = 2
 +++
 
