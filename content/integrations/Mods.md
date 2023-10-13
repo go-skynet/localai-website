@@ -1,4 +1,4 @@
-# Mods!
+# [Mods](https://github.com/charmbracelet/mods)!
 
 <p>
     <img src="https://github.com/charmbracelet/mods/assets/25087/5442bf46-b908-47af-bf4e-60f7c38951c4" width="630" alt="Mods product art and type treatment"/>
@@ -20,6 +20,8 @@ examples below. Since Mods has built-in Markdown formatting, you may also want
 to grab [Glow](https://github.com/charmbracelet/glow) to give the output some
 _pizzazz_.
 
+## Github Link - https://github.com/charmbracelet/mods
+
 ## What Can It Do?
 
 Mods works by reading standard in and prefacing it with a prompt supplied in
@@ -27,9 +29,6 @@ the `mods` arguments. It sends the input text to an LLM and prints out the
 result, optionally asking the LLM to format the response as Markdown. This
 gives you a way to "question" the output of a command. Mods will also work on
 standard in or an argument supplied prompt individually.
-
-Be sure to check out the [examples](examples.md) and a list of all the
-[features](features.md).
 
 ## Installation
 
@@ -87,8 +86,6 @@ go install github.com/charmbracelet/mods@latest
 Conversations save automatically. They are identified by their latest prompt.
 Similar to Git, conversations have a SHA-1 identifier and a title. Conversations
 can be updated, maintaining their SHA-1 identifier but changing their title.
-
-Check the [features document](./features.md) for more details.
 
 <p><img src="https://vhs.charm.sh/vhs-6MMscpZwgzohYYMfTrHErF.gif" width="900" alt="a GIF listing and showing saved conversations."></p>
 
