@@ -5,20 +5,12 @@ title = "BionicGPT"
 weight = 2
 +++
 
-
-<div align="center">
- <strong>
-   BionicGPT is an on-premise replacement for ChatGPT, offering the advantages of Generative AI while maintaining strict data confidentiality
- </strong>
- BionicGPT can run on your laptop or scale into the data center. 
-</div>
-<br />
+an on-premise replacement for ChatGPT, offering the advantages of Generative AI while maintaining strict data confidentiality, BionicGPT can run on your laptop or scale into the data center. 
 
 ![](https://raw.githubusercontent.com/purton-tech/bionicgpt/main/website/static/github-readme.png)
 
-## BionicGPT Homepage - https://bionic-gpt.com
-
-## Github link - https://github.com/purton-tech/bionicgpt
+BionicGPT Homepage - https://bionic-gpt.com
+Github link - https://github.com/purton-tech/bionicgpt
 
 <!-- Try it out -->
 ## Try it out
