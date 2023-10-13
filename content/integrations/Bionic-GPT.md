@@ -18,7 +18,7 @@
 
 <br />
 
-![Alt text](website/static/github-readme.png "BionicGPT Screenshot")
+![Alt text](https://github.com/purton-tech/bionicgpt/blob/main/website/static/github-readme.png)
 
 <!-- Try it out -->
 ## Try it out
