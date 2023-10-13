@@ -5,15 +5,15 @@ title = "k8sgpt"
 weight = 2
 +++
 
-![Dark Mode](https://github.com/k8sgpt-ai/k8sgpt/blob/main/images/banner-white.png)
+a tool for scanning your Kubernetes clusters, diagnosing, and triaging issues in simple English.
 
-[k8sgpt](https://github.com/k8sgpt-ai/k8sgpt) is a tool for scanning your Kubernetes clusters, diagnosing, and triaging issues in simple English.
+![](https://raw.githubusercontent.com/k8sgpt-ai/k8sgpt/main/images/banner-white.png)
 
 It has SRE experience codified into its analyzers and helps to pull out the most relevant information to enrich it with AI.
 
-## Github Link - https://github.com/k8sgpt-ai/k8sgpt
+Github Link - https://github.com/k8sgpt-ai/k8sgpt
 
-# CLI Installation
+## CLI Installation
 
 ### Linux/Mac via brew
 
