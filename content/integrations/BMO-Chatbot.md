@@ -18,7 +18,7 @@ Generate and brainstorm ideas while creating your notes using Large Language Mod
 ## Requirements
 To use this plugin, with [LocalAI](https://localai.io/howtos/), you will need to have the self-hosted API set up and running. You can follow the instructions provided by the self-hosted API provider to get it up and running. 
 Once you have the REST API URL for your self-hosted API, you can use it with this plugin to interact with your models.
-Explore some models at [GPT4ALL](https://gpt4all.io/index.html) under the "Model Explorer" section.
+Explore some ``GGUF`` models at [theBloke](https://huggingface.co/TheBloke).
 
 ## How to activate the plugin
 Two methods:
