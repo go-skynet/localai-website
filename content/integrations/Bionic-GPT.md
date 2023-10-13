@@ -22,14 +22,11 @@
 
 <!-- Try it out -->
 ## Try it out
-
-Cut and paste the following into a `docker-compose.yml` file and run `docker-compose up` access the user interface on http://localhost:7800/auth/sign_up
-
+Cut and paste the following into a `docker-compose.yaml` file and run `docker-compose up -d` access the user interface on http://localhost:7800/auth/sign_up
 This has been tested on an AMD 2700x with 16GB of ram. The included `ggml-gpt4all-j` model runs on CPU only.
-
 **Warning** - The images in this `docker-compose` are large due to having the model weights pre-loaded for convenience.
 
-```yml
+```yaml
 services:
 
   # LocalAI with pre-loaded ggml-gpt4all-j
@@ -112,6 +109,3 @@ services:
 ## Kubernetes Ready
 
 BionicGPT is optimized to run on Kubernetes and implements the full pipeline of LLM fine tuning from data acquisition to user interface.
-
-
-![Alt text](website/content/docs/production/architecture.svg "BionicGPT Architetcure")
