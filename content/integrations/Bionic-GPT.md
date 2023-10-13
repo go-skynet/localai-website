@@ -5,9 +5,6 @@ title = "BionicGPT"
 weight = 2
 +++
 
-![](https://raw.githubusercontent.com/purton-tech/bionicgpt/main/website/static/github-readme.png)
-
-<h1 align="center">BionicGPT</h1>
 
 <div align="center">
  <strong>
@@ -15,8 +12,9 @@ weight = 2
  </strong>
  BionicGPT can run on your laptop or scale into the data center. 
 </div>
-
 <br />
+
+![](https://raw.githubusercontent.com/purton-tech/bionicgpt/main/website/static/github-readme.png)
 
 ## BionicGPT Homepage - https://bionic-gpt.com
 
