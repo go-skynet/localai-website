@@ -1,5 +1,5 @@
 
-![Dark Mode](https://github.com/k8sgpt-ai/k8sgpt/blob/main/images/banner-black.png)
+![Dark Mode](https://github.com/k8sgpt-ai/k8sgpt/blob/main/images/banner-white.png)
 
 [k8sgpt](https://github.com/k8sgpt-ai/k8sgpt) is a tool for scanning your Kubernetes clusters, diagnosing, and triaging issues in simple English.
 
