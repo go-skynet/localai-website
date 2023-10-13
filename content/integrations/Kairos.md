@@ -1,11 +1,6 @@
-<h1 align="center">
-  <br>
-     <img width="184" alt="kairos-white-column 5bc2fe34" src="https://user-images.githubusercontent.com/2420543/193010398-72d4ba6e-7efe-4c2e-b7ba-d3a826a55b7d.png">
-    <br>
-<br>
-</h1>
+![Kairos Logo](https://user-images.githubusercontent.com/2420543/193010398-72d4ba6e-7efe-4c2e-b7ba-d3a826a55b7d.png)
 
-<h3 align="center">[Kairos](https://github.com/kairos-io/kairos) - Kubernetes-focused, Cloud Native Linux meta-distribution</h3>
+[Kairos](https://github.com/kairos-io/kairos) - Kubernetes-focused, Cloud Native Linux meta-distribution
 
 <p align="center">
      <br>
