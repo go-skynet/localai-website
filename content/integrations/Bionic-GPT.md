@@ -4,20 +4,12 @@
  <strong>
    BionicGPT is an on-premise replacement for ChatGPT, offering the advantages of Generative AI while maintaining strict data confidentiality
  </strong>
- BionicGTP can run on your laptop or scale into the data center. 
+ BionicGPT can run on your laptop or scale into the data center. 
 </div>
 
 <br />
 
-<div align="center">
-  <h4>
-    <a href="https://bionic-gpt.com">
-      Homepage
-    </a>
-  </h4>
-</div>
-
-<br />
+## BionicGPT Homepage - https://bionic-gpt.com
 
 ## Github link - https://github.com/purton-tech/bionicgpt
 
