@@ -5,8 +5,6 @@ title = "Mods"
 weight = 2
 +++
 
-# [Mods](https://github.com/charmbracelet/mods)!
-
 <p>
     <img src="https://github.com/charmbracelet/mods/assets/25087/5442bf46-b908-47af-bf4e-60f7c38951c4" width="630" alt="Mods product art and type treatment"/>
     <br>
@@ -27,7 +25,7 @@ examples below. Since Mods has built-in Markdown formatting, you may also want
 to grab [Glow](https://github.com/charmbracelet/glow) to give the output some
 _pizzazz_.
 
-## Github Link - https://github.com/charmbracelet/mods
+Github Link - https://github.com/charmbracelet/mods
 
 ## What Can It Do?
 
