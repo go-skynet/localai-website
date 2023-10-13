@@ -1,11 +1,11 @@
 <!-- markdownlint-disable MD030 -->
 
-<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png?raw=true"></a>
+<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png"></a>
 
 # [Flowise](https://github.com/FlowiseAI/Flowise) - Build LLM Apps Easily
 
 <a href="https://github.com/FlowiseAI/Flowise">
-<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif?raw=true"></a>
+<img width="100%" src="https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.gif"></a>
 
 ## Github Link - https://github.com/FlowiseAI/Flowise
 
