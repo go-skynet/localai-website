@@ -1,3 +1,10 @@
+
++++
+disableToc = false
+title = "Flowise"
+weight = 2
++++
+
 ![Flowise](https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png)
 
 # [Flowise](https://github.com/FlowiseAI/Flowise) - Build LLM Apps Easily
