@@ -1,2 +1,1 @@
-<img width="100%" src="https://cdn.discordapp.com/attachments/1138961497691799693/1162247945442295868/unnamed.jpg?ex=653b3ebf&is=6528c9bf&hm=f4eb77fd4ea2ac7b17d1b2fe8ec9b4b244aac9ebc9ac087a72aafe551e33bb01&"></a>
-![spark](https://www.google.com/search/images/image/dJ8CMqJn)
+<img width="100%" src="https://cdn.discordapp.com/attachments/1138961497691799693/1162248501120475227/unnamed.jpg?ex=653b3f44&is=6528ca44&hm=e0b2f74f2ba38097b8e78b80182e2e6beff4a3827847ddffb2693178a3dd6e05&"></a>
