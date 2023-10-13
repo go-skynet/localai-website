@@ -6,9 +6,10 @@ weight = 2
 +++
 
 Build LLM Apps Easily
+
 ![Flowise](https://raw.githubusercontent.com/FlowiseAI/Flowise/main/images/flowise.png)
 
-## Github Link - https://github.com/FlowiseAI/Flowise
+Github Link - https://github.com/FlowiseAI/Flowise
 
 ## ⚡Local Install
 
