@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "RENAME_ME"
+title = "AutoGPT4all"
 weight = 2
 +++
 
