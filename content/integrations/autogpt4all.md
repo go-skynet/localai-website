@@ -11,11 +11,9 @@ AutoGPT4All provides you with both bash and python scripts to set up and configu
 
 Github Link - https://github.com/aorumbayev/autogpt4all
 
-> If you are interested in building decentralized applications, check out my other repo at [AwesomeAlgorand](https://github.com/aorumbayev/awesome-algorand).
-
 ## 🚀 Quickstart
 
-### Using Bash Script:
+## Using Bash Script:
 
 ```sh
 git clone https://github.com/aorumbayev/autogpt4all.git
@@ -38,7 +36,7 @@ python autogpt4all.py
 
 ## 🎛️ Script Options
 
-### For the bash script:
+## For the bash script:
 
 `--custom_model_url` - Specify a custom URL for the model download step. By default, the script will use https://gpt4all.io/models/ggml-gpt4all-l13b-snoozy.bin.
 
@@ -58,7 +56,7 @@ Example:
 
 > To recap the commands, a --help flag is also available for the bash script.
 
-### For the Python Script:
+## For the Python Script:
 
 You can use similar options as the bash script:
 
