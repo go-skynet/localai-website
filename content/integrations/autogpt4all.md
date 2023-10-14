@@ -7,7 +7,7 @@ weight = 2
 
 AutoGPT4All provides you with both bash and python scripts to set up and configure [AutoGPT](https://github.com/Significant-Gravitas/Auto-GPT.git) running with the [GPT4All](#) model on the [LocalAI](https://github.com/go-skynet/LocalAI) server. This setup allows you to run queries against an open-source licensed model without any limits, completely free and offline.
 
-![photo](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Faorumbayev%2Fautogpt4all&countColor=black&style=flat)
+![photo](https://bafkreif7cbmuvhztfdlscnmgi3ob32d6ulkqgbjqy4cff2krth4dynwwhe.ipfs.nftstorage.link)
 
 Github Link - https://github.com/aorumbayev/autogpt4all
 
