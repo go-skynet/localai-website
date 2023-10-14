@@ -1,7 +1,7 @@
 
 +++
 disableToc = false
-title = "RENAME_ME"
+title = "LogseqGPT3"
 weight = 2
 +++
 
