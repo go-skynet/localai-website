@@ -80,7 +80,7 @@ wget https://gpt4all.io/models/ggml-gpt4all-j.bin -O models/ggml-gpt4all-j
 cp -rf prompt-templates/ggml-gpt4all-j.tmpl models/
 
 # Run LocalAI
-./local-ai --models-path ./models/ --debug
+./local-ai --models-path=./models/ --debug=true
 
 # Now API is accessible at localhost:8080
 curl http://localhost:8080/v1/models
