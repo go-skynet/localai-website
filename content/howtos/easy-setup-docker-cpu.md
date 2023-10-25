@@ -85,7 +85,7 @@ version: '3.6'
 
 services:
   api:
-    image: quay.io/go-skynet/local-ai:master
+    image: quay.io/go-skynet/local-ai:v1.30.0-ffmpeg
     tty: true # enable colorized logs
     restart: always # should this be on-failure ?
     ports:
