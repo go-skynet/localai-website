@@ -57,7 +57,7 @@ MODELS_PATH=/models
 BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
-REBUILD=true
+# REBUILD=true
 
 ## Enable go tags, available: stablediffusion, tts
 ## stablediffusion: image generation with stablediffusion
@@ -80,6 +80,14 @@ Now that we have the `.env` set lets set up our `docker-compose` file.
 It will use a container from [quay.io](https://quay.io/repository/go-skynet/local-ai?tab=tags).
 Also note this `docker-compose` file is for `CUDA` only.
 
+Please change the image to what you need.
+```
+Cuda 11 - v1.30.0-cublas-cuda11
+Cuda 12 - v1.30.0-cublas-cuda12
+Cuda 11 with TTS - v1.30.0-cublas-cuda11-ffmpeg
+Cuda 12 with TTS - v1.30.0-cublas-cuda12-ffmpeg
+```
+
 ```docker
 version: '3.6'
 
@@ -92,7 +100,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    image: quay.io/go-skynet/local-ai:master-cublas-cuda12
+    image: quay.io/go-skynet/local-ai:[CHANGEMETOIMAGENEEDED]
     tty: true # enable colorized logs
     restart: always # should this be on-failure ?
     ports:
