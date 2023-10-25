@@ -57,7 +57,7 @@ MODELS_PATH=/models
 BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
-REBUILD=true
+# REBUILD=true
 
 ## Enable go tags, available: stablediffusion, tts
 ## stablediffusion: image generation with stablediffusion
@@ -85,7 +85,7 @@ version: '3.6'
 
 services:
   api:
-    image: quay.io/go-skynet/local-ai:v1.30.0-ffmpeg
+    image: quay.io/go-skynet/local-ai:v1.30.0
     tty: true # enable colorized logs
     restart: always # should this be on-failure ?
     ports:
