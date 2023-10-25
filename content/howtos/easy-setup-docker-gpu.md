@@ -37,29 +37,27 @@ THREADS=2
 ## Specify a different bind address (defaults to ":8080")
 # ADDRESS=127.0.0.1:8080
 
-## Default models context size
-# CONTEXT_SIZE=512
-#
 ## Define galleries.
 ## models will to install will be visible in `/models/available`
 GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:go-skynet/model-gallery/huggingface.yaml","name":"huggingface"}]
 
-## CORS settings
-# CORS=true
-# CORS_ALLOW_ORIGINS=*
-
 ## Default path for models
-#
 MODELS_PATH=/models
 
 ## Enable debug mode
-DEBUG=true
+# DEBUG=true
+
+## Disables COMPEL (Diffusers)
+# COMPEL=0
+
+## Enable/Disable single backend (useful if only one GPU is available)
+# SINGLE_ACTIVE_BACKEND=true
 
 ## Specify a build type. Available: cublas, openblas, clblas.
 BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
-REBUILD=true
+# REBUILD=true
 
 ## Enable go tags, available: stablediffusion, tts
 ## stablediffusion: image generation with stablediffusion
@@ -73,6 +71,7 @@ REBUILD=true
 
 ## Specify a default upload limit in MB (whisper)
 # UPLOAD_LIMIT
+
 # HUGGINGFACEHUB_API_TOKEN=Token here
 ```
 
@@ -80,6 +79,14 @@ REBUILD=true
 Now that we have the `.env` set lets set up our `docker-compose` file.
 It will use a container from [quay.io](https://quay.io/repository/go-skynet/local-ai?tab=tags).
 Also note this `docker-compose` file is for `CUDA` only.
+
+Please change the image to what you need.
+```
+Cuda 11 - v1.30.0-cublas-cuda11
+Cuda 12 - v1.30.0-cublas-cuda12
+Cuda 11 with TTS - v1.30.0-cublas-cuda11-ffmpeg
+Cuda 12 with TTS - v1.30.0-cublas-cuda12-ffmpeg
+```
 
 ```docker
 version: '3.6'
@@ -93,7 +100,7 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    image: quay.io/go-skynet/local-ai:master-cublas-cuda12
+    image: quay.io/go-skynet/local-ai:[CHANGEMETOIMAGENEEDED]
     tty: true # enable colorized logs
     restart: always # should this be on-failure ?
     ports:

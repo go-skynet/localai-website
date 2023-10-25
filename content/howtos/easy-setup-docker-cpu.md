@@ -37,30 +37,27 @@ THREADS=2
 ## Specify a different bind address (defaults to ":8080")
 # ADDRESS=127.0.0.1:8080
 
-## Default models context size
-# CONTEXT_SIZE=512
-#
 ## Define galleries.
 ## models will to install will be visible in `/models/available`
 GALLERIES=[{"name":"model-gallery", "url":"github:go-skynet/model-gallery/index.yaml"}, {"url": "github:go-skynet/model-gallery/huggingface.yaml","name":"huggingface"}]
 
-## CORS settings
-# CORS=true
-# CORS_ALLOW_ORIGINS=*
-
 ## Default path for models
-#
 MODELS_PATH=/models
 
 ## Enable debug mode
-DEBUG=true
+# DEBUG=true
+
+## Disables COMPEL (Diffusers)
+# COMPEL=0
+
+## Enable/Disable single backend (useful if only one GPU is available)
+# SINGLE_ACTIVE_BACKEND=true
 
 ## Specify a build type. Available: cublas, openblas, clblas.
-# Do not uncomment this as we are using CPU:
-# BUILD_TYPE=cublas
+BUILD_TYPE=cublas
 
 ## Uncomment and set to true to enable rebuilding from source
-REBUILD=true
+# REBUILD=true
 
 ## Enable go tags, available: stablediffusion, tts
 ## stablediffusion: image generation with stablediffusion
@@ -74,6 +71,7 @@ REBUILD=true
 
 ## Specify a default upload limit in MB (whisper)
 # UPLOAD_LIMIT
+
 # HUGGINGFACEHUB_API_TOKEN=Token here
 ```
 
@@ -87,7 +85,7 @@ version: '3.6'
 
 services:
   api:
-    image: quay.io/go-skynet/local-ai:master
+    image: quay.io/go-skynet/local-ai:v1.30.0
     tty: true # enable colorized logs
     restart: always # should this be on-failure ?
     ports:
