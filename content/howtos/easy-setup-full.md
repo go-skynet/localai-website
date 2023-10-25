@@ -1,8 +1,13 @@
 +++
 disableToc = false
-title = "Easy Setup - Demo"
+title = "Full Python - LocalAI Demo"
 weight = 2
 +++
+
+{{% notice Note %}}
+- You will need about 10gb of RAM Free
+- You will need about 15gb of space free on C drive for ``Docker-compose``
+{{% /notice %}}
 
 This is for `Linux`, `Mac OS`, or `Windows` Hosts. - [Docker Desktop](https://docs.docker.com/engine/install/), [Python 3.11](https://www.python.org/downloads/release/python-3110/), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
@@ -39,10 +44,7 @@ call Setup.bat
 ```
 
 MacOS Hosts: 
-
-{{% notice Note %}}
 - I need some help working on a MacOS Setup file, if you are willing to help out, please contact Luna Midori on [discord](https://discord.com/channels/1096914990004457512/1099364883755171890/1147591145057157200) or put in a PR on [Luna Midori's github](https://github.com/lunamidori5/localai-lunademo).
-{{% /notice %}}
 
 Video How Tos 
 
