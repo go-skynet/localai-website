@@ -13,12 +13,9 @@ it may also set up a model YAML config file,
 but we will need to override that for this how to setup!
 
 ```bash
-curl --location 'http://localhost:8080/models/apply' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGUF/luna-ai-llama2-uncensored.Q4_K_M.gguf",
-    "name": "lunademo"
-}'
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
+     "id": "model-gallery@lunademo"
+   }'  
 ```
 
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
