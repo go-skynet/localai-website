@@ -39,12 +39,14 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
+In the `"lunademo.yaml"` file lets set it up for your setup. (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
+
+If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml
 
 ```yaml
 backend: llama
 context_size: 2000
-f16: true ## If you are using cpu set this to false
+f16: true
 gpu_layers: 4
 name: lunademo
 parameters:
