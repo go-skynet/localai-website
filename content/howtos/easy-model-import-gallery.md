@@ -5,7 +5,7 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_0.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_0.gguf
+Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_K_M.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_K_M.gguf
 
 The below command requires the Docker container already running,
 and uses the Model Gallery to download the model.
@@ -16,7 +16,7 @@ but we will need to override that for this how to setup!
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGUF/luna-ai-llama2-uncensored.Q4_0.gguf",
+    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGUF/luna-ai-llama2-uncensored.Q4_K_M.gguf",
     "name": "lunademo"
 }'
 ```
@@ -65,7 +65,7 @@ f16: true ## If you are using cpu set this to false
 gpu_layers: 4
 name: lunademo
 parameters:
-  model: luna-ai-llama2-uncensored.Q4_0.gguf
+  model: luna-ai-llama2-uncensored.Q4_K_M.gguf
   temperature: 0.2
   top_k: 40
   top_p: 0.65
