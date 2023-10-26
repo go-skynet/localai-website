@@ -12,7 +12,6 @@ and uses the Model Gallery to download the model.
 it will set up a model YAML config file for you.
 
 Run the following in a command line.
-
 ```bash
 curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
      "id": "model-gallery@lunademo"
@@ -22,8 +21,8 @@ curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
 In the `"lunademo.yaml"` file, fould in your models folder, edit it for your setup. (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
-
 If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml
+
 
 Now that we have that fully set up, we need to reboot the Docker container. Go back to the localai folder and run
 
@@ -32,3 +31,13 @@ docker-compose restart
 ```
 
 Now that we got that setup, lets test it out but sending a request by using [Curl]({{%relref "easy-request-curl" %}}) Or use the [Openai Python API]({{%relref "easy-request-openai" %}})! 
+
+If you would like to add other models with out setting up the yaml or temp files. You may run
+```bash
+curl --location 'http://localhost:8080/models/apply' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "NAME_OFF_HUGGINGFACE/REPO_NAME/MODENAME.gguf",
+    "name": "REQUSTNAME"
+}'
+```
