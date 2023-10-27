@@ -9,9 +9,9 @@ Now lets pick a model to download and test out. We are going to use `luna-ai-lla
 
 Now lets download and move the model.
 
-Link - https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_0.gguf
+Link - https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_K_M.gguf
 
-Using that link download the `luna-ai-llama2-uncensored.Q4_0.gguf` model, once done, move the model.bin into the models folder.
+Using that link download the `luna-ai-llama2-uncensored.Q4_K_M.gguf` model, once done, move the model.bin into the models folder.
 
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
@@ -39,16 +39,18 @@ Complete the following sentence: {{.Input}}
 ```
 
 
-In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
+In the `"lunademo.yaml"` file lets set it up for your setup. (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
+
+If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml
 
 ```yaml
 backend: llama
 context_size: 2000
-f16: true ## If you are using cpu set this to false
+f16: true
 gpu_layers: 4
 name: lunademo
 parameters:
-  model: luna-ai-llama2-uncensored.Q4_0.gguf
+  model: luna-ai-llama2-uncensored.Q4_K_M.gguf
   temperature: 0.2
   top_k: 40
   top_p: 0.65

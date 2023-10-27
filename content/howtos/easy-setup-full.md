@@ -56,7 +56,6 @@ Video How Tos
 Enjoy localai! (If you need help contact Luna Midori on [Discord](https://discord.com/channels/1096914990004457512/1099364883755171890/1147591145057157200))
 
 {{% notice Issues %}}
-- Trying to run ``Setup.bat`` or ``Setup_Linux.sh`` from `Git Bash` on Windows is not working.
+- Trying to run ``Setup.bat`` or ``Setup_Linux.sh`` from `Git Bash` on Windows is not working. (Somewhat fixed)
 - Running over `SSH` or other remote command line based apps may bug out, load slowly, or crash.
-- There seems to be a bug with `docker-compose` not running. (``Main.py`` workaround added)
 {{% /notice %}}

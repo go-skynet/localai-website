@@ -5,78 +5,35 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_0.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_0.gguf
+Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_K_M.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_K_M.gguf
 
 The below command requires the Docker container already running,
 and uses the Model Gallery to download the model.
-it may also set up a model YAML config file,
-but we will need to override that for this how to setup!
+it will set up a model YAML config file for you.
 
+Run the following in a command line.
+```bash
+curl http://localhost:8080/models/apply -H "Content-Type: application/json" -d '{
+     "id": "model-gallery@lunademo"
+   }'  
+```
+
+If you would like to add other models with out setting up the yaml or temp files. You may run
 ```bash
 curl --location 'http://localhost:8080/models/apply' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGUF/luna-ai-llama2-uncensored.Q4_0.gguf",
-    "name": "lunademo"
+    "id": "NAME_OFF_HUGGINGFACE/REPO_NAME/MODENAME.gguf",
+    "name": "REQUSTNAME"
 }'
 ```
 
 Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
 
-{{% notice note %}}
-You will need to delete the following 3 files that hugging face downloaded...
+In the `"lunademo.yaml"` file, fould in your models folder, edit it for your setup. (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
 
-- chat.tmpl
-- completion.tmpl
-- lunademo.yaml
-{{% /notice %}}
+If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml
 
-Now lets make 3 files in the models folder. 
-
-```bash
-touch lunademo-chat.tmpl
-touch lunademo-completion.tmpl
-touch lunademo.yaml
-```
-
-Please note the names for later!
-
-In the `"lunademo-chat.tmpl"` file add
-
-```txt
-{{.Input}}
-
-ASSISTANT:
-```
-
-In the `"lunademo-completion.tmpl"` file add
-
-```txt
-Complete the following sentence: {{.Input}}
-```
-
-
-In the `"lunademo.yaml"` file (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
-
-```yaml
-backend: llama
-context_size: 2000
-f16: true ## If you are using cpu set this to false
-gpu_layers: 4
-name: lunademo
-parameters:
-  model: luna-ai-llama2-uncensored.Q4_0.gguf
-  temperature: 0.2
-  top_k: 40
-  top_p: 0.65
-roles:
-  assistant: 'ASSISTANT:'
-  system: 'SYSTEM:'
-  user: 'USER:'
-template:
-  chat: lunademo-chat
-  completion: lunademo-completion
-```
 
 Now that we have that fully set up, we need to reboot the Docker container. Go back to the localai folder and run
 
