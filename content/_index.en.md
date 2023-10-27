@@ -90,6 +90,7 @@ Note that this started just as a [fun weekend project](https://localai.io/#backs
 - Backend rework for LocalAI v2 https://github.com/go-skynet/LocalAI/issues/1126
 - Roadmap: https://github.com/go-skynet/LocalAI/issues?q=is%3Aissue+is%3Aopen+label%3Aroadmap
 
+Some items:
 
 - [ ] Enable gallery management directly from the webui. https://github.com/go-skynet/LocalAI/issues/918
 - [x] llama.cpp lora adapters: https://github.com/go-skynet/LocalAI/issues/919
