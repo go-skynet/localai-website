@@ -122,7 +122,7 @@ LocalAI is an API written in Go that serves as an OpenAI shim, enabling software
 
 LocalAI uses a mixture of backends written in various languages (C++, Golang, Python, ...). You can check [the model compatibility table]({{%relref "model-compatibility" %}}) to learn about all the components of LocalAI.
 
-![localai](https://github.com/go-skynet/localai-website/assets/2420543/38b6274f-e7ce-42a6-ad78-f9571f174cf5)
+![localai](https://github.com/go-skynet/localai-website/assets/2420543/6492e685-8282-4217-9daa-e229a31548bc)
 
 ## Contribute and help
 
