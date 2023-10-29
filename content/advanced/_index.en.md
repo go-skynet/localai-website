@@ -338,7 +338,8 @@ Or a remote URI:
 
 ### Environment variables
 
-When LocalAI runs in a container, there are additional environment variables available that modify the behavior of LocalAI on startup:
+When LocalAI runs in a container,
+there are additional environment variables available that modify the behavior of LocalAI on startup:
 
 | Environment variable       | Default | Description                                                                                                |
 |----------------------------|---------|------------------------------------------------------------------------------------------------------------|
@@ -346,3 +347,12 @@ When LocalAI runs in a container, there are additional environment variables ava
 | `BUILD_TYPE`               |         | Build type. Available: `cublas`, `openblas`, `clblas`                                                      |
 | `GO_TAGS`                  |         | Go tags. Available: `stablediffusion`                                                                      |
 | `HUGGINGFACEHUB_API_TOKEN` |         | Special token for interacting with HuggingFace Inference API, required only when using the `langchain-huggingface` backend |
+
+Here is how to configure these variables:
+
+```bash
+# Option 1: command line
+docker run --env REBUILD=true localai
+# Option 2: set within an env file
+docker run --env-file .env localai
+```

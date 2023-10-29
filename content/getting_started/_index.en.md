@@ -156,7 +156,14 @@ You should see:
 ```
 
 {{% notice note %}}
-Note: the binary inside the image is pre-compiled and might not suite all the CPU rebuild at the start of the container to enable CPU optimizations for the execution environment, you can set the environment variable `REBUILD` to `false` to prevent this behavior.
+Note: the binary inside the image is pre-compiled, and might not suite all CPUs.
+To enable CPU optimizations for the execution environment,
+the default behavior is to rebuild when starting the container.
+To disable this auto-rebuild behavior,
+set the environment variable `REBUILD` to `false`.
+
+See [docs on all environment variables]({{%relref "advanced#environment-variables" %}})
+for more info.
 {{% /notice %}}
 
 #### CUDA:
