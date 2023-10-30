@@ -5,7 +5,7 @@ title = "Easy Model Import - Gallery"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_K_M.gguf`, there are a few ways to do this, https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_K_M.gguf
+Now lets pick a model to test out. We are going to use `lunademo` from the gallery api
 
 The below command requires the Docker container already running,
 and uses the Model Gallery to download the model.
@@ -32,7 +32,7 @@ Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` m
 
 In the `"lunademo.yaml"` file, fould in your models folder, edit it for your setup. (If you want to see advanced yaml configs - [Link](https://localai.io/advanced/))
 
-If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml
+If you are running on CPU only, remove the ``f16`` and ``gpu_layer`` lines from the yaml that was made in your ``models`` folder by the gallery api. You can edit the number of ``gpu_layer`` for your gpu (IE a 4090 has 12gb vram, so you can set ``gpu_layer`` to 35 for this model).
 
 
 Now that we have that fully set up, we need to reboot the Docker container. Go back to the localai folder and run
