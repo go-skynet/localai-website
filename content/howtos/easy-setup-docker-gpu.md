@@ -82,10 +82,10 @@ Also note this `docker-compose` file is for `CUDA` only.
 
 Please change the image to what you need.
 ```
-Cuda 11 - v1.30.0-cublas-cuda11
-Cuda 12 - v1.30.0-cublas-cuda12
-Cuda 11 with TTS - v1.30.0-cublas-cuda11-ffmpeg
-Cuda 12 with TTS - v1.30.0-cublas-cuda12-ffmpeg
+Cuda 11 - v1.40.0-cublas-cuda11
+Cuda 12 - v1.40.0-cublas-cuda12
+Cuda 11 with TTS - v1.40.0-cublas-cuda11-ffmpeg
+Cuda 12 with TTS - v1.40.0-cublas-cuda12-ffmpeg
 ```
 
 ```docker
