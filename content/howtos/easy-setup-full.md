@@ -1,6 +1,6 @@
 +++
 disableToc = false
-title = "Full Python - LocalAI Demo"
+title = "Easy Demo - Full Chat Python AI"
 weight = 2
 +++
 
