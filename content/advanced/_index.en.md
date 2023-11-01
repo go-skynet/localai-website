@@ -114,8 +114,6 @@ parameters:
   top_k: 
   top_p: 
   max_tokens:
-  batch:
-  f16: true
   ignore_eos: true
   n_keep: 10
   seed: 
