@@ -1,19 +1,22 @@
 
 +++
 disableToc = false
-title = "Easy Model Import - Downloaded"
+title = "Easy Model Setup"
 weight = 2
 +++
 
-Now lets pick a model to download and test out. We are going to use `luna-ai-llama2-uncensored.Q4_0.gguf`, there are a few ways to do this, 
-
-Now lets download and move the model.
+Lets Learn how to setup a model, for this ``How To`` we are going to use the ``Luna-Ai`` model (Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol)
 
 Link - https://huggingface.co/TheBloke/Luna-AI-Llama2-Uncensored-GGUF/resolve/main/luna-ai-llama2-uncensored.Q4_K_M.gguf
+```bash
+curl --location 'http://localhost:8080/models/apply' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id": "TheBloke/Luna-AI-Llama2-Uncensored-GGUF/luna-ai-llama2-uncensored.Q4_K_M.gguf"
+}'
+```
 
-Using that link download the `luna-ai-llama2-uncensored.Q4_K_M.gguf` model, once done, move the model.bin into the models folder.
-
-Yes I know haha - ``Luna Midori`` making a how to using the ``luna-ai-llama2`` model - lol
+Using that command download the `luna-ai-llama2-uncensored.Q4_K_M.gguf` model into the models folder.
 
 Now lets make 3 files into the models folder.
 
