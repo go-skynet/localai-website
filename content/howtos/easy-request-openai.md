@@ -1,11 +1,11 @@
 
 +++
 disableToc = false
-title = "Easy Request - Openai"
+title = "Easy Request - Openai V0"
 weight = 2
 +++
 
-Now we can make a openai request!
+This is for Python, ``OpenAI``=``0.28.1``, if you are on ``OpenAI``=>``V1`` please use this ``How to`` (WIP)
 
 OpenAI Chat API Python -
 
