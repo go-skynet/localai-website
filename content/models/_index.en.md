@@ -89,7 +89,14 @@ curl http://localhost:8080/models/available
 To search for a model, you can use `jq`:
 
 ```bash
+# Get all information about models with a name that contains "replit"
 curl http://localhost:8080/models/available | jq '.[] | select(.name | contains("replit"))'
+
+# Get the binary name of all local models (not hosted on Hugging Face)
+curl http://localhost:8080/models/available | jq '.[] | .name | select(contains("localmodels"))'
+
+# Get all of the model URLs that contains "orca"
+curl http://localhost:8080/models/available | jq '.[] | .urls | select(. != null) | add | select(contains("orca"))'
 ```
 
 ### How to install a model from the repositories
