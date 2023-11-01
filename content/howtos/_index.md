@@ -14,6 +14,8 @@ This section includes LocalAI end-to-end examples, tutorial and how-tos curated 
 - [Making requests via Autogen]({{%relref "howtos/easy-request-autogen" %}})
 - [Making requests via OpenAi API]({{%relref "howtos/easy-request-openai" %}})
 - [Making requests via Curl]({{%relref "howtos/easy-request-curl" %}})
+  
+## Programs and Demos
 
 This section includes other programs and how to setup, install, and use of LocalAI.
 - [Python LocalAI Demo]({{%relref "howtos/easy-setup-full" %}}) - [lunamidori5](https://github.com/lunamidori5)
