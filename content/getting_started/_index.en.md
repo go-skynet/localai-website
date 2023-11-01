@@ -116,6 +116,7 @@ local-ai --models-path <model_path> [--address <address>] [--threads <num_thread
 | --image-path value             | $IMAGE_PATH                     |                                     | Path to the directory used to store generated images                             |
 | --context-size value           | $CONTEXT_SIZE                   | 512                 | Default context size of the model                                   |
 | --upload-limit value           | $UPLOAD_LIMIT                   | 15                         | Default upload limit in megabytes (audio file upload)                                  |
+| --galleries                    | $GALLERIES                      |                                                    | Allows to set galleries from command line                           |
 
 </details>
 
