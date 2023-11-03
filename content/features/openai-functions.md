@@ -15,21 +15,24 @@ To learn more about OpenAI functions, see the [OpenAI API blog post](https://ope
 
 ## Setup
 
-OpenAI functions are available only with `ggml` models compatible with `llama.cpp`.
+OpenAI functions are available only with `ggml` or `gguf` models compatible with `llama.cpp`.
 
-Specify the `llama` backend in the model YAML configuration file:
+You don't need to do anything specific - just use `ggml` or `gguf` models.
+
+
+## Usage example
+
+You can configure a model manually with a YAML config file in the models directory, for example:
 
 ```yaml
-name: openllama
+name: gpt-3.5-turbo
 parameters:
+  # Model file name
   model: ggml-openllama.bin
   top_p: 80
   top_k: 0.9
   temperature: 0.1
-backend: llama # Set the `llama` backend
 ```
-
-## Usage example
 
 To use the functions with the OpenAI client in python:
 
