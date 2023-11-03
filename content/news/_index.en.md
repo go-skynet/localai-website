@@ -5,6 +5,33 @@ weight = 2
 url = '/basics/news/'
 
 +++
+
+## 30-10-2023: __v1.40.0__
+
+This release is a preparation before v2 - the efforts now will be to refactor, polish and add new backends. Follow up on: https://github.com/mudler/LocalAI/issues/1126
+
+## Hot topics
+
+This release now brings the `llama-cpp` backend which is a c++ backend tied to llama.cpp. It follows more closely and tracks recent versions of llama.cpp. It is not feature compatible with the current `llama` backend but plans are to sunset the current `llama` backend in favor of this one. This one will be probably be the latest release containing the older `llama` backend written in go and c++. The major improvement with this change is that there are less layers that could be expose to potential bugs - and as well it ease out maintenance as well.
+
+### Support for  ROCm/HIPBLAS 
+
+This release bring support for AMD thanks to @65a .  See more details in https://github.com/mudler/LocalAI/pull/1100
+
+### More CLI commands
+
+Thanks to @jespino now the local-ai binary has more subcommands allowing to manage the gallery or try out directly inferencing, check it out!
+
+[Release notes](https://github.com/mudler/LocalAI/releases/tag/v1.40.0)
+
+## 25-09-2023: __v1.30.0__
+
+This is an exciting LocalAI release! Besides bug-fixes and enhancements this release brings the new backend to a whole new level by extending support to vllm and vall-e-x for audio generation!
+
+Check out the documentation for vllm [here](https://localai.io/model-compatibility/vllm/) and Vall-E-X [here](https://localai.io/model-compatibility/vall-e-x/)
+
+[Release notes](https://github.com/mudler/LocalAI/releases/tag/v1.30.0)
+
 ## 26-08-2023: __v1.25.0__
 
 Hey everyone, [Ettore](https://github.com/mudler/) here, I'm so happy to share this release out - while this summer is hot apparently doesn't stop LocalAI development  :)
