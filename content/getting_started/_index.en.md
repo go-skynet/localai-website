@@ -8,8 +8,10 @@ url = '/basics/getting_started/'
 
 `LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
+### How to get started
+For a always up to date step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
 
+### Fast Setup
 The easiest way to run LocalAI is by using [`docker compose`](https://docs.docker.com/compose/install/) or with [Docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker compose`:
 
 ```bash
@@ -174,7 +176,7 @@ Requirement: nvidia-container-toolkit (installation instructions [1](https://www
 You need to run the image with `--gpus all`, and
 
 ```
-docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "f16":true, "gpu_layers": 35, "mmap": true, "batch": 512 } } ]' -e THREADS=1 -v $PWD/models:/models quay.io/go-skynet/local-ai:v1.23.2-cublas-cuda12
+docker run --rm -ti --gpus all -p 8080:8080 -e DEBUG=true -e MODELS_PATH=/models -e PRELOAD_MODELS='[{"url": "github:go-skynet/model-gallery/openllama_7b.yaml", "name": "gpt-3.5-turbo", "overrides": { "f16":true, "gpu_layers": 35, "mmap": true, "batch": 512 } } ]' -e THREADS=1 -v $PWD/models:/models quay.io/go-skynet/local-ai:v1.40.0-cublas-cuda12
 ```
 
 In the terminal where LocalAI was started, you should see:
@@ -271,7 +273,7 @@ Deploy a single LocalAI pod with 6GB of persistent storage serving up a `ggml-gp
 replicaCount: 1
 
 deployment:
-  image: quay.io/go-skynet/local-ai:latest
+  image: quay.io/go-skynet/local-ai:latest ##(This is for CPU only, to use GPU change it to a image that supports GPU IE "v1.40.0-cublas-cuda12")
   env:
     threads: 4
     context_size: 512
