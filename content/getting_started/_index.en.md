@@ -8,10 +8,10 @@ url = '/basics/getting_started/'
 
 `LocalAI` is available as a container image and binary. You can check out all the available images with corresponding tags [here](https://quay.io/repository/go-skynet/local-ai?tab=tags&tag=latest).
 
-###How to get started
-For a step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
+### How to get started
+For a always up to date step by step how to of setting up LocalAI, Please see our [How to]({{%relref "howtos" %}}) page.
 
-###Fast Setup
+### Fast Setup
 The easiest way to run LocalAI is by using [`docker compose`](https://docs.docker.com/compose/install/) or with [Docker](https://docs.docker.com/engine/install/) (to build locally, see the [build section]({{%relref "build" %}})). The following example uses `docker compose`:
 
 ```bash
