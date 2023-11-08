@@ -109,6 +109,7 @@ services:
       - .env
     volumes:
       - ./models:/models
+      - ./images/:/tmp/generated/images/
     command: ["/usr/bin/local-ai" ]
 ```
 
