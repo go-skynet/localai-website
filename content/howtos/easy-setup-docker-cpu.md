@@ -47,7 +47,7 @@ MODELS_PATH=/models
 ## Enable debug mode
 # DEBUG=true
 
-## Disables COMPEL (Diffusers)
+## Disables COMPEL (Lets Stable Diffuser work, uncomment if you plan on using it)
 # COMPEL=0
 
 ## Enable/Disable single backend (useful if only one GPU is available)
@@ -94,6 +94,7 @@ services:
       - .env
     volumes:
       - ./models:/models
+      - ./images/:/tmp/generated/images/
     command: ["/usr/bin/local-ai" ]
 ```
 
