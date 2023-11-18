@@ -5,7 +5,7 @@ title = "Easy Request - Openai V0"
 weight = 2
 +++
 
-This is for Python, ``OpenAI``=``0.28.1``, if you are on ``OpenAI``=>``V1`` please use this ``How to`` (WIP)
+This is for Python, ``OpenAI``=``0.28.1``, if you are on ``OpenAI``=>``V1`` please use this [How to]({{%relref "howtos/easy-request-openai-v1" %}})
 
 OpenAI Chat API Python -
 
