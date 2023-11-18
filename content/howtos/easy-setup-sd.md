@@ -28,7 +28,13 @@ docker compose down #linux/mac
 
 Then in your ``.env`` file uncomment this line.
 ```yaml
+COMPEL=0
+```
 
+After that we can reinstall the LocalAI docker VM by running
+```bash
+docker-compose up #windows
+docker compose up #linux/mac
 ```
 
 Then to download and setup the model, Just send in a normal ``OpenAI`` request! LocalAI will do the rest!
