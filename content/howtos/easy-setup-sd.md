@@ -20,7 +20,7 @@ diffusers:
   scheduler_type: dpm_2_a
 ```
 
-If you are using docker, you will need to run
+If you are using docker, you will need to run in the localai folder with the ``docker-compose.yaml`` file in it
 ```bash
 docker-compose down #windows
 docker compose down #linux/mac
@@ -31,7 +31,7 @@ Then in your ``.env`` file uncomment this line.
 COMPEL=0
 ```
 
-After that we can reinstall the LocalAI docker VM by running
+After that we can reinstall the LocalAI docker VM by running in the localai folder with the ``docker-compose.yaml`` file in it
 ```bash
 docker-compose up #windows
 docker compose up #linux/mac
