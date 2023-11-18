@@ -11,7 +11,7 @@ OpenAI Chat API Python -
 ```python
 from openai import OpenAI
 
-client = OpenAI(base_url="/v1", api_key="sk-xxx")
+client = OpenAI(base_url="http://localhost:8080/v1", api_key="sk-xxx")
 
 messages = [
 {"role": "system", "content": "You are LocalAI, a helpful, but really confused ai, you will only reply with confused emotes"},
