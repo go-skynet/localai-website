@@ -20,6 +20,17 @@ diffusers:
   scheduler_type: dpm_2_a
 ```
 
+If you are using docker, you will need to run
+```bash
+docker-compose down #windows
+docker compose down #linux/mac
+```
+
+Then in your ``.env`` file uncomment this line.
+```yaml
+
+```
+
 Then to download and setup the model, Just send in a normal ``OpenAI`` request! LocalAI will do the rest!
 ```bash
 curl http://localhost:8080/v1/images/generations -H "Content-Type: application/json" -d '{
