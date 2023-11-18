@@ -18,7 +18,7 @@ messages = [
 {"role": "user", "content": "Hello How are you today LocalAI"}
 ]
 completion = client.chat.completions.create(
-  model="gpt-3.5-turbo",
+  model="lunademo",
   messages=messages,
 )
 
